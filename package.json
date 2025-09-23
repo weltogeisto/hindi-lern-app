@@ -1,0 +1,20 @@
+{
+  "name": "hindi-alphabet-app",
+  "version": "1.0.0",
+  "description": "A PWA for learning Hindi alphabets.",
+  "main": "dist/main.js",
+  "scripts": {
+    "build:css": "tailwindcss -i ./src/input.css -o ./public/dist/output.css",
+    "watch:css": "tailwindcss -i ./src/input.css -o ./public/dist/output.css --watch",
+    "build:ts": "tsc",
+    "build": "npm run build:css && npm run build:ts",
+    "watch": "npm run watch:css & tsc --watch"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "tailwindcss": "^3.0.0",
+    "typescript": "^5.0.0"
+  }
+}
