@@ -4,3 +4,13 @@ node_modules/
 .env
 .DS_Store
 .config/
+
+# python venv
+.venv/
+
+# generated audio (optional - keep out of git by default)
+public/audio/*.mp3
+public/audio/*.wav
+
+# build outputs
+public/dist/

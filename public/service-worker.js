@@ -1,51 +1,58 @@
 
 // service-worker.js
 
-const CACHE_NAME = 'hindi-alphabet-cache-v1';
+// Bump the cache name when making changes so browsers install the new SW
+const CACHE_NAME = 'hindi-alphabet-cache-v5';
+// Use relative paths (no leading slash) so the cache keys match how we reference files
 const essentialAssets = [
-    '/', // Cache the root path which typically serves index.html
-    '/index.html',
-    '/dist/output.css',
-    '/dist/main.js',
-    '/manifest.json',
-    // Add specific audio files or data files you want to pre-cache
-    // For now, we can add the placeholder audio and data file
-    '/audio/placeholder.mp3',
-    '/src/data/alphabets.json',
-    // Add any other assets crucial for offline functionality
+    'index.html',
+    'dist/output.css',
+    'dist/main.js',
+    'manifest.json',
+    // placeholder audio and data file
+    'audio/placeholder.mp3',
+    'data/alphabets.json',
 ];
 
 // Install event: Pre-cache essential assets
 self.addEventListener('install', (event) => {
     event.waitUntil(
-        caches.open(CACHE_NAME)
-            .then((cache) => {
-                console.log('Service Worker: Caching essential assets');
-                return cache.addAll(essentialAssets);
-            })
-            .catch((error) => {
-                console.error('Service Worker: Failed to cache essential assets', error);
-            })
+        caches.open(CACHE_NAME).then((cache) => {
+            console.log('Service Worker: Caching essential assets (tolerant mode)');
+            // Add assets individually and tolerate failures so install doesn't fail
+            return Promise.all(essentialAssets.map((asset) => {
+                return cache.add(asset).catch((err) => {
+                    // Log and continue
+                    console.warn('Service Worker: Failed to cache', asset, err);
+                    return Promise.resolve();
+                });
+            }));
+        }).catch((error) => {
+            console.error('Service Worker: Failed to open cache', error);
+        })
     );
+    // Activate immediately so users who refresh will get the new SW quickly
+    self.skipWaiting();
 });
 
 // Fetch event: Serve cached assets if available, otherwise fetch from network
 self.addEventListener('fetch', (event) => {
+    // Serve from cache first; fall back to network; if both fail, try index.html from cache
     event.respondWith(
-        caches.match(event.request)
-            .then((cachedResponse) => {
-                if (cachedResponse) {
-                    console.log('Service Worker: Serving from cache', event.request.url);
-                    return cachedResponse;
-                }
+        caches.match(event.request).then((cachedResponse) => {
+            if (cachedResponse) {
+                return cachedResponse;
+            }
 
-                console.log('Service Worker: Fetching from network', event.request.url);
-                return fetch(event.request);
-            })
-            .catch((error) => {
-                console.error('Service Worker: Fetch failed', error);
-                // You could serve a fallback page here if needed
-            })
+            return fetch(event.request).then((networkResponse) => {
+                // Optionally put fetched responses into cache for future visits
+                return networkResponse;
+            }).catch((err) => {
+                console.warn('Service Worker: Network fetch failed for', event.request.url, err);
+                // As a last resort, return the cached index.html so the app can boot and then re-fetch assets
+                return caches.match('index.html');
+            });
+        })
     );
 });
 
@@ -64,6 +71,8 @@ self.addEventListener('activate', (event) => {
             );
         })
     );
+    // Take control of uncontrolled clients as soon as this SW activates
+    event.waitUntil(self.clients.claim());
 });
 
 console.log('Service Worker script loaded.');

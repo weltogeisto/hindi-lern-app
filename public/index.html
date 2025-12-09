@@ -5,7 +5,24 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hindi Alphabet Learning</title>
-    <link rel="stylesheet" href="/dist/output.css">
+    <!-- Cache-busting param to force browsers to request new builds during development -->
+    <link rel="stylesheet" href="dist/output.css?v=1695490000">
+        <!-- Inline fallback styles: ensure the practice area remains beautiful even if external CSS is stale -->
+        <style>
+            /* Basic layout for practice card */
+            #practice-card { max-width: 520px; margin: 1.5rem auto; padding: 2rem; background: linear-gradient(135deg,#f8fafc,#ffffff); border-radius:16px; box-shadow:0 10px 30px rgba(2,6,23,0.06); display:flex; flex-direction:column; align-items:center; }
+            #practice-char { width:12rem; height:12rem; display:flex; align-items:center; justify-content:center; background:#fff; border:2px solid #eef2ff; border-radius:16px; box-shadow:0 8px 24px rgba(2,6,23,0.06); font-size:3.75rem; font-weight:700; color:#334155; transition:transform .25s, box-shadow .25s; }
+            #practice-char:hover { transform:scale(1.05); box-shadow:0 12px 36px rgba(2,6,23,0.08); }
+            #practice-translit { margin-top:.75rem; color:#64748b; font-size:1.125rem; font-weight:500; letter-spacing:.02em; }
+            /* Buttons inside the practice card */
+            #practice-card button { padding:.6rem 1rem; border-radius:8px; font-weight:600; color:#fff; border:none; cursor:pointer; display:inline-flex; align-items:center; gap:.5rem; margin:.25rem; transition:transform .18s, box-shadow .18s, background .18s; }
+            #play-audio { background:#4f46e5; }
+            #knew-btn { background:#059669; }
+            #didnt-btn { background:#e11d48; }
+            #practice-card button:hover { transform:scale(1.03); box-shadow:0 8px 20px rgba(2,6,23,0.08); }
+            #practice-card button:disabled { opacity:.5; cursor:not-allowed; transform:none; box-shadow:none; }
+            @media (max-width:768px) { #practice-char { width:10rem; height:10rem; font-size:3rem; } #practice-card { padding:1.25rem; } }
+        </style>
     <link rel="manifest" href="/manifest.json">
 </head>
 <body class="bg-gray-100 flex items-center justify-center min-h-screen">
@@ -13,18 +30,31 @@
         <!-- App content will be rendered here by JavaScript -->
         <h1 class="text-2xl font-bold text-center mb-4">नमस्ते! Learn Hindi Alphabets</h1>
     </div>
-    <script type="module" src="/dist/main.js"></script>
+    <script type="module" src="dist/main.js?v=1695490000"></script>
 
     <script>
+        // During development, automatically unregister any existing service workers on localhost
+        // so the page will load the newest CSS/JS without manual DevTools intervention.
         if ('serviceWorker' in navigator) {
-            window.addEventListener('load', () => {
-                navigator.serviceWorker.register('/service-worker.js')
-                    .then(registration => {
-                        console.log('Service Worker registered: ', registration.scope);
-                    })
-                    .catch(error => {
-                        console.error('Service Worker registration failed: ', error);
-                    });
+            const isLocal = location.hostname === '127.0.0.1' || location.hostname === 'localhost';
+            window.addEventListener('load', async () => {
+                try {
+                    if (isLocal) {
+                        const regs = await navigator.serviceWorker.getRegistrations();
+                        await Promise.all(regs.map(r => r.unregister().then(() => console.log('Dev: unregistered old SW', r.scope)).catch(() => {})));
+                    }
+
+                    // Register the (new) service worker after cleanup
+                    navigator.serviceWorker.register('/service-worker.js')
+                        .then(registration => {
+                            console.log('Service Worker registered: ', registration.scope);
+                        })
+                        .catch(error => {
+                            console.error('Service Worker registration failed: ', error);
+                        });
+                } catch (e) {
+                    console.warn('Service Worker dev unregister failed', e);
+                }
             });
         }
     </script>

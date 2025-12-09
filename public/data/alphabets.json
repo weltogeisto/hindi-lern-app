@@ -1,77 +1,70 @@
 [
-  {
-    "character": "अ",
-    "transliteration": "a",
-    "audio_path": "audio/placeholder.mp3"
-  },
-  {
-    "character": "आ",
-    "transliteration": "aa",
-    "audio_path": "audio/aa.mp3"
-  },
-  {
-    "character": "इ",
-    "transliteration": "i",
-    "audio_path": "audio/i.mp3"
-  },
-  {
-    "character": "ई",
-    "transliteration": "ee",
-    "audio_path": "audio/ee.mp3"
-  },
-  {
-    "character": "उ",
-    "transliteration": "u",
-    "audio_path": "audio/u.mp3"
-  },
-  {
-    "character": "ऊ",
-    "transliteration": "oo",
-    "audio_path": "audio/oo.mp3"
-  },
-  {
-    "character": "ए",
-    "transliteration": "e",
-    "audio_path": "audio/e.mp3"
-  },
-  {
-    "character": "ऐ",
-    "transliteration": "ai",
-    "audio_path": "audio/ai.mp3"
-  },
-  {
-    "character": "ओ",
-    "transliteration": "o",
-    "audio_path": "audio/o.mp3"
-  },
-  {
-    "character": "औ",
-    "transliteration": "au",
-    "audio_path": "audio/au.mp3"
-  },
-  {
-    "character": "क",
-    "transliteration": "ka",
-    "audio_path": "audio/ka.mp3"
-  },
-  {
-    "character": "ख",
-    "transliteration": "kha",
-    "audio_path": "audio/kha.mp3"
-  },
-  {
-    "character": "ग",
-    "transliteration": "ga",
-    "audio_path": "audio/ga.mp3"
-  },
-  {
-    "character": "घ",
-    "transliteration": "gha",
-    "audio_path": "audio/gha.mp3"
-  },
-  {
-    "character": "ङ",
-    "transliteration": "nga",
-    "audio_path": "audio/nga.mp3"
-  }
+  { "character": "अ", "transliteration": "a", "audio_path": "audio/a.mp3" },
+  { "character": "आ", "transliteration": "aa", "audio_path": "audio/aa.mp3" },
+  { "character": "इ", "transliteration": "i", "audio_path": "audio/i.mp3" },
+  { "character": "ई", "transliteration": "ee", "audio_path": "audio/ee.mp3" },
+  { "character": "उ", "transliteration": "u", "audio_path": "audio/u.mp3" },
+  { "character": "ऊ", "transliteration": "oo", "audio_path": "audio/oo.mp3" },
+  { "character": "ऋ", "transliteration": "ri", "audio_path": "audio/placeholder.mp3" },
+  { "character": "ॠ", "transliteration": "rri", "audio_path": "audio/placeholder.mp3" },
+  { "character": "ऌ", "transliteration": "li", "audio_path": "audio/placeholder.mp3" },
+  { "character": "ॡ", "transliteration": "lli", "audio_path": "audio/placeholder.mp3" },
+  { "character": "ए", "transliteration": "e", "audio_path": "audio/e.mp3" },
+  { "character": "ऐ", "transliteration": "ai", "audio_path": "audio/ai.mp3" },
+  { "character": "ओ", "transliteration": "o", "audio_path": "audio/o.mp3" },
+  { "character": "औ", "transliteration": "au", "audio_path": "audio/au.mp3" },
+  { "character": "अं", "transliteration": "am", "audio_path": "audio/placeholder.mp3" },
+  { "character": "अः", "transliteration": "aha", "audio_path": "audio/placeholder.mp3" },
+
+  { "character": "क", "transliteration": "ka", "audio_path": "audio/ka.mp3" },
+  { "character": "ख", "transliteration": "kha", "audio_path": "audio/kha.mp3" },
+  { "character": "ग", "transliteration": "ga", "audio_path": "audio/ga.mp3" },
+  { "character": "घ", "transliteration": "gha", "audio_path": "audio/gha.mp3" },
+  { "character": "ङ", "transliteration": "nga", "audio_path": "audio/nga.mp3" },
+
+  { "character": "च", "transliteration": "cha", "audio_path": "audio/placeholder.mp3" },
+  { "character": "छ", "transliteration": "chha", "audio_path": "audio/placeholder.mp3" },
+  { "character": "ज", "transliteration": "ja", "audio_path": "audio/placeholder.mp3" },
+  { "character": "झ", "transliteration": "jha", "audio_path": "audio/placeholder.mp3" },
+  { "character": "ञ", "transliteration": "nya", "audio_path": "audio/placeholder.mp3" },
+
+  { "character": "ट", "transliteration": "tta", "audio_path": "audio/placeholder.mp3" },
+  { "character": "ठ", "transliteration": "ttha", "audio_path": "audio/placeholder.mp3" },
+  { "character": "ड", "transliteration": "dda", "audio_path": "audio/placeholder.mp3" },
+  { "character": "ढ", "transliteration": "ddha", "audio_path": "audio/placeholder.mp3" },
+  { "character": "ण", "transliteration": "nna", "audio_path": "audio/placeholder.mp3" },
+
+  { "character": "त", "transliteration": "ta", "audio_path": "audio/placeholder.mp3" },
+  { "character": "थ", "transliteration": "tha", "audio_path": "audio/placeholder.mp3" },
+  { "character": "द", "transliteration": "da", "audio_path": "audio/placeholder.mp3" },
+  { "character": "ध", "transliteration": "dha", "audio_path": "audio/placeholder.mp3" },
+  { "character": "न", "transliteration": "na", "audio_path": "audio/placeholder.mp3" },
+
+  { "character": "प", "transliteration": "pa", "audio_path": "audio/placeholder.mp3" },
+  { "character": "फ", "transliteration": "pha", "audio_path": "audio/placeholder.mp3" },
+  { "character": "ब", "transliteration": "ba", "audio_path": "audio/placeholder.mp3" },
+  { "character": "भ", "transliteration": "bha", "audio_path": "audio/placeholder.mp3" },
+  { "character": "म", "transliteration": "ma", "audio_path": "audio/placeholder.mp3" },
+
+  { "character": "य", "transliteration": "ya", "audio_path": "audio/placeholder.mp3" },
+  { "character": "र", "transliteration": "ra", "audio_path": "audio/placeholder.mp3" },
+  { "character": "ल", "transliteration": "la", "audio_path": "audio/placeholder.mp3" },
+  { "character": "व", "transliteration": "va", "audio_path": "audio/placeholder.mp3" },
+  { "character": "श", "transliteration": "sha", "audio_path": "audio/placeholder.mp3" },
+  { "character": "ष", "transliteration": "ssa", "audio_path": "audio/placeholder.mp3" },
+  { "character": "स", "transliteration": "sa", "audio_path": "audio/placeholder.mp3" },
+  { "character": "ह", "transliteration": "ha", "audio_path": "audio/placeholder.mp3" },
+
+  { "character": "क्ष", "transliteration": "ksha", "audio_path": "audio/placeholder.mp3" },
+  { "character": "त्र", "transliteration": "tra", "audio_path": "audio/placeholder.mp3" },
+  { "character": "ज्ञ", "transliteration": "gya", "audio_path": "audio/placeholder.mp3" },
+
+  { "character": "क़", "transliteration": "qa", "audio_path": "audio/placeholder.mp3" },
+  { "character": "ख़", "transliteration": "kha (nukta)", "audio_path": "audio/placeholder.mp3" },
+  { "character": "ग़", "transliteration": "gha (nukta)", "audio_path": "audio/placeholder.mp3" },
+  { "character": "ज़", "transliteration": "za", "audio_path": "audio/placeholder.mp3" },
+  { "character": "ड़", "transliteration": "rda", "audio_path": "audio/placeholder.mp3" },
+  { "character": "ढ़", "transliteration": "rdha", "audio_path": "audio/placeholder.mp3" },
+  { "character": "फ़", "transliteration": "fa", "audio_path": "audio/placeholder.mp3" },
+  { "character": "य़", "transliteration": "ya (nukta)", "audio_path": "audio/placeholder.mp3" }
 ]
