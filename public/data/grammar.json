@@ -1,0 +1,363 @@
+[
+  {
+    "id": "g_01",
+    "level": "A1",
+    "title": "The Devanagari Script",
+    "explanation": "Hindi is written in Devanagari (देवनागरी), a phonetic alphabet where each character represents a syllable. Unlike English, Hindi is spelled almost exactly as it is pronounced — once you learn the sounds, you can read anything. There are 11 vowels and 36 consonants. Each consonant has an inherent 'a' sound; vowel marks (matras) modify this sound.",
+    "examples": [
+      { "hindi": "क", "transliteration": "ka", "english": "The consonant K (with inherent 'a')" },
+      { "hindi": "की", "transliteration": "kii", "english": "K + long I vowel mark" },
+      { "hindi": "नमस्ते", "transliteration": "namaste", "english": "Hello — 5 distinct syllable sounds" }
+    ],
+    "exercises": [
+      {
+        "question": "Hindi is written in which script?",
+        "options": ["Latin", "Arabic", "Devanagari", "Cyrillic"],
+        "answer": "Devanagari"
+      },
+      {
+        "question": "Is Hindi spelling phonetic (written as it sounds)?",
+        "options": ["Yes, mostly phonetic", "No, very irregular like English", "Only consonants are phonetic", "Only vowels are phonetic"],
+        "answer": "Yes, mostly phonetic"
+      },
+      {
+        "question": "What does each Devanagari consonant have by default?",
+        "options": ["An inherent 'a' sound", "An inherent 'i' sound", "No vowel sound", "A silent H"],
+        "answer": "An inherent 'a' sound"
+      }
+    ]
+  },
+  {
+    "id": "g_02",
+    "level": "A1",
+    "title": "Sentence Structure: Subject–Object–Verb",
+    "explanation": "The most important grammar rule in Hindi: the verb goes at the END of the sentence. In English we say 'I eat rice' (S-V-O), but Hindi says 'I rice eat' (S-O-V). This applies to all basic sentences. Once you get used to this, Hindi sentences become very predictable.",
+    "examples": [
+      { "hindi": "मैं चाय पीता हूँ।", "transliteration": "Main chaay piitaa huun.", "english": "I tea drink. (I drink tea.)" },
+      { "hindi": "वह किताब पढ़ती है।", "transliteration": "Vah kitaab paRhtii hai.", "english": "She book reads. (She reads a book.)" },
+      { "hindi": "हम दिल्ली जाते हैं।", "transliteration": "Ham Dillii jaate hain.", "english": "We Delhi go. (We go to Delhi.)" }
+    ],
+    "exercises": [
+      {
+        "question": "In Hindi, where does the verb go in a basic sentence?",
+        "options": ["At the beginning", "In the middle", "At the end", "After the subject"],
+        "answer": "At the end"
+      },
+      {
+        "question": "Which of these is correct Hindi word order for 'I eat bread'?",
+        "options": ["मैं खाता हूँ रोटी", "रोटी मैं खाता हूँ", "मैं रोटी खाता हूँ", "खाता हूँ मैं रोटी"],
+        "answer": "मैं रोटी खाता हूँ"
+      },
+      {
+        "question": "What does S-O-V stand for?",
+        "options": ["Subject-Object-Verb", "Subject-Order-Verb", "Simple-Object-Verb", "Statement-Object-Verb"],
+        "answer": "Subject-Object-Verb"
+      }
+    ]
+  },
+  {
+    "id": "g_03",
+    "level": "A1",
+    "title": "Gender: Masculine and Feminine",
+    "explanation": "Every noun in Hindi is either masculine (पुल्लिंग) or feminine (स्त्रीलिंग). This affects adjectives, verbs and possessives. Key patterns: nouns ending in -aa (आ) are usually masculine; nouns ending in -ii (ई or ि) are usually feminine. Adjectives change their ending to match the noun's gender.",
+    "examples": [
+      { "hindi": "लड़का / लड़की", "transliteration": "laRkaa / laRkii", "english": "boy (m) / girl (f)" },
+      { "hindi": "बड़ा कुत्ता", "transliteration": "baRaa kuttaa", "english": "big dog (masculine adjective + noun)" },
+      { "hindi": "बड़ी गाय", "transliteration": "baRii gaay", "english": "big cow (feminine adjective + noun)" },
+      { "hindi": "नया घर / नई किताब", "transliteration": "nayaa ghar / naii kitaab", "english": "new house (m) / new book (f)" }
+    ],
+    "exercises": [
+      {
+        "question": "Nouns ending in -aa (आ) in Hindi are usually…",
+        "options": ["Masculine", "Feminine", "Neutral", "Either"],
+        "answer": "Masculine"
+      },
+      {
+        "question": "How do you say 'big book' — किताब (kitaab) is feminine?",
+        "options": ["बड़ा किताब", "बड़ी किताब", "बड़े किताब", "बड़ो किताब"],
+        "answer": "बड़ी किताब"
+      },
+      {
+        "question": "What changes in a Hindi sentence when the noun is feminine?",
+        "options": ["Only the noun changes", "Adjectives and verb endings also change", "Nothing changes", "Only the verb changes"],
+        "answer": "Adjectives and verb endings also change"
+      }
+    ]
+  },
+  {
+    "id": "g_04",
+    "level": "A1",
+    "title": "To Be: होना (honā)",
+    "explanation": "The verb होना (to be) is essential for introducing yourself and describing things. In the present tense it has several forms depending on the subject. Unlike English, Hindi doesn't use 'a/an' articles — you simply say 'I teacher' → 'I am a teacher'.",
+    "examples": [
+      { "hindi": "मैं हूँ", "transliteration": "main huun", "english": "I am" },
+      { "hindi": "तुम हो", "transliteration": "tum ho", "english": "you are (informal)" },
+      { "hindi": "आप हैं", "transliteration": "aap hain", "english": "you are (formal)" },
+      { "hindi": "वह है", "transliteration": "vah hai", "english": "he/she/it is" },
+      { "hindi": "हम हैं", "transliteration": "ham hain", "english": "we are" },
+      { "hindi": "वे हैं", "transliteration": "ve hain", "english": "they are" },
+      { "hindi": "मैं डॉक्टर हूँ।", "transliteration": "Main Dauktar huun.", "english": "I am a doctor." }
+    ],
+    "exercises": [
+      {
+        "question": "How do you say 'I am' in Hindi?",
+        "options": ["मैं है", "मैं हो", "मैं हूँ", "मैं हैं"],
+        "answer": "मैं हूँ"
+      },
+      {
+        "question": "Which form of होना is used with आप (formal you)?",
+        "options": ["हो", "हूँ", "है", "हैं"],
+        "answer": "हैं"
+      },
+      {
+        "question": "How do you say 'She is a teacher'? (teacher = अध्यापिका)",
+        "options": ["वह अध्यापिका हो।", "वह अध्यापिका है।", "वह अध्यापिका हूँ।", "वह अध्यापिका हैं।"],
+        "answer": "वह अध्यापिका है।"
+      }
+    ]
+  },
+  {
+    "id": "g_05",
+    "level": "A1",
+    "title": "Simple Present Tense",
+    "explanation": "For regular actions ('I eat', 'She reads') Hindi uses the habitual present. The verb stem takes a suffix that agrees with the subject's gender and number: -taa for masculine singular, -tii for feminine singular, -te for masculine plural. Then the appropriate form of होना (है/हो/हूँ/हैं) is added at the end.",
+    "examples": [
+      { "hindi": "मैं खाना खाता हूँ।", "transliteration": "Main khaanaa khaataa huun.", "english": "I eat food. (male speaker)" },
+      { "hindi": "मैं खाना खाती हूँ।", "transliteration": "Main khaanaa khaatii huun.", "english": "I eat food. (female speaker)" },
+      { "hindi": "वह पानी पीता है।", "transliteration": "Vah paanii piitaa hai.", "english": "He drinks water." },
+      { "hindi": "वह पानी पीती है।", "transliteration": "Vah paanii piitii hai.", "english": "She drinks water." },
+      { "hindi": "हम हिंदी सीखते हैं।", "transliteration": "Ham Hindii siikhte hain.", "english": "We learn Hindi." }
+    ],
+    "exercises": [
+      {
+        "question": "For a male subject in singular present tense, which suffix does the verb take?",
+        "options": ["-taa", "-tii", "-te", "-taa/-tii"],
+        "answer": "-taa"
+      },
+      {
+        "question": "How does a female speaker say 'I go'?",
+        "options": ["मैं जाता हूँ", "मैं जाती हूँ", "मैं जाते हूँ", "मैं जाता हो"],
+        "answer": "मैं जाती हूँ"
+      },
+      {
+        "question": "What is added after the -taa/-tii/-te suffix in the present tense?",
+        "options": ["Nothing", "A form of होना", "A postposition", "The object noun"],
+        "answer": "A form of होना"
+      }
+    ]
+  },
+  {
+    "id": "g_06",
+    "level": "A1",
+    "title": "The Verb करना (karnā) — To Do",
+    "explanation": "करना (to do) is one of the most versatile verbs in Hindi. It is used alone ('I do work') and also to form compound verbs with nouns (काम करना = to work; पसंद करना = to like; शुरू करना = to start). Mastering करना unlocks dozens of useful phrases.",
+    "examples": [
+      { "hindi": "मैं काम करता हूँ।", "transliteration": "Main kaam kartaa huun.", "english": "I work. (lit. I do work.)" },
+      { "hindi": "वह पसंद करती है।", "transliteration": "Vah pasand kartii hai.", "english": "She likes (it). (lit. She does like.)" },
+      { "hindi": "हम शुरू करते हैं।", "transliteration": "Ham shuruu karte hain.", "english": "We begin / start." },
+      { "hindi": "क्या आप हिंदी पसंद करते हैं?", "transliteration": "Kyaa aap Hindii pasand karte hain?", "english": "Do you like Hindi?" }
+    ],
+    "exercises": [
+      {
+        "question": "What does करना mean?",
+        "options": ["to go", "to do / to make", "to say", "to eat"],
+        "answer": "to do / to make"
+      },
+      {
+        "question": "How do you say 'I work'? (काम = work)",
+        "options": ["मैं काम करती हो।", "मैं काम करता हूँ।", "मैं काम करते हैं।", "मैं काम है।"],
+        "answer": "मैं काम करता हूँ।"
+      },
+      {
+        "question": "पसंद करना means…",
+        "options": ["to remember", "to understand", "to like / to prefer", "to work"],
+        "answer": "to like / to prefer"
+      }
+    ]
+  },
+  {
+    "id": "g_07",
+    "level": "A2",
+    "title": "Postpositions: में, पर, को, से, का/की/के",
+    "explanation": "Hindi uses postpositions — they come AFTER the noun, unlike English prepositions that come before. The most common are: में (in/into), पर (on/at), को (to/for, marks direct objects), से (from/with/by), का/की/के (of, possessive — changes form to match the following noun's gender/number).",
+    "examples": [
+      { "hindi": "घर में", "transliteration": "ghar mein", "english": "in the house" },
+      { "hindi": "मेज़ पर", "transliteration": "mez par", "english": "on the table" },
+      { "hindi": "राम को", "transliteration": "Raam ko", "english": "to Ram / Ram (as object)" },
+      { "hindi": "दिल्ली से", "transliteration": "Dillii se", "english": "from Delhi" },
+      { "hindi": "मेरा घर / मेरी किताब / मेरे दोस्त", "transliteration": "meraa ghar / merii kitaab / mere dost", "english": "my house (m) / my book (f) / my friends (pl)" }
+    ],
+    "exercises": [
+      {
+        "question": "Which postposition means 'in' or 'inside'?",
+        "options": ["पर", "को", "में", "से"],
+        "answer": "में"
+      },
+      {
+        "question": "How do you say 'on the chair'? (कुर्सी = chair)",
+        "options": ["कुर्सी में", "कुर्सी पर", "कुर्सी को", "कुर्सी से"],
+        "answer": "कुर्सी पर"
+      },
+      {
+        "question": "The possessive postposition का/की/के changes form based on…",
+        "options": ["The subject's gender", "The following noun's gender and number", "The speaker's gender", "The verb tense"],
+        "answer": "The following noun's gender and number"
+      },
+      {
+        "question": "Which postposition marks the source or means (from / by / with)?",
+        "options": ["में", "पर", "को", "से"],
+        "answer": "से"
+      }
+    ]
+  },
+  {
+    "id": "g_08",
+    "level": "A2",
+    "title": "Question Words",
+    "explanation": "Hindi question words are straightforward. In yes/no questions, add क्या (kyaa) at the very start of the sentence and raise your intonation. For other questions, place the question word where the unknown information would go. The verb still goes at the end.",
+    "examples": [
+      { "hindi": "क्या?", "transliteration": "kyaa?", "english": "What? / Is it? (yes/no marker)" },
+      { "hindi": "कौन?", "transliteration": "kaun?", "english": "Who?" },
+      { "hindi": "कहाँ?", "transliteration": "kahaan?", "english": "Where?" },
+      { "hindi": "कब?", "transliteration": "kab?", "english": "When?" },
+      { "hindi": "क्यों?", "transliteration": "kyoon?", "english": "Why?" },
+      { "hindi": "कैसे?", "transliteration": "kaise?", "english": "How?" },
+      { "hindi": "कितना?", "transliteration": "kitnaa?", "english": "How much / many?" },
+      { "hindi": "आप कहाँ जाते हैं?", "transliteration": "Aap kahaan jaate hain?", "english": "Where do you go?" }
+    ],
+    "exercises": [
+      {
+        "question": "How do you turn a statement into a yes/no question in Hindi?",
+        "options": ["Change word order", "Add क्या at the start", "Add है at the end", "Add ना at the end"],
+        "answer": "Add क्या at the start"
+      },
+      {
+        "question": "Which word means 'where'?",
+        "options": ["कब", "कौन", "कहाँ", "क्यों"],
+        "answer": "कहाँ"
+      },
+      {
+        "question": "How do you ask 'Why do you eat?' ?",
+        "options": ["तुम क्यों खाते हो?", "क्यों तुम खाते हो?", "तुम खाते हो क्यों?", "क्यों खाते तुम हो?"],
+        "answer": "तुम क्यों खाते हो?"
+      }
+    ]
+  },
+  {
+    "id": "g_09",
+    "level": "A2",
+    "title": "Negation: नहीं and मत",
+    "explanation": "Hindi uses नहीं (nahin) to negate statements and मत (mat) to negate commands. नहीं is placed directly before the main verb (or before हूँ/है/हैं in 'to be' sentences). मत is used for soft negative commands.",
+    "examples": [
+      { "hindi": "मैं नहीं जाता।", "transliteration": "Main nahin jaataa.", "english": "I don't go." },
+      { "hindi": "वह खाना नहीं खाती।", "transliteration": "Vah khaanaa nahin khaatii.", "english": "She doesn't eat food." },
+      { "hindi": "यह सही नहीं है।", "transliteration": "Yah sahii nahin hai.", "english": "This is not correct." },
+      { "hindi": "यहाँ मत जाओ।", "transliteration": "Yahaan mat jaao.", "english": "Don't go here." }
+    ],
+    "exercises": [
+      {
+        "question": "Which word is used to negate a statement?",
+        "options": ["मत", "नहीं", "ना", "नहीं / ना (both)"],
+        "answer": "नहीं"
+      },
+      {
+        "question": "Where is नहीं placed in a sentence?",
+        "options": ["At the very beginning", "At the very end", "Before the main verb", "After the subject"],
+        "answer": "Before the main verb"
+      },
+      {
+        "question": "मत is used for…",
+        "options": ["Negative statements", "Negative questions", "Negative commands", "Past tense negation"],
+        "answer": "Negative commands"
+      }
+    ]
+  },
+  {
+    "id": "g_10",
+    "level": "A2",
+    "title": "Simple Past Tense",
+    "explanation": "For completed actions in the past, Hindi uses the simple past. The verb stem takes -aa/-ii/-e endings (depending on gender/number). Importantly, for transitive verbs (verbs that take a direct object), the subject takes the postposition ने (ne) and the verb agrees with the object instead of the subject.",
+    "examples": [
+      { "hindi": "मैं गया / गई।", "transliteration": "Main gayaa / gaii.", "english": "I went. (m / f)" },
+      { "hindi": "वह आया / आई।", "transliteration": "Vah aayaa / aaii.", "english": "He came / She came." },
+      { "hindi": "मैंने खाना खाया।", "transliteration": "Maine khaanaa khaayaa.", "english": "I ate food. (ने construction, verb agrees with खाना m)" },
+      { "hindi": "उसने किताब पढ़ी।", "transliteration": "Usne kitaab paRhii.", "english": "He/She read a book. (verb agrees with किताब f)" }
+    ],
+    "exercises": [
+      {
+        "question": "For intransitive verbs in the past, the verb ending agrees with…",
+        "options": ["The object", "The subject", "Always masculine", "The time expression"],
+        "answer": "The subject"
+      },
+      {
+        "question": "Which postposition marks the subject of a transitive verb in the past tense?",
+        "options": ["को", "से", "ने", "पर"],
+        "answer": "ने"
+      },
+      {
+        "question": "How do you say 'She went'?",
+        "options": ["वह गया।", "वह गई।", "वह गए।", "वह गयी थी।"],
+        "answer": "वह गई।"
+      }
+    ]
+  },
+  {
+    "id": "g_11",
+    "level": "A2",
+    "title": "Simple Future Tense",
+    "explanation": "To talk about the future, add the suffix -egaa/-egii/-enge/-egii (for different persons and genders) directly to the verb stem. There is no separate होना needed. Note: for 'I will' the endings are -uungaa (m) / -uungii (f).",
+    "examples": [
+      { "hindi": "मैं जाऊँगा / जाऊँगी।", "transliteration": "Main jaaungaa / jaaungii.", "english": "I will go. (m/f)" },
+      { "hindi": "वह आएगा / आएगी।", "transliteration": "Vah aaegaa / aaegii.", "english": "He will come / She will come." },
+      { "hindi": "हम हिंदी सीखेंगे।", "transliteration": "Ham Hindii siikhenge.", "english": "We will learn Hindi." },
+      { "hindi": "आप क्या खाएँगे?", "transliteration": "Aap kyaa khaaenge?", "english": "What will you eat?" }
+    ],
+    "exercises": [
+      {
+        "question": "What is the future suffix for masculine singular 'he will'?",
+        "options": ["-taa hai", "-egaa", "-ii", "-enge"],
+        "answer": "-egaa"
+      },
+      {
+        "question": "How does a female speaker say 'I will come'?",
+        "options": ["मैं आऊँगी।", "मैं आऊँगा।", "मैं आएगी।", "मैं आएगा।"],
+        "answer": "मैं आऊँगी।"
+      },
+      {
+        "question": "In the future tense, is a separate होना (hai/hain) needed?",
+        "options": ["Yes, always", "No, the ending itself carries the tense", "Only for formal speech", "Only in questions"],
+        "answer": "No, the ending itself carries the tense"
+      }
+    ]
+  },
+  {
+    "id": "g_12",
+    "level": "A2",
+    "title": "Numbers in Context & Telling the Time",
+    "explanation": "Hindi numbers 1–10 are irregular and must be memorised (ek, do, teen, chaar, paanch, chhah, saat, aaTh, nau, das). For telling time, use बजे (baje) for 'o'clock', and आधा (half past) or पंद्रह मिनट (15 minutes). Hindi uses 24-hour or AM/PM context naturally.",
+    "examples": [
+      { "hindi": "अभी तीन बजे हैं।", "transliteration": "Abhii teen baje hain.", "english": "It is 3 o'clock now." },
+      { "hindi": "साढ़े पाँच बजे।", "transliteration": "SaaRhe paanch baje.", "english": "At half past five. (5:30)" },
+      { "hindi": "पौने नौ बजे।", "transliteration": "Paune nau baje.", "english": "Quarter to nine. (8:45)" },
+      { "hindi": "सवा दस बजे।", "transliteration": "Savaa das baje.", "english": "Quarter past ten. (10:15)" },
+      { "hindi": "कितने बजे हैं?", "transliteration": "Kitne baje hain?", "english": "What time is it?" }
+    ],
+    "exercises": [
+      {
+        "question": "What word means 'o'clock' in Hindi?",
+        "options": ["घड़ी", "समय", "बजे", "मिनट"],
+        "answer": "बजे"
+      },
+      {
+        "question": "How do you ask 'What time is it?'",
+        "options": ["अभी क्या है?", "कितने बजे हैं?", "समय क्या करते हैं?", "बजे कितने?"],
+        "answer": "कितने बजे हैं?"
+      },
+      {
+        "question": "साढ़े पाँच बजे means…",
+        "options": ["5 o'clock", "Quarter past 5", "Half past 5 (5:30)", "Quarter to 5"],
+        "answer": "Half past 5 (5:30)"
+      }
+    ]
+  }
+]

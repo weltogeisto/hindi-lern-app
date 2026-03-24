@@ -2,9 +2,10 @@ import { setupPracticeArea, showPracticeEntry, bindPracticeCallbacks } from './c
 import { setupControls, bindControlCallbacks } from './components/controls.js';
 import { bindAnswerInput } from './components/practiceArea.js';
 import { renderAlphabet, renderMemoryGrid } from './components/alphabetDisplay.js';
-import { playAudio } from './utils/audioPlayer.js';
+import { playAudio, playHindi } from './utils/audioPlayer.js';
 import createModal from './components/modal.js';
 import { createNewCard, updateSm2, isDue } from './utils/sm2.js';
+import { renderGrammarTab } from './components/grammarModule.js';
 const SRS_STORAGE_KEY = 'hindi_app_srs_v1';
 const VOCAB_SRS_KEY = 'hindi_vocab_srs_v2';
 const STREAK_KEY = 'hindi_vocab_streak_v1';
@@ -20,28 +21,31 @@ let alphabetQueue = [];
 let alphabetIndex = -1;
 let _memoryHandlerAttached = false;
 const CATEGORIES = [
-    { key: 'greetings', label: 'Begrüßungen' },
-    { key: 'numbers', label: 'Zahlen' },
-    { key: 'colors', label: 'Farben' },
-    { key: 'family', label: 'Familie' },
-    { key: 'body', label: 'Körper' },
-    { key: 'food', label: 'Essen' },
-    { key: 'drinks_fruits', label: 'Getränke & Früchte' },
-    { key: 'animals', label: 'Tiere' },
-    { key: 'nature', label: 'Natur' },
-    { key: 'home', label: 'Zuhause' },
-    { key: 'clothing', label: 'Kleidung' },
-    { key: 'verbs', label: 'Verben' },
-    { key: 'time', label: 'Zeit' },
-    { key: 'places', label: 'Orte & Reisen' },
-    { key: 'weather', label: 'Wetter' },
-    { key: 'emotions', label: 'Gefühle' },
-    { key: 'school_work', label: 'Schule & Arbeit' },
+    { key: 'greetings', label: 'Greetings' },
+    { key: 'numbers', label: 'Numbers' },
+    { key: 'colors', label: 'Colors' },
+    { key: 'family', label: 'Family' },
+    { key: 'body', label: 'Body' },
+    { key: 'food', label: 'Food' },
+    { key: 'drinks_fruits', label: 'Drinks & Fruits' },
+    { key: 'animals', label: 'Animals' },
+    { key: 'nature', label: 'Nature' },
+    { key: 'home', label: 'Home' },
+    { key: 'clothing', label: 'Clothing' },
+    { key: 'verbs', label: 'Verbs' },
+    { key: 'time', label: 'Time' },
+    { key: 'places', label: 'Places & Travel' },
+    { key: 'weather', label: 'Weather' },
+    { key: 'emotions', label: 'Emotions' },
+    { key: 'school_work', label: 'School & Work' },
     { key: 'transport', label: 'Transport' },
-    { key: 'sports', label: 'Sport & Freizeit' },
-    { key: 'adjectives', label: 'Adjektive' },
-    { key: 'personal_care', label: 'Körperpflege' },
-    { key: 'technology', label: 'Elektronik' }
+    { key: 'sports', label: 'Sports & Leisure' },
+    { key: 'adjectives', label: 'Adjectives' },
+    { key: 'personal_care', label: 'Personal Care' },
+    { key: 'technology', label: 'Technology' },
+    { key: 'sentences', label: 'Sentences' },
+    { key: 'questions', label: 'Questions' },
+    { key: 'phrases', label: 'Phrases' },
 ];
 function saveSrs() {
     try {
@@ -146,8 +150,9 @@ function renderApp() {
     app.className = 'app-shell max-w-6xl mx-auto px-6 py-8';
     app.innerHTML = `
         <div class="tab-bar" role="tablist" aria-label="App sections">
-            <button class="tab ${activeTab === 'vocab' ? 'active' : ''}" data-tab="vocab">Vokabeln</button>
+            <button class="tab ${activeTab === 'vocab' ? 'active' : ''}" data-tab="vocab">Vocabulary</button>
             <button class="tab ${activeTab === 'alphabet' ? 'active' : ''}" data-tab="alphabet">Alphabet</button>
+            <button class="tab ${activeTab === 'grammar' ? 'active' : ''}" data-tab="grammar">Grammar</button>
             <button class="tab ${activeTab === 'dashboard' ? 'active' : ''}" data-tab="dashboard">Dashboard</button>
         </div>
         <div id="tab-content"></div>
@@ -162,6 +167,8 @@ function renderApp() {
         renderVocabTab(content);
     if (activeTab === 'alphabet')
         renderAlphabetTab(content);
+    if (activeTab === 'grammar')
+        void renderGrammarTab(content);
     if (activeTab === 'dashboard')
         renderDashboardTab(content);
 }
@@ -172,25 +179,25 @@ function renderVocabTab(container) {
     const dueCount = getDueCount();
     container.innerHTML = `
         <section class="panel gradient-card">
-            <h1 class="hero-title">Hindi Vokabeltrainer</h1>
-            <p class="hero-subtitle">SM-2 Lernsystem mit Karteikarten, Multiple Choice und Tippen.</p>
+            <h1 class="hero-title">Hindi Vocabulary Trainer</h1>
+            <p class="hero-subtitle">SM-2 spaced repetition — Flashcards, Multiple Choice and Typing.</p>
         </section>
         <div class="category-pills-container" id="category-pills"></div>
         <div class="mode-selector" id="mode-selector">
             <button class="mode-btn ${activeMode === 'flashcard' ? 'active' : ''}" data-mode="flashcard">Flashcard</button>
             <button class="mode-btn ${activeMode === 'multiple-choice' ? 'active' : ''}" data-mode="multiple-choice">Multiple Choice</button>
-            <button class="mode-btn ${activeMode === 'typing' ? 'active' : ''}" data-mode="typing">Tippen</button>
+            <button class="mode-btn ${activeMode === 'typing' ? 'active' : ''}" data-mode="typing">Typing</button>
         </div>
-        <div class="queue-stats"><span>Fällig heute: <strong>${dueCount}</strong></span><span>Queue: <strong>${vocabQueue.length}</strong></span></div>
+        <div class="queue-stats"><span>Due today: <strong>${dueCount}</strong></span><span>Queue: <strong>${vocabQueue.length}</strong></span></div>
         <div id="vocab-card-area" class="vocab-card-area"></div>
         <div class="progress-section">
-            <div class="progress-label"><span>Fortschritt</span><span>${mastered} / ${appState.vocab.length}</span></div>
+            <div class="progress-label"><span>Progress</span><span>${mastered} / ${appState.vocab.length}</span></div>
             <div class="progress-bar-track"><div class="progress-bar-fill" style="width:${(mastered / Math.max(1, appState.vocab.length)) * 100}%"></div></div>
         </div>
     `;
     const pills = document.getElementById('category-pills');
     if (pills) {
-        const allBtn = `<button class="category-pill ${activeCategory === 'all' ? 'active' : ''}" data-category="all">Alle</button>`;
+        const allBtn = `<button class="category-pill ${activeCategory === 'all' ? 'active' : ''}" data-category="all">All</button>`;
         const categoryBtns = CATEGORIES.map(cat => `<button class="category-pill ${activeCategory === cat.key ? 'active' : ''}" data-category="${cat.key}">${cat.label}</button>`).join('');
         pills.innerHTML = allBtn + categoryBtns;
         pills.querySelectorAll('.category-pill').forEach(btn => {
@@ -214,7 +221,7 @@ function renderVocabTab(container) {
     if (!area)
         return;
     if (!current) {
-        area.innerHTML = '<div class="vocab-empty">Keine Karten in dieser Kategorie.</div>';
+        area.innerHTML = '<div class="vocab-empty">No cards in this category.</div>';
         return;
     }
     renderVocabCard(area, current);
@@ -232,9 +239,9 @@ function renderFlashcard(cardArea, entry) {
         cardArea.innerHTML = `
             <div class="vocab-card">
                 <div class="flashcard-category">${entry.category}</div>
-                <div class="flashcard-german">${entry.german}</div>
-                <div class="flashcard-hint">Denke an das Hindi-Wort.</div>
-                <button class="flip-btn" id="flip-btn">Zeigen</button>
+                <div class="flashcard-english">${entry.english}</div>
+                <div class="flashcard-hint">Think of the Hindi word.</div>
+                <button class="flip-btn" id="flip-btn">Reveal</button>
             </div>
         `;
         document.getElementById('flip-btn')?.addEventListener('click', () => {
@@ -243,23 +250,30 @@ function renderFlashcard(cardArea, entry) {
         });
         return;
     }
+    const srsCard = appState.vocabSrs[entry.id];
+    const nextReviewDays = srsCard ? srsCard.interval : 1;
     cardArea.innerHTML = `
         <div class="vocab-card">
             <div class="flashcard-category">${entry.category}</div>
-            <div class="flashcard-german">${entry.german}</div>
+            <div class="flashcard-english">${entry.english}</div>
             <div class="flashcard-hindi">${entry.hindi}</div>
             <div class="flashcard-translit">${entry.transliteration}</div>
+            <button class="play-hindi-btn" data-hindi="${entry.hindi}" title="Listen to pronunciation">🔊 Listen</button>
             <div class="rating-row">
-                <button class="rating-btn rating-1" data-quality="0">1 – Nochmal</button>
-                <button class="rating-btn rating-2" data-quality="2">2 – Schwer</button>
-                <button class="rating-btn rating-3" data-quality="3">3 – Gut</button>
-                <button class="rating-btn rating-4" data-quality="4">4 – Leicht</button>
-                <button class="rating-btn rating-5" data-quality="5">5 – Perfekt</button>
+                <button class="rating-btn rating-1" data-quality="0">1 – Again</button>
+                <button class="rating-btn rating-2" data-quality="2">2 – Hard</button>
+                <button class="rating-btn rating-3" data-quality="3">3 – Good</button>
+                <button class="rating-btn rating-4" data-quality="4">4 – Easy</button>
+                <button class="rating-btn rating-5" data-quality="5">5 – Perfect</button>
             </div>
+            <div class="next-review-hint">Next review: ${nextReviewDays === 1 ? 'tomorrow' : `in ${nextReviewDays} days`}</div>
         </div>
     `;
     cardArea.querySelectorAll('.rating-btn').forEach(btn => {
         btn.addEventListener('click', () => submitVocabAnswer(entry, Number(btn.dataset.quality || 0)));
+    });
+    cardArea.querySelector('.play-hindi-btn')?.addEventListener('click', () => {
+        playHindi(entry.hindi);
     });
 }
 function pickDistractors(entry) {
@@ -277,7 +291,7 @@ function renderMultipleChoice(cardArea, entry) {
     cardArea.innerHTML = `
         <div class="vocab-card">
             <div class="flashcard-category">${entry.category}</div>
-            <div class="flashcard-german">${entry.german}</div>
+            <div class="flashcard-english">${entry.english}</div>
             <div class="mc-grid">
                 ${options.map((opt, idx) => `
                     <button class="mc-option" data-id="${opt.id}" data-index="${idx}">
@@ -310,12 +324,12 @@ function renderTypingCard(cardArea, entry) {
     cardArea.innerHTML = `
         <div class="vocab-card">
             <div class="flashcard-category">${entry.category}</div>
-            <div class="flashcard-german">${entry.german}</div>
+            <div class="flashcard-english">${entry.english}</div>
             <div class="typing-hint">${entry.hindi}</div>
-            <div class="typing-instruction">Tippe die Transliteration (lateinisch).</div>
+            <div class="typing-instruction">Type the transliteration (Latin letters). <button class="play-hindi-btn-inline" data-hindi="${entry.hindi}" title="Listen">🔊</button></div>
             <div class="typing-input-row">
-                <input id="typing-input" class="typing-input" placeholder="z.B. namaste" />
-                <button id="typing-submit" class="typing-submit">Prüfen</button>
+                <input id="typing-input" class="typing-input" placeholder="e.g. namaste" />
+                <button id="typing-submit" class="typing-submit">Check</button>
             </div>
             <div id="typing-feedback" class="typing-feedback"></div>
         </div>
@@ -325,6 +339,9 @@ function renderTypingCard(cardArea, entry) {
     const feedback = document.getElementById('typing-feedback');
     if (!input || !submit || !feedback)
         return;
+    cardArea.querySelector('.play-hindi-btn-inline')?.addEventListener('click', () => {
+        playHindi(entry.hindi);
+    });
     let checked = false;
     let answerCorrect = false;
     const runCheck = () => {
@@ -335,10 +352,10 @@ function renderTypingCard(cardArea, entry) {
         answerCorrect = typed === entry.transliteration.trim().toLowerCase();
         feedback.className = `typing-feedback ${answerCorrect ? 'feedback-correct' : 'feedback-wrong'}`;
         feedback.textContent = answerCorrect
-            ? 'Richtig! Sehr gut.'
-            : `Nicht ganz. Richtig ist: ${entry.transliteration}`;
+            ? 'Correct! Well done.'
+            : `Not quite. The answer is: ${entry.transliteration}`;
         input.disabled = true;
-        submit.textContent = 'Weiter →';
+        submit.textContent = 'Next →';
     };
     submit.addEventListener('click', () => {
         if (!checked) {
@@ -376,7 +393,7 @@ function renderAlphabetTab(container) {
             <section class="panel hero-panel gradient-card">
                 <div class="eyebrow">Devanagari Studio</div>
                 <h1 class="hero-title">नमस्ते! Learn Hindi Alphabets</h1>
-                <p class="hero-subtitle">Audio, SRS und Memory Mode für das Devanagari-Training.</p>
+                <p class="hero-subtitle">Audio, SRS and Memory Mode for Devanagari practice.</p>
                 <div class="hero-stats">
                     <div class="hero-stat"><span>Letters loaded</span><strong>${totalChars || '…'}</strong></div>
                     <div class="hero-stat"><span>Mastered (lvl ≥ 7)</span><strong>${masteredCount || 0}</strong></div>
@@ -426,12 +443,12 @@ function renderDashboardTab(container) {
         <section class="dashboard-tab">
             <div class="dash-stats-row">
                 <div class="dash-stat"><div class="dash-stat-icon">🔥</div><div class="dash-stat-value">${streak}</div><div class="dash-stat-label">Streak</div></div>
-                <div class="dash-stat"><div class="dash-stat-icon">📅</div><div class="dash-stat-value">${due}</div><div class="dash-stat-label">Fällig heute</div></div>
-                <div class="dash-stat"><div class="dash-stat-icon">📚</div><div class="dash-stat-value">${mastered}</div><div class="dash-stat-label">Gemeistert</div></div>
-                <div class="dash-stat"><div class="dash-stat-icon">📈</div><div class="dash-stat-value">${total}</div><div class="dash-stat-label">Gesamt</div></div>
+                <div class="dash-stat"><div class="dash-stat-icon">📅</div><div class="dash-stat-value">${due}</div><div class="dash-stat-label">Due today</div></div>
+                <div class="dash-stat"><div class="dash-stat-icon">📚</div><div class="dash-stat-value">${mastered}</div><div class="dash-stat-label">Mastered</div></div>
+                <div class="dash-stat"><div class="dash-stat-icon">📈</div><div class="dash-stat-value">${total}</div><div class="dash-stat-label">Total</div></div>
             </div>
             <div class="cat-progress-section">
-                <div class="cat-progress-title">Kategorie-Fortschritt</div>
+                <div class="cat-progress-title">Category Progress</div>
                 ${rows}
             </div>
         </section>
@@ -722,11 +739,41 @@ async function hydrateData() {
         saveVocabSrs();
         buildVocabQueue();
         renderApp();
+        showOnboarding();
     }
     catch (error) {
         console.error('Failed to hydrate data', error);
-        showToast('Daten konnten nicht geladen werden.');
+        showToast('Failed to load data. Please refresh.');
     }
+}
+function showOnboarding() {
+    const ONBOARDED_KEY = 'hindi_onboarded_v1';
+    if (localStorage.getItem(ONBOARDED_KEY))
+        return;
+    const overlay = document.createElement('div');
+    overlay.id = 'onboarding-overlay';
+    overlay.innerHTML = `
+        <div class="onboarding-modal" role="dialog" aria-modal="true" aria-labelledby="onboarding-title">
+            <div class="onboarding-emoji">🇮🇳</div>
+            <h1 id="onboarding-title" class="onboarding-title">Welcome to Hindi!</h1>
+            <p class="onboarding-body">
+                This app takes you from zero to <strong>A2 level Hindi</strong> — for complete beginners.
+            </p>
+            <div class="onboarding-steps">
+                <div class="onboarding-step"><span class="step-icon">🔤</span><div><strong>Alphabet tab</strong> — Learn Devanagari script with audio &amp; spaced repetition</div></div>
+                <div class="onboarding-step"><span class="step-icon">📚</span><div><strong>Vocabulary tab</strong> — 500+ words with flashcards, multiple-choice &amp; typing</div></div>
+                <div class="onboarding-step"><span class="step-icon">📖</span><div><strong>Grammar tab</strong> — 12 interactive lessons from sentence structure to past &amp; future tense</div></div>
+                <div class="onboarding-step"><span class="step-icon">🔊</span><div><strong>Audio</strong> — Tap any 🔊 button to hear native Hindi pronunciation</div></div>
+            </div>
+            <p class="onboarding-tip">💡 <em>Tip: Study a little each day — the SM-2 algorithm schedules reviews for you automatically.</em></p>
+            <button id="onboarding-start" class="onboarding-btn">Start Learning Hindi →</button>
+        </div>
+    `;
+    document.body.appendChild(overlay);
+    document.getElementById('onboarding-start')?.addEventListener('click', () => {
+        localStorage.setItem(ONBOARDED_KEY, '1');
+        overlay.remove();
+    });
 }
 document.addEventListener('DOMContentLoaded', () => {
     void hydrateData();
