@@ -2,16 +2,18 @@
 // service-worker.js
 
 // Bump the cache name when making changes so browsers install the new SW
-const CACHE_NAME = 'hindi-alphabet-cache-v5';
+const CACHE_NAME = 'hindi-learn-cache-v6';
 // Use relative paths (no leading slash) so the cache keys match how we reference files
 const essentialAssets = [
     'index.html',
     'dist/output.css',
     'dist/main.js',
     'manifest.json',
-    // placeholder audio and data file
+    // placeholder audio and data files
     'audio/placeholder.mp3',
     'data/alphabets.json',
+    'data/vocabulary.json',
+    'data/grammar.json',
 ];
 
 // Install event: Pre-cache essential assets
