@@ -1,0 +1,2802 @@
+[
+  {
+    "id": "voc_001",
+    "hindi": "नमस्ते",
+    "transliteration": "namaste",
+    "german": "Hallo / Guten Tag",
+    "category": "greetings"
+  },
+  {
+    "id": "voc_002",
+    "hindi": "सुप्रभात",
+    "transliteration": "suprabhat",
+    "german": "Guten Morgen",
+    "category": "greetings"
+  },
+  {
+    "id": "voc_003",
+    "hindi": "शुभ दोपहर",
+    "transliteration": "shubh dopahar",
+    "german": "Guten Tag (mittags)",
+    "category": "greetings"
+  },
+  {
+    "id": "voc_004",
+    "hindi": "शुभ संध्या",
+    "transliteration": "shubh sandhya",
+    "german": "Guten Abend",
+    "category": "greetings"
+  },
+  {
+    "id": "voc_005",
+    "hindi": "शुभ रात्रि",
+    "transliteration": "shubh raatri",
+    "german": "Gute Nacht",
+    "category": "greetings"
+  },
+  {
+    "id": "voc_006",
+    "hindi": "अलविदा",
+    "transliteration": "alvida",
+    "german": "Auf Wiedersehen",
+    "category": "greetings"
+  },
+  {
+    "id": "voc_007",
+    "hindi": "फिर मिलेंगे",
+    "transliteration": "phir milenge",
+    "german": "Bis später",
+    "category": "greetings"
+  },
+  {
+    "id": "voc_008",
+    "hindi": "आप कैसे हैं",
+    "transliteration": "aap kaise hain",
+    "german": "Wie geht es Ihnen?",
+    "category": "greetings"
+  },
+  {
+    "id": "voc_009",
+    "hindi": "मैं ठीक हूँ",
+    "transliteration": "main theek hoon",
+    "german": "Mir geht es gut",
+    "category": "greetings"
+  },
+  {
+    "id": "voc_010",
+    "hindi": "धन्यवाद",
+    "transliteration": "dhanyavaad",
+    "german": "Danke",
+    "category": "greetings"
+  },
+  {
+    "id": "voc_011",
+    "hindi": "शुक्रिया",
+    "transliteration": "shukriya",
+    "german": "Vielen Dank",
+    "category": "greetings"
+  },
+  {
+    "id": "voc_012",
+    "hindi": "कृपया",
+    "transliteration": "kripaya",
+    "german": "Bitte",
+    "category": "greetings"
+  },
+  {
+    "id": "voc_013",
+    "hindi": "माफ़ कीजिए",
+    "transliteration": "maaf kijiye",
+    "german": "Entschuldigung",
+    "category": "greetings"
+  },
+  {
+    "id": "voc_014",
+    "hindi": "हाँ",
+    "transliteration": "haan",
+    "german": "Ja",
+    "category": "greetings"
+  },
+  {
+    "id": "voc_015",
+    "hindi": "नहीं",
+    "transliteration": "nahin",
+    "german": "Nein",
+    "category": "greetings"
+  },
+  {
+    "id": "voc_016",
+    "hindi": "एक",
+    "transliteration": "ek",
+    "german": "Eins",
+    "category": "numbers"
+  },
+  {
+    "id": "voc_017",
+    "hindi": "दो",
+    "transliteration": "do",
+    "german": "Zwei",
+    "category": "numbers"
+  },
+  {
+    "id": "voc_018",
+    "hindi": "तीन",
+    "transliteration": "teen",
+    "german": "Drei",
+    "category": "numbers"
+  },
+  {
+    "id": "voc_019",
+    "hindi": "चार",
+    "transliteration": "chaar",
+    "german": "Vier",
+    "category": "numbers"
+  },
+  {
+    "id": "voc_020",
+    "hindi": "पाँच",
+    "transliteration": "paanch",
+    "german": "Fünf",
+    "category": "numbers"
+  },
+  {
+    "id": "voc_021",
+    "hindi": "छह",
+    "transliteration": "chhah",
+    "german": "Sechs",
+    "category": "numbers"
+  },
+  {
+    "id": "voc_022",
+    "hindi": "सात",
+    "transliteration": "saat",
+    "german": "Sieben",
+    "category": "numbers"
+  },
+  {
+    "id": "voc_023",
+    "hindi": "आठ",
+    "transliteration": "aath",
+    "german": "Acht",
+    "category": "numbers"
+  },
+  {
+    "id": "voc_024",
+    "hindi": "नौ",
+    "transliteration": "nau",
+    "german": "Neun",
+    "category": "numbers"
+  },
+  {
+    "id": "voc_025",
+    "hindi": "दस",
+    "transliteration": "das",
+    "german": "Zehn",
+    "category": "numbers"
+  },
+  {
+    "id": "voc_026",
+    "hindi": "ग्यारह",
+    "transliteration": "gyaarah",
+    "german": "Elf",
+    "category": "numbers"
+  },
+  {
+    "id": "voc_027",
+    "hindi": "बारह",
+    "transliteration": "baarah",
+    "german": "Zwölf",
+    "category": "numbers"
+  },
+  {
+    "id": "voc_028",
+    "hindi": "तेरह",
+    "transliteration": "terah",
+    "german": "Dreizehn",
+    "category": "numbers"
+  },
+  {
+    "id": "voc_029",
+    "hindi": "चौदह",
+    "transliteration": "chaudah",
+    "german": "Vierzehn",
+    "category": "numbers"
+  },
+  {
+    "id": "voc_030",
+    "hindi": "पंद्रह",
+    "transliteration": "pandrah",
+    "german": "Fünfzehn",
+    "category": "numbers"
+  },
+  {
+    "id": "voc_031",
+    "hindi": "बीस",
+    "transliteration": "bees",
+    "german": "Zwanzig",
+    "category": "numbers"
+  },
+  {
+    "id": "voc_032",
+    "hindi": "तीस",
+    "transliteration": "tees",
+    "german": "Dreißig",
+    "category": "numbers"
+  },
+  {
+    "id": "voc_033",
+    "hindi": "पचास",
+    "transliteration": "pachaas",
+    "german": "Fünfzig",
+    "category": "numbers"
+  },
+  {
+    "id": "voc_034",
+    "hindi": "सौ",
+    "transliteration": "sau",
+    "german": "Hundert",
+    "category": "numbers"
+  },
+  {
+    "id": "voc_035",
+    "hindi": "हज़ार",
+    "transliteration": "hazaar",
+    "german": "Tausend",
+    "category": "numbers"
+  },
+  {
+    "id": "voc_036",
+    "hindi": "लाल",
+    "transliteration": "laal",
+    "german": "Rot",
+    "category": "colors"
+  },
+  {
+    "id": "voc_037",
+    "hindi": "नीला",
+    "transliteration": "neela",
+    "german": "Blau",
+    "category": "colors"
+  },
+  {
+    "id": "voc_038",
+    "hindi": "हरा",
+    "transliteration": "hara",
+    "german": "Grün",
+    "category": "colors"
+  },
+  {
+    "id": "voc_039",
+    "hindi": "पीला",
+    "transliteration": "peela",
+    "german": "Gelb",
+    "category": "colors"
+  },
+  {
+    "id": "voc_040",
+    "hindi": "काला",
+    "transliteration": "kaala",
+    "german": "Schwarz",
+    "category": "colors"
+  },
+  {
+    "id": "voc_041",
+    "hindi": "सफ़ेद",
+    "transliteration": "safed",
+    "german": "Weiß",
+    "category": "colors"
+  },
+  {
+    "id": "voc_042",
+    "hindi": "नारंगी",
+    "transliteration": "narangi",
+    "german": "Orange",
+    "category": "colors"
+  },
+  {
+    "id": "voc_043",
+    "hindi": "गुलाबी",
+    "transliteration": "gulaabi",
+    "german": "Rosa",
+    "category": "colors"
+  },
+  {
+    "id": "voc_044",
+    "hindi": "बैंगनी",
+    "transliteration": "baingani",
+    "german": "Lila",
+    "category": "colors"
+  },
+  {
+    "id": "voc_045",
+    "hindi": "भूरा",
+    "transliteration": "bhoora",
+    "german": "Braun",
+    "category": "colors"
+  },
+  {
+    "id": "voc_046",
+    "hindi": "सुनहरा",
+    "transliteration": "sunahra",
+    "german": "Gold",
+    "category": "colors"
+  },
+  {
+    "id": "voc_047",
+    "hindi": "चाँदी",
+    "transliteration": "chaandi",
+    "german": "Silber",
+    "category": "colors"
+  },
+  {
+    "id": "voc_048",
+    "hindi": "माँ",
+    "transliteration": "maa",
+    "german": "Mutter",
+    "category": "family"
+  },
+  {
+    "id": "voc_049",
+    "hindi": "पिता",
+    "transliteration": "pita",
+    "german": "Vater",
+    "category": "family"
+  },
+  {
+    "id": "voc_050",
+    "hindi": "भाई",
+    "transliteration": "bhaai",
+    "german": "Bruder",
+    "category": "family"
+  },
+  {
+    "id": "voc_051",
+    "hindi": "बहन",
+    "transliteration": "behen",
+    "german": "Schwester",
+    "category": "family"
+  },
+  {
+    "id": "voc_052",
+    "hindi": "दादा",
+    "transliteration": "daada",
+    "german": "Großvater (väterlich)",
+    "category": "family"
+  },
+  {
+    "id": "voc_053",
+    "hindi": "दादी",
+    "transliteration": "daadi",
+    "german": "Großmutter (väterlich)",
+    "category": "family"
+  },
+  {
+    "id": "voc_054",
+    "hindi": "नाना",
+    "transliteration": "naana",
+    "german": "Großvater (mütterlich)",
+    "category": "family"
+  },
+  {
+    "id": "voc_055",
+    "hindi": "नानी",
+    "transliteration": "naani",
+    "german": "Großmutter (mütterlich)",
+    "category": "family"
+  },
+  {
+    "id": "voc_056",
+    "hindi": "चाचा",
+    "transliteration": "chaacha",
+    "german": "Onkel",
+    "category": "family"
+  },
+  {
+    "id": "voc_057",
+    "hindi": "चाची",
+    "transliteration": "chaachi",
+    "german": "Tante",
+    "category": "family"
+  },
+  {
+    "id": "voc_058",
+    "hindi": "बेटा",
+    "transliteration": "beta",
+    "german": "Sohn",
+    "category": "family"
+  },
+  {
+    "id": "voc_059",
+    "hindi": "बेटी",
+    "transliteration": "beti",
+    "german": "Tochter",
+    "category": "family"
+  },
+  {
+    "id": "voc_060",
+    "hindi": "पति",
+    "transliteration": "pati",
+    "german": "Ehemann",
+    "category": "family"
+  },
+  {
+    "id": "voc_061",
+    "hindi": "पत्नी",
+    "transliteration": "patni",
+    "german": "Ehefrau",
+    "category": "family"
+  },
+  {
+    "id": "voc_062",
+    "hindi": "परिवार",
+    "transliteration": "parivaar",
+    "german": "Familie",
+    "category": "family"
+  },
+  {
+    "id": "voc_063",
+    "hindi": "सिर",
+    "transliteration": "sir",
+    "german": "Kopf",
+    "category": "body"
+  },
+  {
+    "id": "voc_064",
+    "hindi": "बाल",
+    "transliteration": "baal",
+    "german": "Haare",
+    "category": "body"
+  },
+  {
+    "id": "voc_065",
+    "hindi": "आँख",
+    "transliteration": "aankh",
+    "german": "Auge",
+    "category": "body"
+  },
+  {
+    "id": "voc_066",
+    "hindi": "कान",
+    "transliteration": "kaan",
+    "german": "Ohr",
+    "category": "body"
+  },
+  {
+    "id": "voc_067",
+    "hindi": "नाक",
+    "transliteration": "naak",
+    "german": "Nase",
+    "category": "body"
+  },
+  {
+    "id": "voc_068",
+    "hindi": "मुँह",
+    "transliteration": "munh",
+    "german": "Mund",
+    "category": "body"
+  },
+  {
+    "id": "voc_069",
+    "hindi": "दाँत",
+    "transliteration": "daant",
+    "german": "Zahn",
+    "category": "body"
+  },
+  {
+    "id": "voc_070",
+    "hindi": "हाथ",
+    "transliteration": "haath",
+    "german": "Hand",
+    "category": "body"
+  },
+  {
+    "id": "voc_071",
+    "hindi": "उँगली",
+    "transliteration": "ungli",
+    "german": "Finger",
+    "category": "body"
+  },
+  {
+    "id": "voc_072",
+    "hindi": "पाँव",
+    "transliteration": "paanv",
+    "german": "Fuß",
+    "category": "body"
+  },
+  {
+    "id": "voc_073",
+    "hindi": "पैर",
+    "transliteration": "pair",
+    "german": "Bein",
+    "category": "body"
+  },
+  {
+    "id": "voc_074",
+    "hindi": "पेट",
+    "transliteration": "pet",
+    "german": "Bauch",
+    "category": "body"
+  },
+  {
+    "id": "voc_075",
+    "hindi": "पीठ",
+    "transliteration": "peeth",
+    "german": "Rücken",
+    "category": "body"
+  },
+  {
+    "id": "voc_076",
+    "hindi": "दिल",
+    "transliteration": "dil",
+    "german": "Herz",
+    "category": "body"
+  },
+  {
+    "id": "voc_077",
+    "hindi": "गला",
+    "transliteration": "gala",
+    "german": "Hals",
+    "category": "body"
+  },
+  {
+    "id": "voc_078",
+    "hindi": "कंधा",
+    "transliteration": "kandha",
+    "german": "Schulter",
+    "category": "body"
+  },
+  {
+    "id": "voc_079",
+    "hindi": "घुटना",
+    "transliteration": "ghutna",
+    "german": "Knie",
+    "category": "body"
+  },
+  {
+    "id": "voc_080",
+    "hindi": "कोहनी",
+    "transliteration": "kohni",
+    "german": "Ellbogen",
+    "category": "body"
+  },
+  {
+    "id": "voc_081",
+    "hindi": "होठ",
+    "transliteration": "honth",
+    "german": "Lippe",
+    "category": "body"
+  },
+  {
+    "id": "voc_082",
+    "hindi": "माथा",
+    "transliteration": "maatha",
+    "german": "Stirn",
+    "category": "body"
+  },
+  {
+    "id": "voc_083",
+    "hindi": "रोटी",
+    "transliteration": "roti",
+    "german": "Fladenbrot",
+    "category": "food"
+  },
+  {
+    "id": "voc_084",
+    "hindi": "चावल",
+    "transliteration": "chaaval",
+    "german": "Reis",
+    "category": "food"
+  },
+  {
+    "id": "voc_085",
+    "hindi": "दाल",
+    "transliteration": "daal",
+    "german": "Linsen",
+    "category": "food"
+  },
+  {
+    "id": "voc_086",
+    "hindi": "सब्जी",
+    "transliteration": "sabzi",
+    "german": "Gemüsegericht",
+    "category": "food"
+  },
+  {
+    "id": "voc_087",
+    "hindi": "मसाला",
+    "transliteration": "masaala",
+    "german": "Gewürz",
+    "category": "food"
+  },
+  {
+    "id": "voc_088",
+    "hindi": "नमक",
+    "transliteration": "namak",
+    "german": "Salz",
+    "category": "food"
+  },
+  {
+    "id": "voc_089",
+    "hindi": "चीनी",
+    "transliteration": "cheeni",
+    "german": "Zucker",
+    "category": "food"
+  },
+  {
+    "id": "voc_090",
+    "hindi": "घी",
+    "transliteration": "ghee",
+    "german": "Butterschmalz",
+    "category": "food"
+  },
+  {
+    "id": "voc_091",
+    "hindi": "प्याज",
+    "transliteration": "pyaaz",
+    "german": "Zwiebel",
+    "category": "food"
+  },
+  {
+    "id": "voc_092",
+    "hindi": "लहसुन",
+    "transliteration": "lahsun",
+    "german": "Knoblauch",
+    "category": "food"
+  },
+  {
+    "id": "voc_093",
+    "hindi": "टमाटर",
+    "transliteration": "tamaatar",
+    "german": "Tomate",
+    "category": "food"
+  },
+  {
+    "id": "voc_094",
+    "hindi": "आलू",
+    "transliteration": "aaloo",
+    "german": "Kartoffel",
+    "category": "food"
+  },
+  {
+    "id": "voc_095",
+    "hindi": "दही",
+    "transliteration": "dahi",
+    "german": "Joghurt",
+    "category": "food"
+  },
+  {
+    "id": "voc_096",
+    "hindi": "पनीर",
+    "transliteration": "paneer",
+    "german": "Paneer",
+    "category": "food"
+  },
+  {
+    "id": "voc_097",
+    "hindi": "अंडा",
+    "transliteration": "anda",
+    "german": "Ei",
+    "category": "food"
+  },
+  {
+    "id": "voc_098",
+    "hindi": "मिर्च",
+    "transliteration": "mirch",
+    "german": "Chili",
+    "category": "food"
+  },
+  {
+    "id": "voc_099",
+    "hindi": "रायता",
+    "transliteration": "raita",
+    "german": "Raita",
+    "category": "food"
+  },
+  {
+    "id": "voc_100",
+    "hindi": "खिचड़ी",
+    "transliteration": "khichdi",
+    "german": "Kitchari",
+    "category": "food"
+  },
+  {
+    "id": "voc_101",
+    "hindi": "पराठा",
+    "transliteration": "paratha",
+    "german": "Paratha",
+    "category": "food"
+  },
+  {
+    "id": "voc_102",
+    "hindi": "सूप",
+    "transliteration": "soop",
+    "german": "Suppe",
+    "category": "food"
+  },
+  {
+    "id": "voc_103",
+    "hindi": "सलाद",
+    "transliteration": "salaad",
+    "german": "Salat",
+    "category": "food"
+  },
+  {
+    "id": "voc_104",
+    "hindi": "मक्खन",
+    "transliteration": "makkhan",
+    "german": "Butter",
+    "category": "food"
+  },
+  {
+    "id": "voc_105",
+    "hindi": "शहद",
+    "transliteration": "shahad",
+    "german": "Honig",
+    "category": "food"
+  },
+  {
+    "id": "voc_106",
+    "hindi": "बिस्कुट",
+    "transliteration": "biskut",
+    "german": "Keks",
+    "category": "food"
+  },
+  {
+    "id": "voc_107",
+    "hindi": "मिठाई",
+    "transliteration": "mithai",
+    "german": "Süßigkeit",
+    "category": "food"
+  },
+  {
+    "id": "voc_108",
+    "hindi": "पानी",
+    "transliteration": "paani",
+    "german": "Wasser",
+    "category": "drinks_fruits"
+  },
+  {
+    "id": "voc_109",
+    "hindi": "चाय",
+    "transliteration": "chai",
+    "german": "Tee",
+    "category": "drinks_fruits"
+  },
+  {
+    "id": "voc_110",
+    "hindi": "दूध",
+    "transliteration": "doodh",
+    "german": "Milch",
+    "category": "drinks_fruits"
+  },
+  {
+    "id": "voc_111",
+    "hindi": "कॉफ़ी",
+    "transliteration": "coffee",
+    "german": "Kaffee",
+    "category": "drinks_fruits"
+  },
+  {
+    "id": "voc_112",
+    "hindi": "रस",
+    "transliteration": "ras",
+    "german": "Saft",
+    "category": "drinks_fruits"
+  },
+  {
+    "id": "voc_113",
+    "hindi": "आम",
+    "transliteration": "aam",
+    "german": "Mango",
+    "category": "drinks_fruits"
+  },
+  {
+    "id": "voc_114",
+    "hindi": "केला",
+    "transliteration": "kela",
+    "german": "Banane",
+    "category": "drinks_fruits"
+  },
+  {
+    "id": "voc_115",
+    "hindi": "सेब",
+    "transliteration": "seb",
+    "german": "Apfel",
+    "category": "drinks_fruits"
+  },
+  {
+    "id": "voc_116",
+    "hindi": "संतरा",
+    "transliteration": "santara",
+    "german": "Orange (Frucht)",
+    "category": "drinks_fruits"
+  },
+  {
+    "id": "voc_117",
+    "hindi": "अंगूर",
+    "transliteration": "angoor",
+    "german": "Trauben",
+    "category": "drinks_fruits"
+  },
+  {
+    "id": "voc_118",
+    "hindi": "तरबूज",
+    "transliteration": "tarbooz",
+    "german": "Wassermelone",
+    "category": "drinks_fruits"
+  },
+  {
+    "id": "voc_119",
+    "hindi": "नारियल",
+    "transliteration": "naariyal",
+    "german": "Kokosnuss",
+    "category": "drinks_fruits"
+  },
+  {
+    "id": "voc_120",
+    "hindi": "नींबू",
+    "transliteration": "neembu",
+    "german": "Zitrone",
+    "category": "drinks_fruits"
+  },
+  {
+    "id": "voc_121",
+    "hindi": "अनार",
+    "transliteration": "anaar",
+    "german": "Granatapfel",
+    "category": "drinks_fruits"
+  },
+  {
+    "id": "voc_122",
+    "hindi": "पपीता",
+    "transliteration": "papita",
+    "german": "Papaya",
+    "category": "drinks_fruits"
+  },
+  {
+    "id": "voc_123",
+    "hindi": "कुत्ता",
+    "transliteration": "kutta",
+    "german": "Hund",
+    "category": "animals"
+  },
+  {
+    "id": "voc_124",
+    "hindi": "बिल्ली",
+    "transliteration": "billi",
+    "german": "Katze",
+    "category": "animals"
+  },
+  {
+    "id": "voc_125",
+    "hindi": "घोड़ा",
+    "transliteration": "ghoda",
+    "german": "Pferd",
+    "category": "animals"
+  },
+  {
+    "id": "voc_126",
+    "hindi": "गाय",
+    "transliteration": "gaay",
+    "german": "Kuh",
+    "category": "animals"
+  },
+  {
+    "id": "voc_127",
+    "hindi": "हाथी",
+    "transliteration": "haathi",
+    "german": "Elefant",
+    "category": "animals"
+  },
+  {
+    "id": "voc_128",
+    "hindi": "शेर",
+    "transliteration": "sher",
+    "german": "Löwe",
+    "category": "animals"
+  },
+  {
+    "id": "voc_129",
+    "hindi": "बाघ",
+    "transliteration": "baagh",
+    "german": "Tiger",
+    "category": "animals"
+  },
+  {
+    "id": "voc_130",
+    "hindi": "बंदर",
+    "transliteration": "bandar",
+    "german": "Affe",
+    "category": "animals"
+  },
+  {
+    "id": "voc_131",
+    "hindi": "साँप",
+    "transliteration": "saanp",
+    "german": "Schlange",
+    "category": "animals"
+  },
+  {
+    "id": "voc_132",
+    "hindi": "खरगोश",
+    "transliteration": "khargosh",
+    "german": "Kaninchen",
+    "category": "animals"
+  },
+  {
+    "id": "voc_133",
+    "hindi": "ऊँट",
+    "transliteration": "oont",
+    "german": "Kamel",
+    "category": "animals"
+  },
+  {
+    "id": "voc_134",
+    "hindi": "जिराफ़",
+    "transliteration": "jiraaf",
+    "german": "Giraffe",
+    "category": "animals"
+  },
+  {
+    "id": "voc_135",
+    "hindi": "भेड़",
+    "transliteration": "bhed",
+    "german": "Schaf",
+    "category": "animals"
+  },
+  {
+    "id": "voc_136",
+    "hindi": "बकरी",
+    "transliteration": "bakri",
+    "german": "Ziege",
+    "category": "animals"
+  },
+  {
+    "id": "voc_137",
+    "hindi": "मुर्गा",
+    "transliteration": "murga",
+    "german": "Hahn",
+    "category": "animals"
+  },
+  {
+    "id": "voc_138",
+    "hindi": "मुर्गी",
+    "transliteration": "murgi",
+    "german": "Henne",
+    "category": "animals"
+  },
+  {
+    "id": "voc_139",
+    "hindi": "तोता",
+    "transliteration": "tota",
+    "german": "Papagei",
+    "category": "animals"
+  },
+  {
+    "id": "voc_140",
+    "hindi": "चूहा",
+    "transliteration": "chooha",
+    "german": "Maus",
+    "category": "animals"
+  },
+  {
+    "id": "voc_141",
+    "hindi": "भालू",
+    "transliteration": "bhaloo",
+    "german": "Bär",
+    "category": "animals"
+  },
+  {
+    "id": "voc_142",
+    "hindi": "हिरन",
+    "transliteration": "hiran",
+    "german": "Reh",
+    "category": "animals"
+  },
+  {
+    "id": "voc_143",
+    "hindi": "लोमड़ी",
+    "transliteration": "lomdi",
+    "german": "Fuchs",
+    "category": "animals"
+  },
+  {
+    "id": "voc_144",
+    "hindi": "भेड़िया",
+    "transliteration": "bhediya",
+    "german": "Wolf",
+    "category": "animals"
+  },
+  {
+    "id": "voc_145",
+    "hindi": "मछली",
+    "transliteration": "machhli",
+    "german": "Fisch",
+    "category": "animals"
+  },
+  {
+    "id": "voc_146",
+    "hindi": "मेंढक",
+    "transliteration": "mendhak",
+    "german": "Frosch",
+    "category": "animals"
+  },
+  {
+    "id": "voc_147",
+    "hindi": "मोर",
+    "transliteration": "mor",
+    "german": "Pfau",
+    "category": "animals"
+  },
+  {
+    "id": "voc_148",
+    "hindi": "पेड़",
+    "transliteration": "ped",
+    "german": "Baum",
+    "category": "nature"
+  },
+  {
+    "id": "voc_149",
+    "hindi": "फूल",
+    "transliteration": "phool",
+    "german": "Blume",
+    "category": "nature"
+  },
+  {
+    "id": "voc_150",
+    "hindi": "घास",
+    "transliteration": "ghaas",
+    "german": "Gras",
+    "category": "nature"
+  },
+  {
+    "id": "voc_151",
+    "hindi": "पत्ता",
+    "transliteration": "patta",
+    "german": "Blatt",
+    "category": "nature"
+  },
+  {
+    "id": "voc_152",
+    "hindi": "नदी",
+    "transliteration": "nadi",
+    "german": "Fluss",
+    "category": "nature"
+  },
+  {
+    "id": "voc_153",
+    "hindi": "पहाड़",
+    "transliteration": "pahaad",
+    "german": "Berg",
+    "category": "nature"
+  },
+  {
+    "id": "voc_154",
+    "hindi": "समुद्र",
+    "transliteration": "samudra",
+    "german": "Meer",
+    "category": "nature"
+  },
+  {
+    "id": "voc_155",
+    "hindi": "झील",
+    "transliteration": "jheel",
+    "german": "See",
+    "category": "nature"
+  },
+  {
+    "id": "voc_156",
+    "hindi": "आसमान",
+    "transliteration": "aasmaan",
+    "german": "Himmel",
+    "category": "nature"
+  },
+  {
+    "id": "voc_157",
+    "hindi": "सूरज",
+    "transliteration": "sooraj",
+    "german": "Sonne",
+    "category": "nature"
+  },
+  {
+    "id": "voc_158",
+    "hindi": "चाँद",
+    "transliteration": "chaand",
+    "german": "Mond",
+    "category": "nature"
+  },
+  {
+    "id": "voc_159",
+    "hindi": "तारा",
+    "transliteration": "taara",
+    "german": "Stern",
+    "category": "nature"
+  },
+  {
+    "id": "voc_160",
+    "hindi": "मिट्टी",
+    "transliteration": "mitti",
+    "german": "Erde",
+    "category": "nature"
+  },
+  {
+    "id": "voc_161",
+    "hindi": "हवा",
+    "transliteration": "hawa",
+    "german": "Luft",
+    "category": "nature"
+  },
+  {
+    "id": "voc_162",
+    "hindi": "आग",
+    "transliteration": "aag",
+    "german": "Feuer",
+    "category": "nature"
+  },
+  {
+    "id": "voc_163",
+    "hindi": "बर्फ़",
+    "transliteration": "barf",
+    "german": "Eis",
+    "category": "nature"
+  },
+  {
+    "id": "voc_164",
+    "hindi": "बारिश",
+    "transliteration": "baarish",
+    "german": "Regen",
+    "category": "nature"
+  },
+  {
+    "id": "voc_165",
+    "hindi": "पत्थर",
+    "transliteration": "patthar",
+    "german": "Stein",
+    "category": "nature"
+  },
+  {
+    "id": "voc_166",
+    "hindi": "जंगल",
+    "transliteration": "jangal",
+    "german": "Wald",
+    "category": "nature"
+  },
+  {
+    "id": "voc_167",
+    "hindi": "बीज",
+    "transliteration": "beej",
+    "german": "Samen",
+    "category": "nature"
+  },
+  {
+    "id": "voc_168",
+    "hindi": "घर",
+    "transliteration": "ghar",
+    "german": "Haus",
+    "category": "home"
+  },
+  {
+    "id": "voc_169",
+    "hindi": "कमरा",
+    "transliteration": "kamra",
+    "german": "Zimmer",
+    "category": "home"
+  },
+  {
+    "id": "voc_170",
+    "hindi": "दरवाज़ा",
+    "transliteration": "darwaza",
+    "german": "Tür",
+    "category": "home"
+  },
+  {
+    "id": "voc_171",
+    "hindi": "खिड़की",
+    "transliteration": "khidki",
+    "german": "Fenster",
+    "category": "home"
+  },
+  {
+    "id": "voc_172",
+    "hindi": "कुर्सी",
+    "transliteration": "kursi",
+    "german": "Stuhl",
+    "category": "home"
+  },
+  {
+    "id": "voc_173",
+    "hindi": "मेज़",
+    "transliteration": "mez",
+    "german": "Tisch",
+    "category": "home"
+  },
+  {
+    "id": "voc_174",
+    "hindi": "बिस्तर",
+    "transliteration": "bistar",
+    "german": "Bett",
+    "category": "home"
+  },
+  {
+    "id": "voc_175",
+    "hindi": "तकिया",
+    "transliteration": "takiya",
+    "german": "Kissen",
+    "category": "home"
+  },
+  {
+    "id": "voc_176",
+    "hindi": "कंबल",
+    "transliteration": "kambal",
+    "german": "Decke",
+    "category": "home"
+  },
+  {
+    "id": "voc_177",
+    "hindi": "रसोई",
+    "transliteration": "rasoi",
+    "german": "Küche",
+    "category": "home"
+  },
+  {
+    "id": "voc_178",
+    "hindi": "बाथरूम",
+    "transliteration": "bathroom",
+    "german": "Badezimmer",
+    "category": "home"
+  },
+  {
+    "id": "voc_179",
+    "hindi": "बाल्टी",
+    "transliteration": "balti",
+    "german": "Eimer",
+    "category": "home"
+  },
+  {
+    "id": "voc_180",
+    "hindi": "झाड़ू",
+    "transliteration": "jhaadu",
+    "german": "Besen",
+    "category": "home"
+  },
+  {
+    "id": "voc_181",
+    "hindi": "चाबी",
+    "transliteration": "chaabi",
+    "german": "Schlüssel",
+    "category": "home"
+  },
+  {
+    "id": "voc_182",
+    "hindi": "दीवार",
+    "transliteration": "deewaar",
+    "german": "Wand",
+    "category": "home"
+  },
+  {
+    "id": "voc_183",
+    "hindi": "फ़र्श",
+    "transliteration": "farsh",
+    "german": "Boden",
+    "category": "home"
+  },
+  {
+    "id": "voc_184",
+    "hindi": "छत",
+    "transliteration": "chhat",
+    "german": "Decke/Dach",
+    "category": "home"
+  },
+  {
+    "id": "voc_185",
+    "hindi": "लाइट",
+    "transliteration": "light",
+    "german": "Licht",
+    "category": "home"
+  },
+  {
+    "id": "voc_186",
+    "hindi": "पंखा",
+    "transliteration": "pankha",
+    "german": "Ventilator",
+    "category": "home"
+  },
+  {
+    "id": "voc_187",
+    "hindi": "घंटी",
+    "transliteration": "ghanti",
+    "german": "Klingel",
+    "category": "home"
+  },
+  {
+    "id": "voc_188",
+    "hindi": "कपड़ा",
+    "transliteration": "kapda",
+    "german": "Kleidung",
+    "category": "clothing"
+  },
+  {
+    "id": "voc_189",
+    "hindi": "कमीज़",
+    "transliteration": "kameez",
+    "german": "Hemd",
+    "category": "clothing"
+  },
+  {
+    "id": "voc_190",
+    "hindi": "पैंट",
+    "transliteration": "pant",
+    "german": "Hose",
+    "category": "clothing"
+  },
+  {
+    "id": "voc_191",
+    "hindi": "जूते",
+    "transliteration": "joote",
+    "german": "Schuhe",
+    "category": "clothing"
+  },
+  {
+    "id": "voc_192",
+    "hindi": "मोज़े",
+    "transliteration": "moze",
+    "german": "Socken",
+    "category": "clothing"
+  },
+  {
+    "id": "voc_193",
+    "hindi": "टोपी",
+    "transliteration": "topi",
+    "german": "Mütze",
+    "category": "clothing"
+  },
+  {
+    "id": "voc_194",
+    "hindi": "जैकेट",
+    "transliteration": "jacket",
+    "german": "Jacke",
+    "category": "clothing"
+  },
+  {
+    "id": "voc_195",
+    "hindi": "स्वेटर",
+    "transliteration": "sweater",
+    "german": "Pullover",
+    "category": "clothing"
+  },
+  {
+    "id": "voc_196",
+    "hindi": "साड़ी",
+    "transliteration": "saari",
+    "german": "Sari",
+    "category": "clothing"
+  },
+  {
+    "id": "voc_197",
+    "hindi": "दुपट्टा",
+    "transliteration": "dupatta",
+    "german": "Schal",
+    "category": "clothing"
+  },
+  {
+    "id": "voc_198",
+    "hindi": "बेल्ट",
+    "transliteration": "belt",
+    "german": "Gürtel",
+    "category": "clothing"
+  },
+  {
+    "id": "voc_199",
+    "hindi": "दस्ताने",
+    "transliteration": "dastaane",
+    "german": "Handschuhe",
+    "category": "clothing"
+  },
+  {
+    "id": "voc_200",
+    "hindi": "चप्पल",
+    "transliteration": "chappal",
+    "german": "Sandalen",
+    "category": "clothing"
+  },
+  {
+    "id": "voc_201",
+    "hindi": "कोट",
+    "transliteration": "coat",
+    "german": "Mantel",
+    "category": "clothing"
+  },
+  {
+    "id": "voc_202",
+    "hindi": "कपड़े",
+    "transliteration": "kapde",
+    "german": "Kleider",
+    "category": "clothing"
+  },
+  {
+    "id": "voc_203",
+    "hindi": "खाना",
+    "transliteration": "khaana",
+    "german": "essen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_204",
+    "hindi": "पीना",
+    "transliteration": "peena",
+    "german": "trinken",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_205",
+    "hindi": "जाना",
+    "transliteration": "jaana",
+    "german": "gehen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_206",
+    "hindi": "आना",
+    "transliteration": "aana",
+    "german": "kommen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_207",
+    "hindi": "देखना",
+    "transliteration": "dekhna",
+    "german": "sehen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_208",
+    "hindi": "सुनना",
+    "transliteration": "sunna",
+    "german": "hören",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_209",
+    "hindi": "बोलना",
+    "transliteration": "bolna",
+    "german": "sprechen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_210",
+    "hindi": "पढ़ना",
+    "transliteration": "padhna",
+    "german": "lesen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_211",
+    "hindi": "लिखना",
+    "transliteration": "likhna",
+    "german": "schreiben",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_212",
+    "hindi": "सोना",
+    "transliteration": "sona",
+    "german": "schlafen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_213",
+    "hindi": "उठना",
+    "transliteration": "uthna",
+    "german": "aufstehen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_214",
+    "hindi": "बैठना",
+    "transliteration": "baithna",
+    "german": "sitzen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_215",
+    "hindi": "दौड़ना",
+    "transliteration": "daudna",
+    "german": "rennen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_216",
+    "hindi": "खेलना",
+    "transliteration": "khelna",
+    "german": "spielen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_217",
+    "hindi": "सोचना",
+    "transliteration": "sochna",
+    "german": "denken",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_218",
+    "hindi": "सीखना",
+    "transliteration": "seekhna",
+    "german": "lernen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_219",
+    "hindi": "देना",
+    "transliteration": "dena",
+    "german": "geben",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_220",
+    "hindi": "लेना",
+    "transliteration": "lena",
+    "german": "nehmen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_221",
+    "hindi": "पूछना",
+    "transliteration": "poochhna",
+    "german": "fragen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_222",
+    "hindi": "हँसना",
+    "transliteration": "hansna",
+    "german": "lachen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_223",
+    "hindi": "रोना",
+    "transliteration": "rona",
+    "german": "weinen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_224",
+    "hindi": "गाना",
+    "transliteration": "gaana",
+    "german": "singen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_225",
+    "hindi": "नाचना",
+    "transliteration": "naachna",
+    "german": "tanzen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_226",
+    "hindi": "पकाना",
+    "transliteration": "pakana",
+    "german": "kochen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_227",
+    "hindi": "धोना",
+    "transliteration": "dhona",
+    "german": "waschen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_228",
+    "hindi": "चलना",
+    "transliteration": "chalna",
+    "german": "laufen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_229",
+    "hindi": "रुकना",
+    "transliteration": "rukna",
+    "german": "stoppen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_230",
+    "hindi": "खोलना",
+    "transliteration": "kholna",
+    "german": "öffnen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_231",
+    "hindi": "बंद करना",
+    "transliteration": "band karna",
+    "german": "schließen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_232",
+    "hindi": "बनाना",
+    "transliteration": "banana",
+    "german": "machen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_233",
+    "hindi": "काम करना",
+    "transliteration": "kaam karna",
+    "german": "arbeiten",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_234",
+    "hindi": "पसंद करना",
+    "transliteration": "pasand karna",
+    "german": "mögen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_235",
+    "hindi": "समझना",
+    "transliteration": "samajhna",
+    "german": "verstehen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_236",
+    "hindi": "याद करना",
+    "transliteration": "yaad karna",
+    "german": "sich merken",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_237",
+    "hindi": "भूलना",
+    "transliteration": "bhoolna",
+    "german": "vergessen",
+    "category": "verbs"
+  },
+  {
+    "id": "voc_238",
+    "hindi": "समय",
+    "transliteration": "samay",
+    "german": "Zeit",
+    "category": "time"
+  },
+  {
+    "id": "voc_239",
+    "hindi": "आज",
+    "transliteration": "aaj",
+    "german": "heute",
+    "category": "time"
+  },
+  {
+    "id": "voc_240",
+    "hindi": "कल",
+    "transliteration": "kal",
+    "german": "morgen/gestern",
+    "category": "time"
+  },
+  {
+    "id": "voc_241",
+    "hindi": "सुबह",
+    "transliteration": "subah",
+    "german": "Morgen",
+    "category": "time"
+  },
+  {
+    "id": "voc_242",
+    "hindi": "दोपहर",
+    "transliteration": "dopahar",
+    "german": "Mittag",
+    "category": "time"
+  },
+  {
+    "id": "voc_243",
+    "hindi": "शाम",
+    "transliteration": "shaam",
+    "german": "Abend",
+    "category": "time"
+  },
+  {
+    "id": "voc_244",
+    "hindi": "रात",
+    "transliteration": "raat",
+    "german": "Nacht",
+    "category": "time"
+  },
+  {
+    "id": "voc_245",
+    "hindi": "घंटा",
+    "transliteration": "ghanta",
+    "german": "Stunde",
+    "category": "time"
+  },
+  {
+    "id": "voc_246",
+    "hindi": "मिनट",
+    "transliteration": "minute",
+    "german": "Minute",
+    "category": "time"
+  },
+  {
+    "id": "voc_247",
+    "hindi": "सेकंड",
+    "transliteration": "second",
+    "german": "Sekunde",
+    "category": "time"
+  },
+  {
+    "id": "voc_248",
+    "hindi": "सप्ताह",
+    "transliteration": "saptaah",
+    "german": "Woche",
+    "category": "time"
+  },
+  {
+    "id": "voc_249",
+    "hindi": "महीना",
+    "transliteration": "mahina",
+    "german": "Monat",
+    "category": "time"
+  },
+  {
+    "id": "voc_250",
+    "hindi": "साल",
+    "transliteration": "saal",
+    "german": "Jahr",
+    "category": "time"
+  },
+  {
+    "id": "voc_251",
+    "hindi": "सोमवार",
+    "transliteration": "somvaar",
+    "german": "Montag",
+    "category": "time"
+  },
+  {
+    "id": "voc_252",
+    "hindi": "मंगलवार",
+    "transliteration": "mangalvaar",
+    "german": "Dienstag",
+    "category": "time"
+  },
+  {
+    "id": "voc_253",
+    "hindi": "बुधवार",
+    "transliteration": "budhvaar",
+    "german": "Mittwoch",
+    "category": "time"
+  },
+  {
+    "id": "voc_254",
+    "hindi": "गुरुवार",
+    "transliteration": "guruvaar",
+    "german": "Donnerstag",
+    "category": "time"
+  },
+  {
+    "id": "voc_255",
+    "hindi": "शुक्रवार",
+    "transliteration": "shukravaar",
+    "german": "Freitag",
+    "category": "time"
+  },
+  {
+    "id": "voc_256",
+    "hindi": "शनिवार",
+    "transliteration": "shanivaar",
+    "german": "Samstag",
+    "category": "time"
+  },
+  {
+    "id": "voc_257",
+    "hindi": "रविवार",
+    "transliteration": "ravivaar",
+    "german": "Sonntag",
+    "category": "time"
+  },
+  {
+    "id": "voc_258",
+    "hindi": "शहर",
+    "transliteration": "shahar",
+    "german": "Stadt",
+    "category": "places"
+  },
+  {
+    "id": "voc_259",
+    "hindi": "गाँव",
+    "transliteration": "gaanv",
+    "german": "Dorf",
+    "category": "places"
+  },
+  {
+    "id": "voc_260",
+    "hindi": "देश",
+    "transliteration": "desh",
+    "german": "Land",
+    "category": "places"
+  },
+  {
+    "id": "voc_261",
+    "hindi": "सड़क",
+    "transliteration": "sadak",
+    "german": "Straße",
+    "category": "places"
+  },
+  {
+    "id": "voc_262",
+    "hindi": "बाज़ार",
+    "transliteration": "bazaar",
+    "german": "Markt",
+    "category": "places"
+  },
+  {
+    "id": "voc_263",
+    "hindi": "दुकान",
+    "transliteration": "dukaan",
+    "german": "Geschäft",
+    "category": "places"
+  },
+  {
+    "id": "voc_264",
+    "hindi": "स्कूल",
+    "transliteration": "school",
+    "german": "Schule",
+    "category": "places"
+  },
+  {
+    "id": "voc_265",
+    "hindi": "अस्पताल",
+    "transliteration": "aspataal",
+    "german": "Krankenhaus",
+    "category": "places"
+  },
+  {
+    "id": "voc_266",
+    "hindi": "होटल",
+    "transliteration": "hotel",
+    "german": "Hotel",
+    "category": "places"
+  },
+  {
+    "id": "voc_267",
+    "hindi": "स्टेशन",
+    "transliteration": "station",
+    "german": "Bahnhof",
+    "category": "places"
+  },
+  {
+    "id": "voc_268",
+    "hindi": "हवाई अड्डा",
+    "transliteration": "hawaai adda",
+    "german": "Flughafen",
+    "category": "places"
+  },
+  {
+    "id": "voc_269",
+    "hindi": "मंदिर",
+    "transliteration": "mandir",
+    "german": "Tempel",
+    "category": "places"
+  },
+  {
+    "id": "voc_270",
+    "hindi": "पार्क",
+    "transliteration": "park",
+    "german": "Park",
+    "category": "places"
+  },
+  {
+    "id": "voc_271",
+    "hindi": "पुस्तकालय",
+    "transliteration": "pustakalay",
+    "german": "Bibliothek",
+    "category": "places"
+  },
+  {
+    "id": "voc_272",
+    "hindi": "कार्यालय",
+    "transliteration": "karyalay",
+    "german": "Büro",
+    "category": "places"
+  },
+  {
+    "id": "voc_273",
+    "hindi": "रेस्तरां",
+    "transliteration": "restaurant",
+    "german": "Restaurant",
+    "category": "places"
+  },
+  {
+    "id": "voc_274",
+    "hindi": "समुद्र तट",
+    "transliteration": "samudra tat",
+    "german": "Strand",
+    "category": "places"
+  },
+  {
+    "id": "voc_275",
+    "hindi": "पुल",
+    "transliteration": "pul",
+    "german": "Brücke",
+    "category": "places"
+  },
+  {
+    "id": "voc_276",
+    "hindi": "चौराहा",
+    "transliteration": "chauraha",
+    "german": "Kreuzung",
+    "category": "places"
+  },
+  {
+    "id": "voc_277",
+    "hindi": "पता",
+    "transliteration": "pata",
+    "german": "Adresse",
+    "category": "places"
+  },
+  {
+    "id": "voc_278",
+    "hindi": "मानचित्र",
+    "transliteration": "manchitra",
+    "german": "Karte",
+    "category": "places"
+  },
+  {
+    "id": "voc_279",
+    "hindi": "यात्रा",
+    "transliteration": "yatra",
+    "german": "Reise",
+    "category": "places"
+  },
+  {
+    "id": "voc_280",
+    "hindi": "टिकट",
+    "transliteration": "ticket",
+    "german": "Ticket",
+    "category": "places"
+  },
+  {
+    "id": "voc_281",
+    "hindi": "सीमा",
+    "transliteration": "seema",
+    "german": "Grenze",
+    "category": "places"
+  },
+  {
+    "id": "voc_282",
+    "hindi": "पड़ोस",
+    "transliteration": "pados",
+    "german": "Nachbarschaft",
+    "category": "places"
+  },
+  {
+    "id": "voc_283",
+    "hindi": "मौसम",
+    "transliteration": "mausam",
+    "german": "Wetter",
+    "category": "weather"
+  },
+  {
+    "id": "voc_284",
+    "hindi": "गर्मी",
+    "transliteration": "garmi",
+    "german": "Hitze",
+    "category": "weather"
+  },
+  {
+    "id": "voc_285",
+    "hindi": "सर्दी",
+    "transliteration": "sardi",
+    "german": "Kälte",
+    "category": "weather"
+  },
+  {
+    "id": "voc_286",
+    "hindi": "धूप",
+    "transliteration": "dhoop",
+    "german": "Sonnenschein",
+    "category": "weather"
+  },
+  {
+    "id": "voc_287",
+    "hindi": "बादल",
+    "transliteration": "baadal",
+    "german": "Wolke",
+    "category": "weather"
+  },
+  {
+    "id": "voc_288",
+    "hindi": "बारिश",
+    "transliteration": "baarish",
+    "german": "Regen",
+    "category": "weather"
+  },
+  {
+    "id": "voc_289",
+    "hindi": "तूफ़ान",
+    "transliteration": "toofaan",
+    "german": "Sturm",
+    "category": "weather"
+  },
+  {
+    "id": "voc_290",
+    "hindi": "हवा",
+    "transliteration": "hawa",
+    "german": "Wind",
+    "category": "weather"
+  },
+  {
+    "id": "voc_291",
+    "hindi": "बिजली",
+    "transliteration": "bijli",
+    "german": "Blitz",
+    "category": "weather"
+  },
+  {
+    "id": "voc_292",
+    "hindi": "कोहरा",
+    "transliteration": "kohra",
+    "german": "Nebel",
+    "category": "weather"
+  },
+  {
+    "id": "voc_293",
+    "hindi": "नमी",
+    "transliteration": "nami",
+    "german": "Feuchtigkeit",
+    "category": "weather"
+  },
+  {
+    "id": "voc_294",
+    "hindi": "सूखा",
+    "transliteration": "sookha",
+    "german": "Trockenheit",
+    "category": "weather"
+  },
+  {
+    "id": "voc_295",
+    "hindi": "तापमान",
+    "transliteration": "taapmaan",
+    "german": "Temperatur",
+    "category": "weather"
+  },
+  {
+    "id": "voc_296",
+    "hindi": "गरज",
+    "transliteration": "garaj",
+    "german": "Donner",
+    "category": "weather"
+  },
+  {
+    "id": "voc_297",
+    "hindi": "इंद्रधनुष",
+    "transliteration": "indradhanush",
+    "german": "Regenbogen",
+    "category": "weather"
+  },
+  {
+    "id": "voc_298",
+    "hindi": "खुश",
+    "transliteration": "khush",
+    "german": "glücklich",
+    "category": "emotions"
+  },
+  {
+    "id": "voc_299",
+    "hindi": "दुखी",
+    "transliteration": "dukhi",
+    "german": "traurig",
+    "category": "emotions"
+  },
+  {
+    "id": "voc_300",
+    "hindi": "गुस्सा",
+    "transliteration": "gussa",
+    "german": "wütend",
+    "category": "emotions"
+  },
+  {
+    "id": "voc_301",
+    "hindi": "डर",
+    "transliteration": "dar",
+    "german": "Angst",
+    "category": "emotions"
+  },
+  {
+    "id": "voc_302",
+    "hindi": "प्यार",
+    "transliteration": "pyaar",
+    "german": "Liebe",
+    "category": "emotions"
+  },
+  {
+    "id": "voc_303",
+    "hindi": "नफरत",
+    "transliteration": "nafrat",
+    "german": "Hass",
+    "category": "emotions"
+  },
+  {
+    "id": "voc_304",
+    "hindi": "उत्साहित",
+    "transliteration": "utsaahit",
+    "german": "aufgeregt",
+    "category": "emotions"
+  },
+  {
+    "id": "voc_305",
+    "hindi": "शांत",
+    "transliteration": "shaant",
+    "german": "ruhig",
+    "category": "emotions"
+  },
+  {
+    "id": "voc_306",
+    "hindi": "थका हुआ",
+    "transliteration": "thaka hua",
+    "german": "müde",
+    "category": "emotions"
+  },
+  {
+    "id": "voc_307",
+    "hindi": "चिंतित",
+    "transliteration": "chintit",
+    "german": "besorgt",
+    "category": "emotions"
+  },
+  {
+    "id": "voc_308",
+    "hindi": "गर्व",
+    "transliteration": "garv",
+    "german": "Stolz",
+    "category": "emotions"
+  },
+  {
+    "id": "voc_309",
+    "hindi": "शर्मिंदा",
+    "transliteration": "sharminda",
+    "german": "beschämt",
+    "category": "emotions"
+  },
+  {
+    "id": "voc_310",
+    "hindi": "आश्चर्य",
+    "transliteration": "aashcharya",
+    "german": "Überraschung",
+    "category": "emotions"
+  },
+  {
+    "id": "voc_311",
+    "hindi": "उम्मीद",
+    "transliteration": "ummeed",
+    "german": "Hoffnung",
+    "category": "emotions"
+  },
+  {
+    "id": "voc_312",
+    "hindi": "ईर्ष्या",
+    "transliteration": "irshya",
+    "german": "Neid",
+    "category": "emotions"
+  },
+  {
+    "id": "voc_313",
+    "hindi": "किताब",
+    "transliteration": "kitaab",
+    "german": "Buch",
+    "category": "school_work"
+  },
+  {
+    "id": "voc_314",
+    "hindi": "कॉपी",
+    "transliteration": "copy",
+    "german": "Heft",
+    "category": "school_work"
+  },
+  {
+    "id": "voc_315",
+    "hindi": "कलम",
+    "transliteration": "kalam",
+    "german": "Stift",
+    "category": "school_work"
+  },
+  {
+    "id": "voc_316",
+    "hindi": "पेंसिल",
+    "transliteration": "pencil",
+    "german": "Bleistift",
+    "category": "school_work"
+  },
+  {
+    "id": "voc_317",
+    "hindi": "रबर",
+    "transliteration": "rubber",
+    "german": "Radiergummi",
+    "category": "school_work"
+  },
+  {
+    "id": "voc_318",
+    "hindi": "बैग",
+    "transliteration": "bag",
+    "german": "Tasche",
+    "category": "school_work"
+  },
+  {
+    "id": "voc_319",
+    "hindi": "शिक्षक",
+    "transliteration": "shikshak",
+    "german": "Lehrer",
+    "category": "school_work"
+  },
+  {
+    "id": "voc_320",
+    "hindi": "छात्र",
+    "transliteration": "chhatra",
+    "german": "Schüler",
+    "category": "school_work"
+  },
+  {
+    "id": "voc_321",
+    "hindi": "कक्षा",
+    "transliteration": "kaksha",
+    "german": "Klasse",
+    "category": "school_work"
+  },
+  {
+    "id": "voc_322",
+    "hindi": "होमवर्क",
+    "transliteration": "homework",
+    "german": "Hausaufgabe",
+    "category": "school_work"
+  },
+  {
+    "id": "voc_323",
+    "hindi": "परीक्षा",
+    "transliteration": "pariksha",
+    "german": "Prüfung",
+    "category": "school_work"
+  },
+  {
+    "id": "voc_324",
+    "hindi": "अंक",
+    "transliteration": "ank",
+    "german": "Note/Punkte",
+    "category": "school_work"
+  },
+  {
+    "id": "voc_325",
+    "hindi": "प्रश्न",
+    "transliteration": "prashn",
+    "german": "Frage",
+    "category": "school_work"
+  },
+  {
+    "id": "voc_326",
+    "hindi": "उत्तर",
+    "transliteration": "uttar",
+    "german": "Antwort",
+    "category": "school_work"
+  },
+  {
+    "id": "voc_327",
+    "hindi": "कार्य",
+    "transliteration": "kaarya",
+    "german": "Aufgabe",
+    "category": "school_work"
+  },
+  {
+    "id": "voc_328",
+    "hindi": "नौकरी",
+    "transliteration": "naukri",
+    "german": "Job",
+    "category": "school_work"
+  },
+  {
+    "id": "voc_329",
+    "hindi": "मिटिंग",
+    "transliteration": "meeting",
+    "german": "Besprechung",
+    "category": "school_work"
+  },
+  {
+    "id": "voc_330",
+    "hindi": "कंपनी",
+    "transliteration": "company",
+    "german": "Firma",
+    "category": "school_work"
+  },
+  {
+    "id": "voc_331",
+    "hindi": "वेतन",
+    "transliteration": "vetan",
+    "german": "Gehalt",
+    "category": "school_work"
+  },
+  {
+    "id": "voc_332",
+    "hindi": "छुट्टी",
+    "transliteration": "chhutti",
+    "german": "Urlaub/Ferien",
+    "category": "school_work"
+  },
+  {
+    "id": "voc_333",
+    "hindi": "बस",
+    "transliteration": "bus",
+    "german": "Bus",
+    "category": "transport"
+  },
+  {
+    "id": "voc_334",
+    "hindi": "ट्रेन",
+    "transliteration": "train",
+    "german": "Zug",
+    "category": "transport"
+  },
+  {
+    "id": "voc_335",
+    "hindi": "कार",
+    "transliteration": "car",
+    "german": "Auto",
+    "category": "transport"
+  },
+  {
+    "id": "voc_336",
+    "hindi": "साइकिल",
+    "transliteration": "cycle",
+    "german": "Fahrrad",
+    "category": "transport"
+  },
+  {
+    "id": "voc_337",
+    "hindi": "मोटरसाइकिल",
+    "transliteration": "motorcycle",
+    "german": "Motorrad",
+    "category": "transport"
+  },
+  {
+    "id": "voc_338",
+    "hindi": "रिक्शा",
+    "transliteration": "rickshaw",
+    "german": "Rikscha",
+    "category": "transport"
+  },
+  {
+    "id": "voc_339",
+    "hindi": "मेट्रो",
+    "transliteration": "metro",
+    "german": "U-Bahn",
+    "category": "transport"
+  },
+  {
+    "id": "voc_340",
+    "hindi": "टैक्सी",
+    "transliteration": "taxi",
+    "german": "Taxi",
+    "category": "transport"
+  },
+  {
+    "id": "voc_341",
+    "hindi": "नाव",
+    "transliteration": "naav",
+    "german": "Boot",
+    "category": "transport"
+  },
+  {
+    "id": "voc_342",
+    "hindi": "विमान",
+    "transliteration": "vimaan",
+    "german": "Flugzeug",
+    "category": "transport"
+  },
+  {
+    "id": "voc_343",
+    "hindi": "सीट बेल्ट",
+    "transliteration": "seat belt",
+    "german": "Sicherheitsgurt",
+    "category": "transport"
+  },
+  {
+    "id": "voc_344",
+    "hindi": "ट्रैफ़िक",
+    "transliteration": "traffic",
+    "german": "Verkehr",
+    "category": "transport"
+  },
+  {
+    "id": "voc_345",
+    "hindi": "सिग्नल",
+    "transliteration": "signal",
+    "german": "Ampel",
+    "category": "transport"
+  },
+  {
+    "id": "voc_346",
+    "hindi": "ड्राइवर",
+    "transliteration": "driver",
+    "german": "Fahrer",
+    "category": "transport"
+  },
+  {
+    "id": "voc_347",
+    "hindi": "पेट्रोल",
+    "transliteration": "petrol",
+    "german": "Benzin",
+    "category": "transport"
+  },
+  {
+    "id": "voc_348",
+    "hindi": "खेल",
+    "transliteration": "khel",
+    "german": "Sport",
+    "category": "sports"
+  },
+  {
+    "id": "voc_349",
+    "hindi": "फ़ुटबॉल",
+    "transliteration": "football",
+    "german": "Fußball",
+    "category": "sports"
+  },
+  {
+    "id": "voc_350",
+    "hindi": "क्रिकेट",
+    "transliteration": "cricket",
+    "german": "Cricket",
+    "category": "sports"
+  },
+  {
+    "id": "voc_351",
+    "hindi": "टेनिस",
+    "transliteration": "tennis",
+    "german": "Tennis",
+    "category": "sports"
+  },
+  {
+    "id": "voc_352",
+    "hindi": "बैडमिंटन",
+    "transliteration": "badminton",
+    "german": "Badminton",
+    "category": "sports"
+  },
+  {
+    "id": "voc_353",
+    "hindi": "तैरना",
+    "transliteration": "tairna",
+    "german": "schwimmen",
+    "category": "sports"
+  },
+  {
+    "id": "voc_354",
+    "hindi": "दौड़",
+    "transliteration": "daud",
+    "german": "Lauf",
+    "category": "sports"
+  },
+  {
+    "id": "voc_355",
+    "hindi": "योग",
+    "transliteration": "yog",
+    "german": "Yoga",
+    "category": "sports"
+  },
+  {
+    "id": "voc_356",
+    "hindi": "जिम",
+    "transliteration": "gym",
+    "german": "Fitnessstudio",
+    "category": "sports"
+  },
+  {
+    "id": "voc_357",
+    "hindi": "टीम",
+    "transliteration": "team",
+    "german": "Mannschaft",
+    "category": "sports"
+  },
+  {
+    "id": "voc_358",
+    "hindi": "कोच",
+    "transliteration": "coach",
+    "german": "Trainer",
+    "category": "sports"
+  },
+  {
+    "id": "voc_359",
+    "hindi": "मैच",
+    "transliteration": "match",
+    "german": "Spiel",
+    "category": "sports"
+  },
+  {
+    "id": "voc_360",
+    "hindi": "जीत",
+    "transliteration": "jeet",
+    "german": "Sieg",
+    "category": "sports"
+  },
+  {
+    "id": "voc_361",
+    "hindi": "हार",
+    "transliteration": "haar",
+    "german": "Niederlage",
+    "category": "sports"
+  },
+  {
+    "id": "voc_362",
+    "hindi": "आराम",
+    "transliteration": "aaraam",
+    "german": "Erholung",
+    "category": "sports"
+  },
+  {
+    "id": "voc_363",
+    "hindi": "बड़ा",
+    "transliteration": "bada",
+    "german": "groß",
+    "category": "adjectives"
+  },
+  {
+    "id": "voc_364",
+    "hindi": "छोटा",
+    "transliteration": "chhota",
+    "german": "klein",
+    "category": "adjectives"
+  },
+  {
+    "id": "voc_365",
+    "hindi": "अच्छा",
+    "transliteration": "accha",
+    "german": "gut",
+    "category": "adjectives"
+  },
+  {
+    "id": "voc_366",
+    "hindi": "बुरा",
+    "transliteration": "bura",
+    "german": "schlecht",
+    "category": "adjectives"
+  },
+  {
+    "id": "voc_367",
+    "hindi": "नया",
+    "transliteration": "naya",
+    "german": "neu",
+    "category": "adjectives"
+  },
+  {
+    "id": "voc_368",
+    "hindi": "पुराना",
+    "transliteration": "purana",
+    "german": "alt",
+    "category": "adjectives"
+  },
+  {
+    "id": "voc_369",
+    "hindi": "सुंदर",
+    "transliteration": "sundar",
+    "german": "schön",
+    "category": "adjectives"
+  },
+  {
+    "id": "voc_370",
+    "hindi": "भारी",
+    "transliteration": "bhaari",
+    "german": "schwer",
+    "category": "adjectives"
+  },
+  {
+    "id": "voc_371",
+    "hindi": "हल्का",
+    "transliteration": "halka",
+    "german": "leicht",
+    "category": "adjectives"
+  },
+  {
+    "id": "voc_372",
+    "hindi": "तेज़",
+    "transliteration": "tez",
+    "german": "schnell",
+    "category": "adjectives"
+  },
+  {
+    "id": "voc_373",
+    "hindi": "धीमा",
+    "transliteration": "dheema",
+    "german": "langsam",
+    "category": "adjectives"
+  },
+  {
+    "id": "voc_374",
+    "hindi": "ठंडा",
+    "transliteration": "thanda",
+    "german": "kalt",
+    "category": "adjectives"
+  },
+  {
+    "id": "voc_375",
+    "hindi": "गर्म",
+    "transliteration": "garam",
+    "german": "warm/heiß",
+    "category": "adjectives"
+  },
+  {
+    "id": "voc_376",
+    "hindi": "मीठा",
+    "transliteration": "meetha",
+    "german": "süß",
+    "category": "adjectives"
+  },
+  {
+    "id": "voc_377",
+    "hindi": "नमकीन",
+    "transliteration": "namkeen",
+    "german": "salzig",
+    "category": "adjectives"
+  },
+  {
+    "id": "voc_378",
+    "hindi": "कड़वा",
+    "transliteration": "kadva",
+    "german": "bitter",
+    "category": "adjectives"
+  },
+  {
+    "id": "voc_379",
+    "hindi": "मुश्किल",
+    "transliteration": "mushkil",
+    "german": "schwierig",
+    "category": "adjectives"
+  },
+  {
+    "id": "voc_380",
+    "hindi": "आसान",
+    "transliteration": "aasaan",
+    "german": "einfach",
+    "category": "adjectives"
+  },
+  {
+    "id": "voc_381",
+    "hindi": "महंगा",
+    "transliteration": "mehenga",
+    "german": "teuer",
+    "category": "adjectives"
+  },
+  {
+    "id": "voc_382",
+    "hindi": "सस्ता",
+    "transliteration": "sasta",
+    "german": "billig",
+    "category": "adjectives"
+  },
+  {
+    "id": "voc_383",
+    "hindi": "साबुन",
+    "transliteration": "saabun",
+    "german": "Seife",
+    "category": "personal_care"
+  },
+  {
+    "id": "voc_384",
+    "hindi": "शैम्पू",
+    "transliteration": "shampoo",
+    "german": "Shampoo",
+    "category": "personal_care"
+  },
+  {
+    "id": "voc_385",
+    "hindi": "टूथब्रश",
+    "transliteration": "toothbrush",
+    "german": "Zahnbürste",
+    "category": "personal_care"
+  },
+  {
+    "id": "voc_386",
+    "hindi": "टूथपेस्ट",
+    "transliteration": "toothpaste",
+    "german": "Zahnpasta",
+    "category": "personal_care"
+  },
+  {
+    "id": "voc_387",
+    "hindi": "तौलिया",
+    "transliteration": "tauliya",
+    "german": "Handtuch",
+    "category": "personal_care"
+  },
+  {
+    "id": "voc_388",
+    "hindi": "कंघी",
+    "transliteration": "kanghi",
+    "german": "Kamm",
+    "category": "personal_care"
+  },
+  {
+    "id": "voc_389",
+    "hindi": "क्रीम",
+    "transliteration": "cream",
+    "german": "Creme",
+    "category": "personal_care"
+  },
+  {
+    "id": "voc_390",
+    "hindi": "आईना",
+    "transliteration": "aaina",
+    "german": "Spiegel",
+    "category": "personal_care"
+  },
+  {
+    "id": "voc_391",
+    "hindi": "नहाना",
+    "transliteration": "nahaana",
+    "german": "duschen/baden",
+    "category": "personal_care"
+  },
+  {
+    "id": "voc_392",
+    "hindi": "साफ़",
+    "transliteration": "saaf",
+    "german": "sauber",
+    "category": "personal_care"
+  },
+  {
+    "id": "voc_393",
+    "hindi": "मोबाइल",
+    "transliteration": "mobile",
+    "german": "Handy",
+    "category": "technology"
+  },
+  {
+    "id": "voc_394",
+    "hindi": "कंप्यूटर",
+    "transliteration": "computer",
+    "german": "Computer",
+    "category": "technology"
+  },
+  {
+    "id": "voc_395",
+    "hindi": "लैपटॉप",
+    "transliteration": "laptop",
+    "german": "Laptop",
+    "category": "technology"
+  },
+  {
+    "id": "voc_396",
+    "hindi": "स्क्रीन",
+    "transliteration": "screen",
+    "german": "Bildschirm",
+    "category": "technology"
+  },
+  {
+    "id": "voc_397",
+    "hindi": "कीबोर्ड",
+    "transliteration": "keyboard",
+    "german": "Tastatur",
+    "category": "technology"
+  },
+  {
+    "id": "voc_398",
+    "hindi": "माउस",
+    "transliteration": "mouse",
+    "german": "Maus (PC)",
+    "category": "technology"
+  },
+  {
+    "id": "voc_399",
+    "hindi": "इंटरनेट",
+    "transliteration": "internet",
+    "german": "Internet",
+    "category": "technology"
+  },
+  {
+    "id": "voc_400",
+    "hindi": "चार्जर",
+    "transliteration": "charger",
+    "german": "Ladegerät",
+    "category": "technology"
+  }
+]
