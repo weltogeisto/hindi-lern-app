@@ -82,9 +82,39 @@ This command runs two processes in parallel: one for TailwindCSS and one for Typ
 
 ## Deployment
 
-This application is configured for deployment to GitHub Pages using a GitHub Actions workflow. Pushing changes to the `main` branch will trigger the workflow, which builds the application and deploys the contents of the `public` directory to your GitHub Pages site.
+The fastest setup is branch-based GitHub Pages:
 
-The workflow file is located at `.github/workflows/deploy.yml`.
+1. Go to **GitHub → your repo → Settings → Pages**.
+2. Under **Build and deployment**, choose **Source: Deploy from a branch**.
+3. Set **Branch: `main`** and **Folder: `/ (root)`**.
+4. Save.
+
+This repository now includes a root `index.html` that immediately redirects to `public/index.html`, so `main / root` works even though the app files live under `public/`.
+
+Optional advanced setup: `.github/workflows/deploy.yml` also supports deployment via **GitHub Actions**.
+
+### GitHub Pages Troubleshooting (if you only see the README page)
+
+If `https://<username>.github.io/<repo>/` shows the repository description/README instead of the app UI, GitHub Pages is likely serving from the wrong source.
+
+Use this setup:
+
+1. Go to **GitHub → your repo → Settings → Pages**.
+2. Under **Build and deployment**, choose **Source: Deploy from a branch**.
+3. Set **Branch: `main`** and **Folder: `/ (root)`**.
+4. Save and refresh the site after 1–3 minutes.
+5. If it still shows old content, run **Actions → Deploy to GitHub Pages → Run workflow** once, then refresh.
+
+### Using the app on Android
+
+Once the correct Pages source is live:
+
+1. Open the site in **Chrome** on Android.
+2. Tap the browser menu (**⋮**).
+3. Tap **Add to Home screen** (or **Install app** if shown).
+4. Launch it from your home screen like a native app.
+
+Because this project is a PWA (manifest + service worker), it can run offline after first load.
 
 ## Project Structure
 
