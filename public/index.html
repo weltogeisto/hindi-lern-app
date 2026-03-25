@@ -120,10 +120,31 @@
     </script>
 
     <script>
-        // During development, automatically unregister any existing service workers on localhost
-        // so the page will load the newest CSS/JS without manual DevTools intervention.
+        // Service worker registration with update detection
         if ('serviceWorker' in navigator) {
             const isLocal = location.hostname === '127.0.0.1' || location.hostname === 'localhost';
+
+            function showUpdateBanner(waitingSW) {
+                if (document.getElementById('sw-update-banner')) return;
+                const banner = document.createElement('div');
+                banner.id = 'sw-update-banner';
+                banner.style.cssText = 'position:fixed;top:0;left:0;right:0;z-index:10000;display:flex;align-items:center;justify-content:space-between;padding:0.7rem 1rem;background:linear-gradient(135deg,#1e1b4b,#0f172a);border-bottom:1px solid rgba(139,92,246,0.4);color:#e2e8f0;font-size:0.9rem;font-family:system-ui,sans-serif;box-shadow:0 4px 20px rgba(0,0,0,0.4)';
+                banner.innerHTML = '<span>A new version is available</span><button id="sw-update-btn" style="padding:0.4rem 1rem;border-radius:8px;background:linear-gradient(135deg,#8b5cf6,#06b6d4);color:#f8fafc;font-weight:700;font-size:0.85rem;border:none;cursor:pointer;box-shadow:0 4px 12px rgba(124,58,237,0.3)">Update now</button>';
+                document.body.prepend(banner);
+                document.getElementById('sw-update-btn').addEventListener('click', () => {
+                    waitingSW.postMessage({ type: 'SKIP_WAITING' });
+                    banner.querySelector('button').textContent = 'Updating…';
+                });
+            }
+
+            // Reload when new SW takes control
+            let refreshing = false;
+            navigator.serviceWorker.addEventListener('controllerchange', () => {
+                if (refreshing) return;
+                refreshing = true;
+                location.reload();
+            });
+
             window.addEventListener('load', async () => {
                 try {
                     if (isLocal) {
@@ -131,16 +152,30 @@
                         await Promise.all(regs.map(r => r.unregister().then(() => console.log('Dev: unregistered old SW', r.scope)).catch(() => {})));
                     }
 
-                    // Register the (new) service worker after cleanup
-                    navigator.serviceWorker.register('service-worker.js')
-                        .then(registration => {
-                            console.log('Service Worker registered: ', registration.scope);
-                        })
-                        .catch(error => {
-                            console.error('Service Worker registration failed: ', error);
+                    const registration = await navigator.serviceWorker.register('service-worker.js');
+                    console.log('Service Worker registered:', registration.scope);
+
+                    // If a new SW is already waiting (e.g. installed while page was open previously)
+                    if (registration.waiting) {
+                        showUpdateBanner(registration.waiting);
+                    }
+
+                    // Detect new SW installing
+                    registration.addEventListener('updatefound', () => {
+                        const newWorker = registration.installing;
+                        if (!newWorker) return;
+                        newWorker.addEventListener('statechange', () => {
+                            if (newWorker.state === 'installed' && navigator.serviceWorker.controller) {
+                                showUpdateBanner(newWorker);
+                            }
                         });
+                    });
+
+                    // Poll for updates every 60 seconds
+                    setInterval(() => { registration.update().catch(() => {}); }, 60000);
+
                 } catch (e) {
-                    console.warn('Service Worker dev unregister failed', e);
+                    console.warn('Service Worker registration failed', e);
                 }
             });
         }
