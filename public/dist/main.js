@@ -740,6 +740,7 @@ async function hydrateData() {
         buildVocabQueue();
         renderApp();
         showOnboarding();
+        window.__bootOk = true;
     }
     catch (error) {
         console.error('Failed to hydrate data', error);
