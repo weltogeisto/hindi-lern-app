@@ -13,29 +13,23 @@ export function setupPracticeArea(practiceContainerId: string): void {
     }
 
     container.innerHTML = `
-        <div id="practice-card" class="w-full max-w-lg mx-auto p-8 flex flex-col items-center bg-gradient-to-br from-slate-50 to-white rounded-xl shadow-lg" role="region" aria-label="Practice area">
+        <div id="practice-card" class="app-card w-full max-w-lg mx-auto p-8 flex flex-col items-center" role="region" aria-label="Practice area">
             <div id="practice-char" tabindex="0" 
-                class="p-8 mb-2 bg-white border-2 border-indigo-50 rounded-2xl shadow-lg transition-all duration-300 
-                       hover:shadow-xl hover:scale-105 hover:border-indigo-100
-                       text-center w-48 h-48 flex items-center justify-center text-6xl font-bold tracking-wide
-                       text-slate-700" 
+                class="practice-char-token p-8 mb-2 rounded-2xl transition-all duration-300 text-center w-48 h-48 flex items-center justify-center text-6xl font-bold tracking-wide" 
                 aria-live="polite"></div>
-            <div id="practice-translit" class="text-lg text-slate-500 font-medium mt-4 tracking-wide" aria-live="polite"></div>
+            <div id="practice-translit" class="helper-text text-lg font-medium mt-4 tracking-wide" aria-live="polite"></div>
             <form id="answer-form" class="w-full max-w-sm mt-4 flex gap-2">
                 <label for="answer-input" class="sr-only">Type the transliteration</label>
                 <input id="answer-input" name="answer-input" type="text" autocomplete="off" placeholder="Type the transliteration..."
-                    class="flex-1 px-3 py-2 rounded-lg border border-slate-200 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-300" />
+                    class="app-input flex-1 px-3 py-2 rounded-lg" />
                 <button id="check-answer" type="submit"
-                    class="px-4 py-2 bg-indigo-600 text-white rounded-lg font-semibold shadow-sm hover:bg-indigo-500 focus:outline-none focus:ring-2 focus:ring-indigo-400">
+                    class="btn-primary px-4 py-2 rounded-lg font-semibold">
                     Check
                 </button>
             </form>
             <div class="mt-8 flex flex-wrap gap-4 justify-center">
                 <button id="play-audio" 
-                    class="px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium
-                           transition-all duration-200 transform hover:scale-105 hover:bg-indigo-500 hover:shadow-lg
-                           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100
-                           focus:outline-none focus:ring-2 focus:ring-indigo-400 focus:ring-offset-2" 
+                    class="btn-primary px-6 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100" 
                     aria-label="Play audio">
                     <div class="flex items-center gap-2">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -46,10 +40,7 @@ export function setupPracticeArea(practiceContainerId: string): void {
                     </div>
                 </button>
                 <button id="knew-btn" 
-                    class="px-6 py-3 bg-emerald-600 text-white rounded-lg font-medium
-                           transition-all duration-200 transform hover:scale-105 hover:bg-emerald-500 hover:shadow-lg
-                           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100
-                           focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2">
+                    class="btn-primary btn-success px-6 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100">
                     <div class="flex items-center gap-2">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7" />
@@ -58,10 +49,7 @@ export function setupPracticeArea(practiceContainerId: string): void {
                     </div>
                 </button>
                 <button id="didnt-btn"
-                    class="px-6 py-3 bg-rose-600 text-white rounded-lg font-medium
-                           transition-all duration-200 transform hover:scale-105 hover:bg-rose-500 hover:shadow-lg
-                           active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100
-                           focus:outline-none focus:ring-2 focus:ring-rose-400 focus:ring-offset-2">
+                    class="btn-primary btn-danger px-6 py-3 rounded-lg font-medium transition-all duration-200 transform hover:scale-105 active:scale-95 disabled:opacity-50 disabled:cursor-not-allowed disabled:hover:scale-100">
                     <div class="flex items-center gap-2">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />

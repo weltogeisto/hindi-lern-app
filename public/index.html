@@ -45,7 +45,7 @@
                 .boot-shell__progress { animation: none; transform: none; width: 55%; }
             }
         </style>
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body class="bg-gradient-to-br from-slate-50 to-white min-h-screen text-slate-900">
     <div id="app" class="container mx-auto max-w-3xl p-4 sm:p-6 lg:p-8">
@@ -73,7 +73,51 @@
             </div>
         </main>
     </div>
+    <script>
+        window.__bootStarted = true;
+    </script>
     <script type="module" src="dist/main.js?v=1695490000"></script>
+    <script>
+        (function setupBootFallback() {
+            const timeoutMs = 4000;
+            const appEl = document.getElementById('app');
+            if (!appEl) return;
+
+            const clearHint = 'If this keeps happening, clear site data/cache and try again.';
+            const directUrl = `${location.origin}${location.pathname}`;
+
+            window.setTimeout(() => {
+                if (window.__bootOk) return;
+
+                appEl.className = 'max-w-xl mx-auto p-5 bg-white shadow-lg rounded-lg text-slate-800';
+                appEl.innerHTML = `
+                    <section aria-live="polite">
+                        <h1 class="text-xl font-bold mb-2">App failed to start</h1>
+                        <p class="text-sm text-slate-600 mb-4">
+                            Something went wrong while opening the app. Please try one of these quick fixes.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <button id="boot-reload-btn" class="px-3 py-2 rounded bg-indigo-600 text-white text-sm font-semibold">Reload</button>
+                            <a href="${directUrl}" class="px-3 py-2 rounded bg-slate-200 text-slate-800 text-sm font-semibold">Open app directly</a>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-3">${clearHint}</p>
+                        <details class="text-xs text-slate-500">
+                            <summary class="cursor-pointer">Diagnostics details</summary>
+                            <div class="mt-2 space-y-1">
+                                <p>Boot started: ${String(Boolean(window.__bootStarted))}</p>
+                                <p>Boot finished: ${String(Boolean(window.__bootOk))}</p>
+                                <p>URL: ${location.href}</p>
+                            </div>
+                        </details>
+                    </section>
+                `;
+
+                document.getElementById('boot-reload-btn')?.addEventListener('click', () => {
+                    location.reload();
+                });
+            }, timeoutMs);
+        })();
+    </script>
 
     <script>
         // During development, automatically unregister any existing service workers on localhost
@@ -88,7 +132,7 @@
                     }
 
                     // Register the (new) service worker after cleanup
-                    navigator.serviceWorker.register('/service-worker.js')
+                    navigator.serviceWorker.register('service-worker.js')
                         .then(registration => {
                             console.log('Service Worker registered: ', registration.scope);
                         })
