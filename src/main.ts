@@ -214,7 +214,7 @@ function renderVocabTab(container: HTMLElement): void {
     const dueCount = getDueCount();
 
     container.innerHTML = `
-        <section class="panel gradient-card">
+        <section class="app-card app-card--accent">
             <h1 class="hero-title">Hindi Vocabulary Trainer</h1>
             <p class="hero-subtitle">SM-2 spaced repetition — Flashcards, Multiple Choice and Typing.</p>
         </section>
@@ -439,7 +439,7 @@ function renderAlphabetTab(container: HTMLElement): void {
 
     container.innerHTML = `
         <div class="layout-grid">
-            <section class="panel hero-panel gradient-card">
+            <section class="app-card hero-app-card app-card--accent">
                 <div class="eyebrow">Devanagari Studio</div>
                 <h1 class="hero-title">नमस्ते! Learn Hindi Alphabets</h1>
                 <p class="hero-subtitle">Audio, SRS and Memory Mode for Devanagari practice.</p>
@@ -449,16 +449,16 @@ function renderAlphabetTab(container: HTMLElement): void {
                     <div class="hero-stat"><span>Best memory</span><strong>${bestScore ?? '—'}</strong></div>
                 </div>
             </section>
-            <section class="panel controls-panel">
-                <div class="panel-heading"><h2>Session controls</h2></div>
+            <section class="app-card controls-panel">
+                <div class="panel-heading"><h2 class="section-title">Session controls</h2></div>
                 <div id="controls-container" class="mb-4"></div>
             </section>
-            <section class="panel practice-panel">
-                <div class="panel-heading"><h2>Spaced repetition</h2></div>
+            <section class="app-card practice-panel">
+                <div class="panel-heading"><h2 class="section-title">Spaced repetition</h2></div>
                 <div id="practice-container" class="mb-6"></div>
             </section>
-            <section class="panel alphabet-panel">
-                <div class="panel-heading"><h2>Alphabet deck</h2></div>
+            <section class="app-card alphabet-panel">
+                <div class="panel-heading"><h2 class="section-title">Alphabet deck</h2></div>
                 <div id="alphabet-container" class="alphabet-grid"></div>
             </section>
         </div>
