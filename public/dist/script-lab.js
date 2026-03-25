@@ -1,5 +1,4 @@
-const SCRIPT_MODE = 'script-lab';
-const MODE_KEY = 'hindi_ui_mode';
+const OPEN_KEY = 'hindi_script_lab_open_v2';
 const LAB_KEY = 'hindi_script_lab_v1';
 const GHOST_KEY = 'hindi_ghost_transliteration_v1';
 
@@ -8,28 +7,25 @@ const DEFAULT_LAB_STATE = {
   correctStreak: 0,
   sessionCorrect: 0,
   sessionTotal: 0,
-  focusPair: null,
   focusCount: 0,
   confusions: {}
 };
 
 const SUPPORT_LABELS = ['Guided', 'Fading', 'Independent'];
-
 const COMMON_CONFUSIONS = [
-  ['क', 'ख'],
-  ['ग', 'घ'],
-  ['च', 'छ'],
-  ['ज', 'झ'],
-  ['ट', 'ठ'],
-  ['ड', 'ढ'],
-  ['त', 'थ'],
-  ['द', 'ध'],
-  ['ब', 'व'],
-  ['प', 'फ'],
-  ['स', 'श']
+  ['क', 'ख'], ['ग', 'घ'], ['च', 'छ'], ['ज', 'झ'], ['ट', 'ठ'], ['ड', 'ढ'],
+  ['त', 'थ'], ['द', 'ध'], ['ब', 'व'], ['प', 'फ'], ['स', 'श']
 ];
 
 let cachedData = null;
+
+function isOpen() {
+  return localStorage.getItem(OPEN_KEY) === '1';
+}
+
+function setOpen(value) {
+  localStorage.setItem(OPEN_KEY, value ? '1' : '0');
+}
 
 function loadLabState() {
   try {
@@ -42,15 +38,6 @@ function loadLabState() {
 
 function saveLabState(state) {
   localStorage.setItem(LAB_KEY, JSON.stringify(state));
-}
-
-function currentMode() {
-  return localStorage.getItem(MODE_KEY) || 'flashcard';
-}
-
-function setMode(mode) {
-  localStorage.setItem(MODE_KEY, mode);
-  window.dispatchEvent(new CustomEvent('scriptlab:modechange', { detail: mode }));
 }
 
 function ghostMode() {
@@ -70,7 +57,7 @@ async function loadScriptData() {
   ]);
   const [alphabet, vocabulary] = await Promise.all([alphabetRes.json(), vocabRes.json()]);
   const phrases = vocabulary.filter(v => ['phrases', 'questions', 'sentences'].includes(v.category));
-  cachedData = { alphabet, vocabulary, phrases };
+  cachedData = { alphabet, phrases };
   return cachedData;
 }
 
@@ -82,31 +69,9 @@ function sample(arr, n) {
   return shuffle(arr).slice(0, Math.min(n, arr.length));
 }
 
-function ensureModeButton(selectorRoot = document) {
-  const modeSelector = selectorRoot.querySelector('#mode-selector');
-  if (!modeSelector) return;
-  if (modeSelector.querySelector('[data-mode="script-lab"]')) return;
-
-  const btn = document.createElement('button');
-  btn.className = 'mode-btn';
-  btn.dataset.mode = SCRIPT_MODE;
-  btn.type = 'button';
-  btn.textContent = 'Script Lab';
-  btn.setAttribute('aria-pressed', currentMode() === SCRIPT_MODE ? 'true' : 'false');
-  btn.addEventListener('click', () => {
-    setMode(SCRIPT_MODE);
-    renderMaybe();
-  });
-  modeSelector.appendChild(btn);
-  updateModeButtonStyles();
-}
-
-function updateModeButtonStyles() {
-  document.querySelectorAll('.mode-btn').forEach(btn => {
-    const active = btn.dataset.mode === currentMode();
-    btn.classList.toggle('active', active);
-    btn.setAttribute('aria-pressed', String(active));
-  });
+function extractStrongValue(html) {
+  const match = html.match(/<strong>(.*?)<\/strong>/i);
+  return match ? match[1] : html.replace(/<[^>]+>/g, '').trim();
 }
 
 function injectQueueStats() {
@@ -138,18 +103,14 @@ function injectQueueStats() {
   stats.dataset.enhanced = 'true';
 }
 
-function extractStrongValue(html) {
-  const match = html.match(/<strong>(.*?)<\/strong>/i);
-  return match ? match[1] : html.replace(/<[^>]+>/g, '').trim();
-}
-
 function ensureGhostToggle() {
   document.body.setAttribute('data-ghost-transliteration', ghostMode());
   const panel = document.querySelector('.vocab-controls-panel');
-  if (!panel || panel.querySelector('.script-lab-toggle-row')) return;
+  if (!panel || panel.querySelector('.script-lab-toggle-row[data-role="ghost"]')) return;
 
   const row = document.createElement('div');
   row.className = 'script-lab-toggle-row';
+  row.dataset.role = 'ghost';
   row.innerHTML = `
     <button type="button" class="script-lab-toggle" data-ghost="ghost">Ghost transliteration</button>
     <button type="button" class="script-lab-toggle" data-ghost="off">Hide transliteration</button>
@@ -168,9 +129,46 @@ function ensureGhostToggle() {
 function ensureGhostToggleState() {
   const current = ghostMode();
   document.body.setAttribute('data-ghost-transliteration', current);
-  document.querySelectorAll('.script-lab-toggle').forEach(btn => {
+  document.querySelectorAll('.script-lab-toggle[data-ghost]').forEach(btn => {
     btn.classList.toggle('is-primary', btn.dataset.ghost === current);
   });
+}
+
+function ensureLaunchButton() {
+  const panel = document.querySelector('.vocab-controls-panel');
+  if (!panel || panel.querySelector('.script-lab-launch-wrap')) return;
+
+  const wrap = document.createElement('div');
+  wrap.className = 'script-lab-toggle-row script-lab-launch-wrap';
+  wrap.innerHTML = `
+    <button type="button" class="script-lab-btn is-primary" id="script-lab-open">Open Script Lab</button>
+    <button type="button" class="script-lab-btn" id="script-lab-close" style="display:${isOpen() ? 'inline-flex' : 'none'}">Return to study modes</button>
+  `;
+  panel.appendChild(wrap);
+
+  wrap.querySelector('#script-lab-open').addEventListener('click', () => {
+    setOpen(true);
+    syncLaunchState();
+    renderMaybe();
+  });
+  wrap.querySelector('#script-lab-close').addEventListener('click', () => {
+    setOpen(false);
+    syncLaunchState();
+    requestNativeRefresh();
+  });
+  syncLaunchState();
+}
+
+function syncLaunchState() {
+  const close = document.querySelector('#script-lab-close');
+  if (close) close.style.display = isOpen() ? 'inline-flex' : 'none';
+}
+
+function requestNativeRefresh() {
+  const active = document.querySelector('.mode-btn.active') || document.querySelector('.mode-btn[data-mode="flashcard"]');
+  if (active) {
+    active.dispatchEvent(new MouseEvent('click', { bubbles: true }));
+  }
 }
 
 function registerConfusion(state, expected, picked) {
@@ -216,6 +214,17 @@ function maybeAddConfusionOptions(alphabet, target) {
   return alphabet.filter(entry => pair.includes(entry.character) && entry.character !== target.character);
 }
 
+function speakHindi(text) {
+  try {
+    if (!('speechSynthesis' in window)) return;
+    const utter = new SpeechSynthesisUtterance(text);
+    utter.lang = 'hi-IN';
+    utter.rate = 0.92;
+    window.speechSynthesis.cancel();
+    window.speechSynthesis.speak(utter);
+  } catch {}
+}
+
 function buildDecodeExercise(data, state) {
   const target = sample(data.alphabet, 1)[0];
   return {
@@ -246,8 +255,7 @@ function buildDecodeExercise(data, state) {
         feedback.className = `script-lab-feedback ${ok ? 'good' : 'bad'}`;
         feedback.textContent = ok ? 'Correct. Your decoding is getting faster.' : `Not yet. Correct answer: ${target.transliteration}`;
         registerResult(state, ok);
-        saveLabState(state);
-        setTimeout(renderMaybe, 950);
+        setTimeout(renderMaybe, 900);
       };
       container.querySelector('#script-lab-check').addEventListener('click', check);
       input.addEventListener('keydown', ev => {
@@ -274,7 +282,7 @@ function buildChoiceExercise(data, state) {
           <div class="script-lab-ghost ${supportsHidden(state.supportStage) ? 'is-hidden' : ''}">Choose the correct character.</div>
           <div class="script-lab-choice-grid">
             ${options.map(opt => `
-              <button class="script-lab-choice" data-char="${opt.character}" data-translit="${opt.transliteration}">
+              <button class="script-lab-choice" data-char="${opt.character}">
                 <span class="big">${opt.character}</span>
                 <span class="small">${state.supportStage === 0 ? opt.transliteration : ''}</span>
               </button>
@@ -294,9 +302,8 @@ function buildChoiceExercise(data, state) {
           if (!ok) registerConfusion(state, target.character, btn.dataset.char);
           registerResult(state, ok);
           feedback.className = `script-lab-feedback ${ok ? 'good' : 'bad'}`;
-          feedback.textContent = ok ? 'Correct. Good symbol recognition.' : `That was ${btn.dataset.char}. Correct answer: ${target.character} — ${target.transliteration}`;
-          saveLabState(state);
-          setTimeout(renderMaybe, 1000);
+          feedback.textContent = ok ? 'Correct. Good symbol recognition.' : `Correct answer: ${target.character} — ${target.transliteration}`;
+          setTimeout(renderMaybe, 900);
         });
       });
     }
@@ -340,8 +347,7 @@ function buildWordBridgeExercise(data, state) {
           registerResult(state, ok);
           feedback.className = `script-lab-feedback ${ok ? 'good' : 'bad'}`;
           feedback.textContent = ok ? 'Correct. You are linking script directly to meaning.' : `Correct meaning: ${entry.english}`;
-          saveLabState(state);
-          setTimeout(renderMaybe, 1100);
+          setTimeout(renderMaybe, 1000);
         });
       });
     }
@@ -396,7 +402,6 @@ function chooseExercise(data, state) {
 
   state.focusCount = 0;
   saveLabState(state);
-
   const pool = [buildDecodeExercise, buildChoiceExercise, buildWordBridgeExercise];
   return pool[Math.floor(Math.random() * pool.length)](data, state);
 }
@@ -408,7 +413,7 @@ function accuracy(state) {
 function renderHeader(container, state, focus) {
   const focusCopy = focus
     ? `Most common confusion: ${focus.expected} vs ${focus.picked}`
-    : 'Train script recognition, transliteration, and direct meaning.';
+    : 'Train script recognition, transliteration, and direct meaning without breaking the regular study modes.';
   container.innerHTML = `
     <div class="script-lab-shell">
       <div class="script-lab-header">
@@ -431,7 +436,10 @@ function renderHeader(container, state, focus) {
           <button type="button" class="script-lab-toggle ${ghostMode() === 'off' ? 'is-primary' : ''}" data-ghost="off">Hide transliteration</button>
           <button type="button" class="script-lab-toggle ${ghostMode() === 'full' ? 'is-primary' : ''}" data-ghost="full">Show transliteration</button>
         </div>
-        <button type="button" class="script-lab-btn" id="script-lab-reset">Reset Script Lab stats</button>
+        <div class="script-lab-toggle-row">
+          <button type="button" class="script-lab-btn" id="script-lab-reset">Reset Script Lab stats</button>
+          <button type="button" class="script-lab-btn" id="script-lab-exit">Back to study modes</button>
+        </div>
       </div>
       <div id="script-lab-exercise"></div>
       <div class="script-lab-footer-note">Best practice: try to read first, reveal only when needed, and let the support level fade as you improve.</div>
@@ -448,6 +456,11 @@ function renderHeader(container, state, focus) {
     localStorage.setItem(LAB_KEY, JSON.stringify(DEFAULT_LAB_STATE));
     renderMaybe();
   });
+  container.querySelector('#script-lab-exit').addEventListener('click', () => {
+    setOpen(false);
+    syncLaunchState();
+    requestNativeRefresh();
+  });
 }
 
 async function renderScriptLab(cardArea) {
@@ -456,28 +469,16 @@ async function renderScriptLab(cardArea) {
   const focus = bestConfusion(state);
   renderHeader(cardArea, state, focus);
   const exercise = chooseExercise(data, state);
-  const target = cardArea.querySelector('#script-lab-exercise');
-  exercise.render(target);
-}
-
-function speakHindi(text) {
-  try {
-    if (!('speechSynthesis' in window)) return;
-    const utter = new SpeechSynthesisUtterance(text);
-    utter.lang = 'hi-IN';
-    utter.rate = 0.92;
-    window.speechSynthesis.cancel();
-    window.speechSynthesis.speak(utter);
-  } catch {}
+  exercise.render(cardArea.querySelector('#script-lab-exercise'));
 }
 
 function renderMaybe() {
-  updateModeButtonStyles();
   injectQueueStats();
   ensureGhostToggle();
+  ensureLaunchButton();
+  syncLaunchState();
   const area = document.querySelector('#vocab-card-area');
-  if (!area) return;
-  if (currentMode() !== SCRIPT_MODE) return;
+  if (!area || !isOpen()) return;
   renderScriptLab(area).catch(() => {
     area.innerHTML = '<div class="vocab-empty">Script Lab could not load right now. Refresh once and try again.</div>';
   });
@@ -487,31 +488,31 @@ function observe() {
   const app = document.querySelector('#app');
   if (!app) return;
   const observer = new MutationObserver(() => {
-    ensureModeButton(document);
     renderMaybe();
   });
   observer.observe(app, { childList: true, subtree: true });
 }
 
-function syncClickedMode() {
+function bindBaseModeClicks() {
   document.addEventListener('click', event => {
-    const btn = event.target.closest('.mode-btn');
-    if (!btn) return;
-    const mode = btn.dataset.mode;
-    if (!mode) return;
-    setMode(mode);
-    if (mode === SCRIPT_MODE) setTimeout(renderMaybe, 0);
+    const target = event.target;
+    if (!(target instanceof HTMLElement)) return;
+    const modeBtn = target.closest('.mode-btn');
+    if (modeBtn) {
+      setOpen(false);
+      syncLaunchState();
+      return;
+    }
   });
 }
 
 function bootEnhancements() {
   setGhostMode(ghostMode());
-  ensureModeButton(document);
-  injectQueueStats();
-  ensureGhostToggle();
-  syncClickedMode();
+  if (localStorage.getItem('hindi_ui_mode') === 'script-lab') {
+    localStorage.removeItem('hindi_ui_mode');
+  }
+  bindBaseModeClicks();
   observe();
-  window.addEventListener('scriptlab:modechange', renderMaybe);
   renderMaybe();
 }
 
