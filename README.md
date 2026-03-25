@@ -116,33 +116,6 @@ Once the correct Pages source is live:
 
 Because this project is a PWA (manifest + service worker), it can run offline after first load.
 
-### GitHub Pages Troubleshooting (if you only see the README page)
-
-If `https://<username>.github.io/<repo>/` shows the repository description/README instead of the app UI, GitHub Pages is likely serving from the wrong source.
-
-Use this setup:
-
-1. Go to **GitHub → your repo → Settings → Pages**.
-2. Under **Build and deployment**, choose **Source: Deploy from a branch**.
-3. Set **Branch: `gh-pages`** and **Folder: `/ (root)`**.
-4. Save, then push a new commit to `main` so `.github/workflows/deploy.yml` runs and republishes.
-5. Re-open `https://<username>.github.io/<repo>/` after 1–3 minutes.
-
-Optional fallback:
-
-* If you prefer not to use Actions, set Pages to **main / `public`** and ensure built assets are committed there. (Current workflow expects the `gh-pages` branch approach.)
-
-### Using the app on Android
-
-Once the correct Pages source is live:
-
-1. Open the site in **Chrome** on Android.
-2. Tap the browser menu (**⋮**).
-3. Tap **Add to Home screen** (or **Install app** if shown).
-4. Launch it from your home screen like a native app.
-
-Because this project is a PWA (manifest + service worker), it can run offline after first load.
-
 ## Project Structure
 
 ```
