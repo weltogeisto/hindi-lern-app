@@ -73,6 +73,18 @@ body::before {
     z-index: 0;
 }
 
+
+/* Static boot fallback (shown before JS app mounts) */
+#app.boot-shell {
+    background: #0f172a;
+    color: #e2e8f0;
+    border: 1px solid rgba(148, 163, 184, 0.35);
+}
+
+#app.boot-shell h1 {
+    color: #f8fafc;
+}
+
 #app.app-shell {
     position: relative;
     z-index: 1;
