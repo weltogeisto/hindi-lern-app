@@ -260,7 +260,7 @@ function renderVocabTab(container: HTMLElement): void {
     if (!area) return;
 
     if (!current) {
-        area.innerHTML = '<div class="vocab-empty">No cards in this category.</div>';
+        area.innerHTML = '<div class="vocab-empty">No cards here yet. Pick another category or choose “All” to keep practicing.</div>';
         return;
     }
 
@@ -397,10 +397,10 @@ function renderTypingCard(cardArea: HTMLElement, entry: VocabEntry): void {
         answerCorrect = typed === entry.transliteration.trim().toLowerCase();
         feedback.className = `typing-feedback ${answerCorrect ? 'feedback-correct' : 'feedback-wrong'}`;
         feedback.textContent = answerCorrect
-            ? 'Correct! Well done.'
-            : `Not quite. The answer is: ${entry.transliteration}`;
+            ? 'Correct — nice work.'
+            : `Not yet. Compare your answer with “${entry.transliteration}”, then tap Next.`;
         input.disabled = true;
-        submit.textContent = 'Next →';
+        submit.textContent = 'Next';
     };
 
     submit.addEventListener('click', () => {
@@ -535,13 +535,13 @@ function buildPracticeQueue(): void {
 
 function ensurePracticeQueue(): boolean {
     if (!appState.alphabet.length) {
-        showToast('Alphabet data is still loading. Please wait.');
+        showToast('Alphabet is still loading. Wait a moment, then try again.');
         return false;
     }
     if (!alphabetQueue.length) buildPracticeQueue();
     if (!alphabetQueue.length) {
         showPracticeEntry(null);
-        showToast('No cards to study. Try reloading.');
+        showToast('No practice cards found. Refresh the page to reload your deck.');
         return false;
     }
     return true;
@@ -552,7 +552,7 @@ function advanceToNext(): void {
     alphabetIndex += 1;
     if (alphabetIndex >= alphabetQueue.length) {
         showPracticeEntry(null);
-        showToast('Practice complete! Restart to keep going.');
+        showToast('Great session — you reached the end. Tap Start Practice to run another round.');
         return;
     }
 
@@ -569,7 +569,7 @@ function markKnown(): void {
     rec.due_date = new Date(Date.now() + rec.mastery_level * 24 * 60 * 60 * 1000).toISOString();
     appState.srs[key] = rec;
     saveSrs();
-    showToast('Nice! Moving to the next card.');
+    showToast('Nice work. Moving to the next card.');
     advanceToNext();
 }
 
@@ -617,13 +617,13 @@ function exportSrs(): void {
 function bindAlphabetUI(): void {
     const startPractice = () => {
         if (!appState.alphabet.length) {
-            showToast('Alphabet data is still loading.');
+            showToast('Alphabet is still loading. Wait a moment, then tap Start Practice again.');
             return;
         }
         buildPracticeQueue();
         alphabetIndex = -1;
         advanceToNext();
-        showToast('Practice started!');
+        showToast('Practice started. Type your answer or use audio for a hint.');
     };
 
     bindControlCallbacks(startPractice, () => {
@@ -658,10 +658,10 @@ function bindAlphabetUI(): void {
         if (translitEl) translitEl.textContent = entry.transliteration || '';
 
         if (guess === target) {
-            showToast('Correct!');
+            showToast('Correct. Keep going!');
             markKnown();
         } else {
-            showToast(`Not quite. Expected: ${entry.transliteration}`);
+            showToast(`Not yet. Expected: ${entry.transliteration}. Listen once, then try the next card.`);
             markUnknown();
         }
     });
@@ -730,7 +730,7 @@ function ensureMemoryHandler(container: HTMLElement): void {
 
 function startMemoryMode(pairCount = 8): void {
     if (!appState.alphabet.length) {
-        showToast('Alphabet data is still loading.');
+        showToast('Alphabet is still loading. Wait a moment, then try Memory again.');
         return;
     }
 
@@ -747,7 +747,7 @@ function newMemoryGame(pairCount = 8): void {
     if (!container) return;
     ensureMemoryHandler(container);
     container.querySelectorAll('.memory-tile').forEach(el => el.classList.remove('matched', 'revealed'));
-    showToast('New memory game ready');
+    showToast('New memory game is ready.');
 }
 
 function showToast(message: string, duration = 2500): void {
@@ -820,7 +820,7 @@ async function hydrateData(): Promise<void> {
         showOnboarding();
     } catch (error) {
         console.error('Failed to hydrate data', error);
-        showToast('Failed to load data. Please refresh.');
+        showToast('We couldn’t load your study data. Refresh the page. If this keeps happening, check your connection and try again.');
     }
 }
 
@@ -833,9 +833,9 @@ function showOnboarding(): void {
     overlay.innerHTML = `
         <div class="onboarding-modal" role="dialog" aria-modal="true" aria-labelledby="onboarding-title">
             <div class="onboarding-emoji">🇮🇳</div>
-            <h1 id="onboarding-title" class="onboarding-title">Welcome to Hindi!</h1>
+            <h1 id="onboarding-title" class="onboarding-title">Learn to read, hear, and use beginner Hindi in daily situations.</h1>
             <p class="onboarding-body">
-                This app takes you from zero to <strong>A2 level Hindi</strong> — for complete beginners.
+                Follow short daily practice to build Devanagari reading, core vocabulary, and simple sentence patterns — even if you’re starting from zero.
             </p>
             <div class="onboarding-steps">
                 <div class="onboarding-step"><span class="step-icon">🔤</span><div><strong>Alphabet tab</strong> — Learn Devanagari script with audio &amp; spaced repetition</div></div>
@@ -843,8 +843,8 @@ function showOnboarding(): void {
                 <div class="onboarding-step"><span class="step-icon">📖</span><div><strong>Grammar tab</strong> — 12 interactive lessons from sentence structure to past &amp; future tense</div></div>
                 <div class="onboarding-step"><span class="step-icon">🔊</span><div><strong>Audio</strong> — Tap any 🔊 button to hear native Hindi pronunciation</div></div>
             </div>
-            <p class="onboarding-tip">💡 <em>Tip: Study a little each day — the SM-2 algorithm schedules reviews for you automatically.</em></p>
-            <button id="onboarding-start" class="onboarding-btn">Start Learning Hindi →</button>
+            <p class="onboarding-tip">💡 <em>Tip: Do 10–15 minutes daily. Reviews are auto-scheduled so you remember more with less effort.</em></p>
+            <button id="onboarding-start" class="onboarding-btn">Start first session</button>
         </div>
     `;
     document.body.appendChild(overlay);
