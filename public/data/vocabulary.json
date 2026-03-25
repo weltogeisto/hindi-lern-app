@@ -4038,5 +4038,355 @@
     "transliteration": "bharaa huaa",
     "english": "full / filled",
     "category": "adjectives"
+  },
+  {
+    "id": "voc_521",
+    "hindi": "कृपया मदद कीजिए।",
+    "transliteration": "Kripayaa madad kiijiye.",
+    "english": "Please help me.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_522",
+    "hindi": "माफ़ कीजिए।",
+    "transliteration": "Maaf kiijiye.",
+    "english": "Excuse me. / I'm sorry.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_523",
+    "hindi": "यह कितने का है?",
+    "transliteration": "Yah kitne kaa hai?",
+    "english": "How much does this cost?",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_524",
+    "hindi": "बहुत महँगा है।",
+    "transliteration": "Bahut mahangaa hai.",
+    "english": "It's too expensive.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_525",
+    "hindi": "कुछ कम कीजिए।",
+    "transliteration": "Kuch kam kiijiye.",
+    "english": "Please reduce the price.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_526",
+    "hindi": "मुझे यह चाहिए।",
+    "transliteration": "Mujhe yah chaahiye.",
+    "english": "I need this. / I want this.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_527",
+    "hindi": "मुझे भूख लगी है।",
+    "transliteration": "Mujhe bhuukh lagii hai.",
+    "english": "I'm hungry.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_528",
+    "hindi": "मुझे प्यास लगी है।",
+    "transliteration": "Mujhe pyaas lagii hai.",
+    "english": "I'm thirsty.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_529",
+    "hindi": "बिल दीजिए।",
+    "transliteration": "Bil diijiye.",
+    "english": "The bill, please.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_530",
+    "hindi": "बहुत स्वादिष्ट है।",
+    "transliteration": "Bahut svaadisht hai.",
+    "english": "It's very delicious.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_531",
+    "hindi": "यह कहाँ है?",
+    "transliteration": "Yah kahaan hai?",
+    "english": "Where is this?",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_532",
+    "hindi": "बाएँ मुड़िए।",
+    "transliteration": "Baayen muriye.",
+    "english": "Turn left.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_533",
+    "hindi": "दाएँ मुड़िए।",
+    "transliteration": "Daayen muriye.",
+    "english": "Turn right.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_534",
+    "hindi": "सीधे जाइए।",
+    "transliteration": "Siidhe jaaiye.",
+    "english": "Go straight.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_535",
+    "hindi": "कितनी दूर है?",
+    "transliteration": "Kitnii duur hai?",
+    "english": "How far is it?",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_536",
+    "hindi": "मैं ठीक हूँ।",
+    "transliteration": "Main thiik huun.",
+    "english": "I'm fine.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_537",
+    "hindi": "क्या हुआ?",
+    "transliteration": "Kyaa huaa?",
+    "english": "What happened?",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_538",
+    "hindi": "कोई बात नहीं।",
+    "transliteration": "Koii baat nahin.",
+    "english": "No worries. / It doesn't matter.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_539",
+    "hindi": "मुझे पसंद है।",
+    "transliteration": "Mujhe pasand hai.",
+    "english": "I like it.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_540",
+    "hindi": "मुझे पसंद नहीं है।",
+    "transliteration": "Mujhe pasand nahin hai.",
+    "english": "I don't like it.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_541",
+    "hindi": "बहुत अच्छा!",
+    "transliteration": "Bahut acchaa!",
+    "english": "Very good! / Excellent!",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_542",
+    "hindi": "मुझे खुशी हुई।",
+    "transliteration": "Mujhe khushii huii.",
+    "english": "I'm glad. / Nice to hear.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_543",
+    "hindi": "मुझे अफ़सोस है।",
+    "transliteration": "Mujhe afsos hai.",
+    "english": "I'm sorry. / I regret it.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_544",
+    "hindi": "कब तक?",
+    "transliteration": "Kab tak?",
+    "english": "Until when? / By when?",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_545",
+    "hindi": "कितना समय लगेगा?",
+    "transliteration": "Kitnaa samay lagegaa?",
+    "english": "How long will it take?",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_546",
+    "hindi": "अभी आता/आती हूँ।",
+    "transliteration": "Abhii aataa/aatii huun.",
+    "english": "I'm coming right now.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_547",
+    "hindi": "मदद!",
+    "transliteration": "Madad!",
+    "english": "Help!",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_548",
+    "hindi": "मुझे डॉक्टर चाहिए।",
+    "transliteration": "Mujhe DaakTar chaahiye.",
+    "english": "I need a doctor.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_549",
+    "hindi": "मैं रास्ता भूल गया/गई।",
+    "transliteration": "Main raastaa bhuul gayaa/gaii.",
+    "english": "I'm lost.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_550",
+    "hindi": "क्या आप अंग्रेज़ी बोलते हैं?",
+    "transliteration": "Kyaa aap angrezii bolte hain?",
+    "english": "Do you speak English?",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_551",
+    "hindi": "मैं हिंदी सीख रहा/रही हूँ।",
+    "transliteration": "Main hindii siikh rahaa/rahii huun.",
+    "english": "I'm learning Hindi.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_552",
+    "hindi": "धीरे बोलिए।",
+    "transliteration": "Dhiire boliye.",
+    "english": "Please speak slowly.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_553",
+    "hindi": "इसका मतलब क्या है?",
+    "transliteration": "Iskaa matlab kyaa hai?",
+    "english": "What does this mean?",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_554",
+    "hindi": "यह कैसे कहते हैं?",
+    "transliteration": "Yah kaise kahte hain?",
+    "english": "How do you say this?",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_555",
+    "hindi": "कृपया लिख दीजिए।",
+    "transliteration": "Kripayaa likh diijiye.",
+    "english": "Please write it down.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_556",
+    "hindi": "मैं थक गया/गई।",
+    "transliteration": "Main thak gayaa/gaii.",
+    "english": "I'm tired.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_557",
+    "hindi": "मुझे देर हो रही है।",
+    "transliteration": "Mujhe der ho rahii hai.",
+    "english": "I'm getting late.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_558",
+    "hindi": "क्या यह सही रास्ता है?",
+    "transliteration": "Kyaa yah sahii raastaa hai?",
+    "english": "Is this the right way?",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_559",
+    "hindi": "मुझे समझ नहीं आया।",
+    "transliteration": "Mujhe samajh nahin aayaa.",
+    "english": "I didn't understand.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_560",
+    "hindi": "एक बार फिर से।",
+    "transliteration": "Ek baar phir se.",
+    "english": "Once more. / One more time.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_561",
+    "hindi": "आप कहाँ से हैं?",
+    "transliteration": "Aap kahaan se hain?",
+    "english": "Where are you from?",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_562",
+    "hindi": "मेरा नाम ... है।",
+    "transliteration": "Meraa naam ... hai.",
+    "english": "My name is ...",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_563",
+    "hindi": "आपसे मिलकर खुशी हुई।",
+    "transliteration": "Aapse milkar khushii huii.",
+    "english": "Nice to meet you.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_564",
+    "hindi": "शुभ रात्रि।",
+    "transliteration": "Shubh raatri.",
+    "english": "Good night.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_565",
+    "hindi": "कल मिलते हैं।",
+    "transliteration": "Kal milte hain.",
+    "english": "See you tomorrow.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_566",
+    "hindi": "क्या हालचाल है?",
+    "transliteration": "Kyaa haalchaal hai?",
+    "english": "How's it going?",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_567",
+    "hindi": "बैठिए।",
+    "transliteration": "Baithiye.",
+    "english": "Please sit down.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_568",
+    "hindi": "पानी दीजिए।",
+    "transliteration": "Paanii diijiye.",
+    "english": "Please give me water.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_569",
+    "hindi": "यह बहुत सुंदर है।",
+    "transliteration": "Yah bahut sundar hai.",
+    "english": "This is very beautiful.",
+    "category": "phrases"
+  },
+  {
+    "id": "voc_570",
+    "hindi": "ध्यान रखिए।",
+    "transliteration": "Dhyaan rakhiye.",
+    "english": "Take care.",
+    "category": "phrases"
   }
 ]
