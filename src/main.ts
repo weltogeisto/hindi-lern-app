@@ -6,6 +6,14 @@ import { playAudio, playHindi } from './utils/audioPlayer.js';
 import createModal from './components/modal.js';
 import { createNewCard, updateSm2, isDue, SrsCard } from './utils/sm2.js';
 import { renderGrammarTab } from './components/grammarModule.js';
+import {
+    applyGhostModeFromStorage,
+    getGhostMode,
+    setGhostMode,
+    renderScriptLab,
+    loadScriptLabState,
+    getScriptLabAccuracy
+} from './components/scriptLab.js';
 
 type TabId = 'vocab' | 'alphabet' | 'grammar' | 'dashboard';
 type QuizMode = 'flashcard' | 'multiple-choice' | 'typing';
@@ -35,10 +43,12 @@ const SRS_STORAGE_KEY = 'hindi_app_srs_v1';
 const VOCAB_SRS_KEY = 'hindi_vocab_srs_v2';
 const STREAK_KEY = 'hindi_vocab_streak_v1';
 const MEMORY_BEST_KEY = 'hindi_app_memory_best_v1';
+const LEGACY_SCRIPT_LAB_OPEN_KEY = 'hindi_script_lab_open_v2';
 
 let appState: AppState = { alphabet: [], srs: {}, vocab: [], vocabSrs: {} };
 let activeTab: TabId = 'vocab';
 let activeMode: QuizMode = 'flashcard';
+let vocabView: 'study' | 'script-lab' = 'study';
 let activeCategory = 'all';
 let vocabQueue: VocabEntry[] = [];
 let vocabIndex = 0;
@@ -145,6 +155,16 @@ function updateStreak(): void {
     localStorage.setItem(STREAK_KEY, JSON.stringify({ lastStudyDate: today, streak }));
 }
 
+
+function clearLegacyModeState(): void {
+    try {
+        localStorage.removeItem('hindi_ui_mode');
+        localStorage.removeItem(LEGACY_SCRIPT_LAB_OPEN_KEY);
+    } catch (e) {
+        console.warn('Unable to clear legacy UI state', e);
+    }
+}
+
 function setTab(tab: TabId): void {
     activeTab = tab;
     renderApp();
@@ -220,11 +240,14 @@ function renderVocabTab(container: HTMLElement): void {
     const current = vocabQueue[vocabIndex];
     const reviewed = getReviewedCount();
     const dueCount = getDueCount();
+    const streak = loadStreak().streak;
+    const accuracy = getScriptLabAccuracy(loadScriptLabState());
+    const ghost = getGhostMode();
 
     container.innerHTML = `
         <section class="app-card app-card--accent">
             <h1 class="hero-title">Hindi Vocabulary Trainer</h1>
-            <p class="hero-subtitle">SM-2 spaced repetition — Flashcards, Multiple Choice and Typing.</p>
+            <p class="hero-subtitle">Reliable study modes + dedicated Script Lab for Devanagari fluency.</p>
         </section>
         <section class="panel vocab-controls-panel">
             <div class="vocab-control-group">
@@ -232,14 +255,34 @@ function renderVocabTab(container: HTMLElement): void {
                 <div class="category-pills-container" id="category-pills"></div>
             </div>
             <div class="vocab-control-group">
-                <div class="group-label">Mode</div>
+                <div class="group-label">Study modes</div>
                 <div class="mode-selector" id="mode-selector">
                     <button class="mode-btn ${activeMode === 'flashcard' ? 'active' : ''}" data-mode="flashcard" aria-pressed="${activeMode === 'flashcard'}">Flashcard</button>
                     <button class="mode-btn ${activeMode === 'multiple-choice' ? 'active' : ''}" data-mode="multiple-choice" aria-pressed="${activeMode === 'multiple-choice'}">Multiple Choice</button>
                     <button class="mode-btn ${activeMode === 'typing' ? 'active' : ''}" data-mode="typing" aria-pressed="${activeMode === 'typing'}">Typing</button>
                 </div>
             </div>
-            <div class="queue-stats"><span>Due today: <strong>${Math.min(dueCount, vocabQueue.length)}</strong></span><span>Reviewed: <strong>${reviewed}</strong></span></div>
+            <div class="vocab-control-group">
+                <div class="group-label">Transliteration</div>
+                <div class="mode-selector">
+                    <button class="mode-btn ${ghost === 'ghost' ? 'active' : ''}" data-ghost="ghost">Ghost</button>
+                    <button class="mode-btn ${ghost === 'off' ? 'active' : ''}" data-ghost="off">Hidden</button>
+                    <button class="mode-btn ${ghost === 'full' ? 'active' : ''}" data-ghost="full">Visible</button>
+                </div>
+            </div>
+            <div class="vocab-control-group">
+                <div class="group-label">Script Lab</div>
+                <div class="mode-selector">
+                    <button class="mode-btn script-lab-launch ${vocabView === 'script-lab' ? 'active' : ''}" id="script-lab-open" aria-pressed="${vocabView === 'script-lab'}">Open Script Lab</button>
+                    <button class="mode-btn" id="script-lab-close" style="display:${vocabView === 'script-lab' ? 'inline-flex' : 'none'}">Return to study modes</button>
+                </div>
+            </div>
+            <div class="queue-stats">
+                <span><span>Due today</span><strong>${Math.min(dueCount, vocabQueue.length)}</strong></span>
+                <span><span>Reviewed</span><strong>${reviewed}</strong></span>
+                <span><span>Streak</span><strong>${streak}</strong></span>
+                <span><span>Accuracy</span><strong>${accuracy}%</strong></span>
+            </div>
         </section>
         <div id="vocab-card-area" class="vocab-card-area"></div>
         <section class="panel progress-section">
@@ -264,16 +307,46 @@ function renderVocabTab(container: HTMLElement): void {
         });
     }
 
-    container.querySelectorAll<HTMLButtonElement>('.mode-btn').forEach(btn => {
+    container.querySelectorAll<HTMLButtonElement>('.mode-btn[data-mode]').forEach(btn => {
         btn.addEventListener('click', () => {
             activeMode = btn.dataset.mode as QuizMode;
+            vocabView = 'study';
             cardFlipped = false;
             renderVocabTab(container);
         });
     });
 
+    container.querySelectorAll<HTMLButtonElement>('.mode-btn[data-ghost]').forEach(btn => {
+        btn.addEventListener('click', () => {
+            setGhostMode((btn.dataset.ghost as 'ghost' | 'off' | 'full') || 'ghost');
+            renderVocabTab(container);
+        });
+    });
+
+    document.getElementById('script-lab-open')?.addEventListener('click', () => {
+        vocabView = 'script-lab';
+        renderVocabTab(container);
+    });
+
+    document.getElementById('script-lab-close')?.addEventListener('click', () => {
+        vocabView = 'study';
+        cardFlipped = false;
+        renderVocabTab(container);
+    });
+
     const area = document.getElementById('vocab-card-area');
     if (!area) return;
+
+    if (vocabView === 'script-lab') {
+        renderScriptLab(area, appState.alphabet, appState.vocab, {
+            onExit: () => {
+                vocabView = 'study';
+                renderVocabTab(container);
+            },
+            playHindi
+        });
+        return;
+    }
 
     if (!current) {
         area.innerHTML = '<div class="vocab-empty">No cards here yet. Pick another category or choose “All” to keep practicing.</div>';
@@ -804,6 +877,8 @@ function updateBestMemoryScore(attempts: number): void {
 
 async function hydrateData(): Promise<void> {
     try {
+        clearLegacyModeState();
+        applyGhostModeFromStorage();
         loadSrs();
         loadVocabSrs();
 
