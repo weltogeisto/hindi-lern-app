@@ -2,18 +2,18 @@
   "name": "Learn Hindi — A1/A2",
   "short_name": "Learn Hindi",
   "description": "A PWA for English speakers learning Hindi up to A2 level. Includes Devanagari alphabet, 520+ vocabulary words with spaced repetition, and 12 grammar lessons.",
-  "start_url": "/",
+  "start_url": ".",
   "display": "standalone",
   "background_color": "#0f172a",
   "theme_color": "#8b5cf6",
   "icons": [
     {
-      "src": "/icon-192.svg",
+      "src": "icon-192.svg",
       "sizes": "192x192",
       "type": "image/svg+xml"
     },
     {
-      "src": "/icon-512.svg",
+      "src": "icon-512.svg",
       "sizes": "512x512",
       "type": "image/svg+xml"
     }
