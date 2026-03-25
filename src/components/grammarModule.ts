@@ -47,7 +47,7 @@ export async function renderGrammarTab(container: HTMLElement): Promise<void> {
         const res = await fetch('data/grammar.json');
         lessons = await res.json() as GrammarLesson[];
     } catch {
-        container.innerHTML = '<div class="vocab-empty">Could not load grammar data.</div>';
+        container.innerHTML = '<div class="vocab-empty">We couldn’t load grammar lessons. Refresh the page to retry.</div>';
         return;
     }
 
@@ -175,7 +175,7 @@ function startExercises(
             area.innerHTML = `
                 <div class="exercise-complete">
                     <div class="exercise-score">${correct} / ${exercises.length} correct — ${pct}%</div>
-                    <p>${pct >= 70 ? '🎉 Great work! Lesson complete.' : '📖 Review the lesson above and try again for a higher score.'}</p>
+                    <p>${pct >= 70 ? '🎉 Great work — lesson complete. Choose another lesson to keep momentum.' : '📖 Review the explanation above, then tap Try Again to improve your score.'}</p>
                     <button class="exercise-retry-btn" id="retry-btn">Try Again</button>
                 </div>
             `;
@@ -220,7 +220,7 @@ function startExercises(
 
                 const fb = area.querySelector<HTMLElement>('#exercise-feedback');
                 if (fb) {
-                    fb.textContent = isRight ? '✓ Correct!' : `✗ The answer is: ${ex.answer}`;
+                    fb.textContent = isRight ? '✓ Correct.' : `✗ Not yet. Correct answer: ${ex.answer}`;
                     fb.className = `exercise-feedback ${isRight ? 'feedback-correct' : 'feedback-wrong'}`;
                 }
 
