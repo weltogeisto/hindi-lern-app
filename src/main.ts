@@ -818,6 +818,7 @@ async function hydrateData(): Promise<void> {
         buildVocabQueue();
         renderApp();
         showOnboarding();
+        (window as Window & { __bootOk?: boolean }).__bootOk = true;
     } catch (error) {
         console.error('Failed to hydrate data', error);
         showToast('Failed to load data. Please refresh.');
