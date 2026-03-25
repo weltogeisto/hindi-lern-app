@@ -85,7 +85,7 @@
     "transliteration": "shukriya",
     "german": "Vielen Dank",
     "category": "greetings",
-    "english": "Thank you very much"
+    "english": "Thank you (informal)"
   },
   {
     "id": "voc_012",
@@ -362,7 +362,7 @@
   {
     "id": "voc_046",
     "hindi": "सुनहरा",
-    "transliteration": "sunahra",
+    "transliteration": "sunaharaa",
     "german": "Gold",
     "category": "colors",
     "english": "Gold"
@@ -641,8 +641,8 @@
   },
   {
     "id": "voc_081",
-    "hindi": "होठ",
-    "transliteration": "honth",
+    "hindi": "होंठ",
+    "transliteration": "hoNTh",
     "german": "Lippe",
     "category": "body",
     "english": "Lip"
@@ -1853,7 +1853,7 @@
     "transliteration": "banana",
     "german": "machen",
     "category": "verbs",
-    "english": "to do / make"
+    "english": "to make / create / prepare"
   },
   {
     "id": "voc_233",
@@ -2218,7 +2218,7 @@
   {
     "id": "voc_278",
     "hindi": "मानचित्र",
-    "transliteration": "manchitra",
+    "transliteration": "maanchitr",
     "german": "Karte",
     "category": "places",
     "english": "Map"
@@ -2296,28 +2296,12 @@
     "english": "Cloud"
   },
   {
-    "id": "voc_288",
-    "hindi": "बारिश",
-    "transliteration": "baarish",
-    "german": "Regen",
-    "category": "weather",
-    "english": "Rain"
-  },
-  {
     "id": "voc_289",
     "hindi": "तूफ़ान",
     "transliteration": "toofaan",
     "german": "Sturm",
     "category": "weather",
     "english": "Storm"
-  },
-  {
-    "id": "voc_290",
-    "hindi": "हवा",
-    "transliteration": "hawa",
-    "german": "Wind",
-    "category": "weather",
-    "english": "Wind"
   },
   {
     "id": "voc_291",
@@ -3042,7 +3026,7 @@
   {
     "id": "voc_381",
     "hindi": "महंगा",
-    "transliteration": "mehenga",
+    "transliteration": "mahangaa",
     "german": "teuer",
     "category": "adjectives",
     "english": "Expensive"
@@ -3489,7 +3473,7 @@
   {
     "id": "voc_442",
     "hindi": "क्या आप शादीशुदा हैं?",
-    "transliteration": "Kyaa aap shaadiiShudaa hain?",
+    "transliteration": "shaadiishudaa",
     "english": "Are you married?",
     "category": "questions"
   },
@@ -3538,7 +3522,7 @@
   {
     "id": "voc_449",
     "hindi": "क्या यहाँ वाई-फ़ाई है?",
-    "transliteration": "Kyaa yahaan waa-ii-faa-ii hai?",
+    "transliteration": "vaai-faai",
     "english": "Is there Wi-Fi here?",
     "category": "questions"
   },
@@ -3767,13 +3751,6 @@
     "category": "verbs"
   },
   {
-    "id": "voc_482",
-    "hindi": "बोलना",
-    "transliteration": "bolnaa",
-    "english": "to speak / say",
-    "category": "verbs"
-  },
-  {
     "id": "voc_483",
     "hindi": "बताना",
     "transliteration": "bataanaa",
@@ -3781,38 +3758,10 @@
     "category": "verbs"
   },
   {
-    "id": "voc_484",
-    "hindi": "लिखना",
-    "transliteration": "likhnaa",
-    "english": "to write",
-    "category": "verbs"
-  },
-  {
-    "id": "voc_485",
-    "hindi": "पढ़ना",
-    "transliteration": "paDhnaa",
-    "english": "to read / study",
-    "category": "verbs"
-  },
-  {
     "id": "voc_486",
     "hindi": "रहना",
     "transliteration": "rahnaa",
     "english": "to live / stay",
-    "category": "verbs"
-  },
-  {
-    "id": "voc_487",
-    "hindi": "आना",
-    "transliteration": "aanaa",
-    "english": "to come",
-    "category": "verbs"
-  },
-  {
-    "id": "voc_488",
-    "hindi": "जाना",
-    "transliteration": "jaanaa",
-    "english": "to go",
     "category": "verbs"
   },
   {
@@ -3830,20 +3779,6 @@
     "category": "verbs"
   },
   {
-    "id": "voc_491",
-    "hindi": "खोलना",
-    "transliteration": "kholnaa",
-    "english": "to open",
-    "category": "verbs"
-  },
-  {
-    "id": "voc_492",
-    "hindi": "बंद करना",
-    "transliteration": "band karnaa",
-    "english": "to close / shut",
-    "category": "verbs"
-  },
-  {
     "id": "voc_493",
     "hindi": "चाहना",
     "transliteration": "chaahna",
@@ -3858,45 +3793,10 @@
     "category": "verbs"
   },
   {
-    "id": "voc_495",
-    "hindi": "सोना",
-    "transliteration": "sonaa",
-    "english": "to sleep",
-    "category": "verbs"
-  },
-  {
-    "id": "voc_496",
-    "hindi": "उठना",
-    "transliteration": "uThnaa",
-    "english": "to get up / rise",
-    "category": "verbs"
-  },
-  {
     "id": "voc_497",
     "hindi": "पहनना",
     "transliteration": "pahannaa",
     "english": "to wear / put on",
-    "category": "verbs"
-  },
-  {
-    "id": "voc_498",
-    "hindi": "देना",
-    "transliteration": "denaa",
-    "english": "to give",
-    "category": "verbs"
-  },
-  {
-    "id": "voc_499",
-    "hindi": "लेना",
-    "transliteration": "lenaa",
-    "english": "to take / receive",
-    "category": "verbs"
-  },
-  {
-    "id": "voc_500",
-    "hindi": "सुनना",
-    "transliteration": "sunnaa",
-    "english": "to hear / listen",
     "category": "verbs"
   },
   {
@@ -3942,27 +3842,6 @@
     "category": "adjectives"
   },
   {
-    "id": "voc_507",
-    "hindi": "खुश",
-    "transliteration": "khush",
-    "english": "happy / pleased",
-    "category": "adjectives"
-  },
-  {
-    "id": "voc_508",
-    "hindi": "दुखी",
-    "transliteration": "dukhii",
-    "english": "sad / unhappy",
-    "category": "adjectives"
-  },
-  {
-    "id": "voc_509",
-    "hindi": "थका हुआ",
-    "transliteration": "thakaa huaa",
-    "english": "tired / exhausted",
-    "category": "adjectives"
-  },
-  {
     "id": "voc_510",
     "hindi": "ताज़ा",
     "transliteration": "taazaa",
@@ -3977,52 +3856,10 @@
     "category": "adjectives"
   },
   {
-    "id": "voc_512",
-    "hindi": "ठंडा",
-    "transliteration": "ThaNDaa",
-    "english": "cold / cool",
-    "category": "adjectives"
-  },
-  {
-    "id": "voc_513",
-    "hindi": "साफ़",
-    "transliteration": "saaf",
-    "english": "clean / clear",
-    "category": "adjectives"
-  },
-  {
     "id": "voc_514",
     "hindi": "गंदा",
     "transliteration": "gandaa",
     "english": "dirty / messy",
-    "category": "adjectives"
-  },
-  {
-    "id": "voc_515",
-    "hindi": "भारी",
-    "transliteration": "bhaarii",
-    "english": "heavy",
-    "category": "adjectives"
-  },
-  {
-    "id": "voc_516",
-    "hindi": "हल्का",
-    "transliteration": "halkaa",
-    "english": "light (weight)",
-    "category": "adjectives"
-  },
-  {
-    "id": "voc_517",
-    "hindi": "मुश्किल",
-    "transliteration": "mushkil",
-    "english": "difficult / hard",
-    "category": "adjectives"
-  },
-  {
-    "id": "voc_518",
-    "hindi": "आसान",
-    "transliteration": "aasaan",
-    "english": "easy / simple",
     "category": "adjectives"
   },
   {
@@ -4054,13 +3891,6 @@
     "category": "phrases"
   },
   {
-    "id": "voc_523",
-    "hindi": "यह कितने का है?",
-    "transliteration": "Yah kitne kaa hai?",
-    "english": "How much does this cost?",
-    "category": "phrases"
-  },
-  {
     "id": "voc_524",
     "hindi": "बहुत महँगा है।",
     "transliteration": "Bahut mahangaa hai.",
@@ -4075,27 +3905,6 @@
     "category": "phrases"
   },
   {
-    "id": "voc_526",
-    "hindi": "मुझे यह चाहिए।",
-    "transliteration": "Mujhe yah chaahiye.",
-    "english": "I need this. / I want this.",
-    "category": "phrases"
-  },
-  {
-    "id": "voc_527",
-    "hindi": "मुझे भूख लगी है।",
-    "transliteration": "Mujhe bhuukh lagii hai.",
-    "english": "I'm hungry.",
-    "category": "phrases"
-  },
-  {
-    "id": "voc_528",
-    "hindi": "मुझे प्यास लगी है।",
-    "transliteration": "Mujhe pyaas lagii hai.",
-    "english": "I'm thirsty.",
-    "category": "phrases"
-  },
-  {
     "id": "voc_529",
     "hindi": "बिल दीजिए।",
     "transliteration": "Bil diijiye.",
@@ -4105,15 +3914,8 @@
   {
     "id": "voc_530",
     "hindi": "बहुत स्वादिष्ट है।",
-    "transliteration": "Bahut svaadisht hai.",
+    "transliteration": "svaadishT",
     "english": "It's very delicious.",
-    "category": "phrases"
-  },
-  {
-    "id": "voc_531",
-    "hindi": "यह कहाँ है?",
-    "transliteration": "Yah kahaan hai?",
-    "english": "Where is this?",
     "category": "phrases"
   },
   {
@@ -4159,13 +3961,6 @@
     "category": "phrases"
   },
   {
-    "id": "voc_538",
-    "hindi": "कोई बात नहीं।",
-    "transliteration": "Koii baat nahin.",
-    "english": "No worries. / It doesn't matter.",
-    "category": "phrases"
-  },
-  {
     "id": "voc_539",
     "hindi": "मुझे पसंद है।",
     "transliteration": "Mujhe pasand hai.",
@@ -4177,13 +3972,6 @@
     "hindi": "मुझे पसंद नहीं है।",
     "transliteration": "Mujhe pasand nahin hai.",
     "english": "I don't like it.",
-    "category": "phrases"
-  },
-  {
-    "id": "voc_541",
-    "hindi": "बहुत अच्छा!",
-    "transliteration": "Bahut acchaa!",
-    "english": "Very good! / Excellent!",
     "category": "phrases"
   },
   {
@@ -4231,7 +4019,7 @@
   {
     "id": "voc_548",
     "hindi": "मुझे डॉक्टर चाहिए।",
-    "transliteration": "Mujhe DaakTar chaahiye.",
+    "transliteration": "DakTar",
     "english": "I need a doctor.",
     "category": "phrases"
   },
@@ -4240,13 +4028,6 @@
     "hindi": "मैं रास्ता भूल गया/गई।",
     "transliteration": "Main raastaa bhuul gayaa/gaii.",
     "english": "I'm lost.",
-    "category": "phrases"
-  },
-  {
-    "id": "voc_550",
-    "hindi": "क्या आप अंग्रेज़ी बोलते हैं?",
-    "transliteration": "Kyaa aap angrezii bolte hain?",
-    "english": "Do you speak English?",
     "category": "phrases"
   },
   {
@@ -4306,24 +4087,10 @@
     "category": "phrases"
   },
   {
-    "id": "voc_559",
-    "hindi": "मुझे समझ नहीं आया।",
-    "transliteration": "Mujhe samajh nahin aayaa.",
-    "english": "I didn't understand.",
-    "category": "phrases"
-  },
-  {
     "id": "voc_560",
     "hindi": "एक बार फिर से।",
     "transliteration": "Ek baar phir se.",
     "english": "Once more. / One more time.",
-    "category": "phrases"
-  },
-  {
-    "id": "voc_561",
-    "hindi": "आप कहाँ से हैं?",
-    "transliteration": "Aap kahaan se hain?",
-    "english": "Where are you from?",
     "category": "phrases"
   },
   {
