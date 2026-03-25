@@ -84,7 +84,7 @@ function renderLessonList(
     `;
 
     container.innerHTML = `
-        <section class="panel gradient-card grammar-hero">
+        <section class="app-card app-card--accent grammar-hero">
             <h1 class="hero-title">Hindi Grammar</h1>
             <p class="hero-subtitle">12 A1–A2 lessons covering script, structure, tenses and more.</p>
             <div class="grammar-overall-progress">
@@ -130,17 +130,17 @@ function renderLesson(
             <div class="grammar-lesson-level-badge level-${lesson.level.toLowerCase()}">${lesson.level}</div>
             <h2 class="grammar-lesson-title-large">${lesson.title}</h2>
 
-            <section class="panel grammar-explanation-panel">
+            <section class="app-card grammar-explanation-panel">
                 <h3>Explanation</h3>
                 <p class="grammar-explanation-text">${lesson.explanation}</p>
             </section>
 
-            <section class="panel grammar-examples-panel">
+            <section class="app-card grammar-examples-panel">
                 <h3>Examples</h3>
                 ${examplesHtml}
             </section>
 
-            <section class="panel grammar-exercises-panel" id="grammar-exercises">
+            <section class="app-card grammar-exercises-panel" id="grammar-exercises">
                 <h3>Practice Exercises</h3>
                 <div id="exercise-area"></div>
             </section>

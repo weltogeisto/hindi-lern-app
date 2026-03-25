@@ -22,15 +22,102 @@
             #practice-card button:hover { transform:scale(1.03); box-shadow:0 8px 20px rgba(2,6,23,0.08); }
             #practice-card button:disabled { opacity:.5; cursor:not-allowed; transform:none; box-shadow:none; }
             @media (max-width:768px) { #practice-char { width:10rem; height:10rem; font-size:3rem; } #practice-card { padding:1.25rem; } }
+            .boot-shell { max-width: 52rem; margin: 0 auto; border-radius: 1.5rem; border: 1px solid #e0e7ff; background: linear-gradient(135deg, #f8fafc 0%, #ffffff 60%); box-shadow: 0 16px 40px rgba(15, 23, 42, 0.12); }
+            .boot-shell__inner { position: relative; padding: 1.5rem; }
+            .boot-shell__brand { margin: 0; color: #4f46e5; font-size: 0.75rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; }
+            .boot-shell__title { margin: 0.5rem 0 0; color: #0f172a; font-size: clamp(1.6rem, 1.1rem + 2vw, 2.25rem); line-height: 1.2; }
+            .boot-shell__promise { margin: 0.9rem 0 0; max-width: 62ch; color: #475569; font-size: 0.98rem; line-height: 1.5; }
+            .boot-shell__status { margin-top: 1.75rem; border: 1px solid #e2e8f0; border-radius: 1rem; background: rgba(248,250,252,0.9); padding: 1rem; }
+            .boot-shell__status-row { display: flex; align-items: center; justify-content: space-between; gap: 0.75rem; }
+            .boot-shell__status-title { margin: 0; color: #334155; font-size: 0.95rem; font-weight: 600; }
+            .boot-shell__status-chip { color: #4f46e5; font-size: 0.7rem; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+            .boot-shell__track { margin-top: 0.75rem; height: 0.55rem; border-radius: 999px; background: #e2e8f0; overflow: hidden; }
+            .boot-shell__progress { width: 40%; height: 100%; border-radius: 999px; background: #4f46e5; animation: boot-progress-sweep 1.8s ease-in-out infinite; will-change: transform; }
+            .boot-shell__status-note { margin: 0.75rem 0 0; color: #64748b; font-size: 0.78rem; }
+            .boot-shell__noscript { margin: 1rem 0 0; border: 1px solid #fcd34d; border-radius: 0.75rem; background: #fffbeb; color: #78350f; padding: 0.75rem 0.9rem; font-size: 0.9rem; }
+            @media (min-width: 640px) { .boot-shell__inner { padding: 2rem; } .boot-shell__status { padding: 1.1rem 1.2rem; } }
+            @keyframes boot-progress-sweep {
+                0% { transform: translateX(-70%); }
+                50% { transform: translateX(15%); }
+                100% { transform: translateX(145%); }
+            }
+            @media (prefers-reduced-motion: reduce) {
+                .boot-shell__progress { animation: none; transform: none; width: 55%; }
+            }
         </style>
-    <link rel="manifest" href="/manifest.json">
+    <link rel="manifest" href="manifest.json">
 </head>
-<body class="bg-gray-100 flex items-center justify-center min-h-screen">
-    <div id="app" class="container mx-auto p-4 bg-white shadow-lg rounded-lg">
-        <!-- App content will be rendered here by JavaScript -->
-        <h1 class="text-2xl font-bold text-center mb-4">नमस्ते! Learn Hindi</h1>
+<body class="bg-gradient-to-br from-slate-50 to-white min-h-screen text-slate-900">
+    <div id="app" class="container mx-auto max-w-3xl p-4 sm:p-6 lg:p-8">
+        <!-- Boot shell shown before JS hydration -->
+        <main class="boot-shell" aria-label="Application loading shell">
+            <div class="boot-shell__inner">
+                <p class="boot-shell__brand">Learn Hindi</p>
+                <h1 class="boot-shell__title">नमस्ते · Hindi A1/A2 booting up</h1>
+                <p class="boot-shell__promise">Build confident reading and speaking habits with tiny daily lessons, guided practice, and friendly repetition.</p>
+
+                <section class="boot-shell__status" aria-live="polite" aria-busy="true">
+                    <div class="boot-shell__status-row">
+                        <p class="boot-shell__status-title">Preparing your lesson space…</p>
+                        <span class="boot-shell__status-chip">Loading</span>
+                    </div>
+                    <div class="boot-shell__track" role="progressbar" aria-valuemin="0" aria-valuemax="100" aria-valuetext="Loading application shell">
+                        <div class="boot-shell__progress"></div>
+                    </div>
+                    <p class="boot-shell__status-note">If this takes longer than a few seconds, refresh once and check your connection.</p>
+                </section>
+
+                <noscript>
+                    <p class="boot-shell__noscript">JavaScript is disabled. You can still read this page, but interactive exercises require enabling JavaScript.</p>
+                </noscript>
+            </div>
+        </main>
     </div>
+    <script>
+        window.__bootStarted = true;
+    </script>
     <script type="module" src="dist/main.js?v=1695490000"></script>
+    <script>
+        (function setupBootFallback() {
+            const timeoutMs = 4000;
+            const appEl = document.getElementById('app');
+            if (!appEl) return;
+
+            const clearHint = 'If this keeps happening, clear site data/cache and try again.';
+            const directUrl = `${location.origin}${location.pathname}`;
+
+            window.setTimeout(() => {
+                if (window.__bootOk) return;
+
+                appEl.className = 'max-w-xl mx-auto p-5 bg-white shadow-lg rounded-lg text-slate-800';
+                appEl.innerHTML = `
+                    <section aria-live="polite">
+                        <h1 class="text-xl font-bold mb-2">App failed to start</h1>
+                        <p class="text-sm text-slate-600 mb-4">
+                            Something went wrong while opening the app. Please try one of these quick fixes.
+                        </p>
+                        <div class="flex flex-wrap gap-2 mb-4">
+                            <button id="boot-reload-btn" class="px-3 py-2 rounded bg-indigo-600 text-white text-sm font-semibold">Reload</button>
+                            <a href="${directUrl}" class="px-3 py-2 rounded bg-slate-200 text-slate-800 text-sm font-semibold">Open app directly</a>
+                        </div>
+                        <p class="text-xs text-slate-500 mb-3">${clearHint}</p>
+                        <details class="text-xs text-slate-500">
+                            <summary class="cursor-pointer">Diagnostics details</summary>
+                            <div class="mt-2 space-y-1">
+                                <p>Boot started: ${String(Boolean(window.__bootStarted))}</p>
+                                <p>Boot finished: ${String(Boolean(window.__bootOk))}</p>
+                                <p>URL: ${location.href}</p>
+                            </div>
+                        </details>
+                    </section>
+                `;
+
+                document.getElementById('boot-reload-btn')?.addEventListener('click', () => {
+                    location.reload();
+                });
+            }, timeoutMs);
+        })();
+    </script>
 
     <script>
         // During development, automatically unregister any existing service workers on localhost
@@ -45,7 +132,7 @@
                     }
 
                     // Register the (new) service worker after cleanup
-                    navigator.serviceWorker.register('/service-worker.js')
+                    navigator.serviceWorker.register('service-worker.js')
                         .then(registration => {
                             console.log('Service Worker registered: ', registration.scope);
                         })
