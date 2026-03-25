@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -5,8 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Learn Hindi — A1/A2 for English Speakers</title>
     <!-- Cache-busting param to force browsers to request new builds during development -->
-    <link rel="stylesheet" href="dist/output.css?v=1695490001">
-    <link rel="stylesheet" href="dist/contrast-overrides.css?v=1695490001">
+    <link rel="stylesheet" href="dist/output.css?v=1695490002">
+    <link rel="stylesheet" href="dist/contrast-overrides.css?v=1695490002">
         <!-- Inline fallback styles: ensure the practice area remains beautiful even if external CSS is stale -->
         <style>
             /* Basic layout for practice card */
@@ -76,8 +77,8 @@
     <script>
         window.__bootStarted = true;
     </script>
-    <script type="module" src="dist/main.js?v=1695490001"></script>
-    <script type="module" src="dist/script-lab.js?v=1695490001"></script>
+    <script type="module" src="dist/main.js?v=1695490002"></script>
+    <script type="module" src="dist/script-lab.js?v=1695490002"></script>
     <script>
         (function setupBootFallback() {
             const timeoutMs = 4000;
@@ -156,12 +157,10 @@
                     const registration = await navigator.serviceWorker.register('service-worker.js');
                     console.log('Service Worker registered:', registration.scope);
 
-                    // If a new SW is already waiting (e.g. installed while page was open previously)
                     if (registration.waiting) {
                         showUpdateBanner(registration.waiting);
                     }
 
-                    // Detect new SW installing
                     registration.addEventListener('updatefound', () => {
                         const newWorker = registration.installing;
                         if (!newWorker) return;
@@ -172,7 +171,6 @@
                         });
                     });
 
-                    // Poll for updates every 60 seconds
                     setInterval(() => { registration.update().catch(() => {}); }, 60000);
 
                 } catch (e) {
