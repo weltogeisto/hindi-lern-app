@@ -218,24 +218,32 @@ function renderVocabTab(container: HTMLElement): void {
             <h1 class="hero-title">Hindi Vocabulary Trainer</h1>
             <p class="hero-subtitle">SM-2 spaced repetition — Flashcards, Multiple Choice and Typing.</p>
         </section>
-        <div class="category-pills-container" id="category-pills"></div>
-        <div class="mode-selector" id="mode-selector">
-            <button class="mode-btn ${activeMode === 'flashcard' ? 'active' : ''}" data-mode="flashcard">Flashcard</button>
-            <button class="mode-btn ${activeMode === 'multiple-choice' ? 'active' : ''}" data-mode="multiple-choice">Multiple Choice</button>
-            <button class="mode-btn ${activeMode === 'typing' ? 'active' : ''}" data-mode="typing">Typing</button>
-        </div>
-        <div class="queue-stats"><span>Due today: <strong>${dueCount}</strong></span><span>Queue: <strong>${vocabQueue.length}</strong></span></div>
+        <section class="panel vocab-controls-panel">
+            <div class="vocab-control-group">
+                <div class="group-label">Category</div>
+                <div class="category-pills-container" id="category-pills"></div>
+            </div>
+            <div class="vocab-control-group">
+                <div class="group-label">Mode</div>
+                <div class="mode-selector" id="mode-selector">
+                    <button class="mode-btn ${activeMode === 'flashcard' ? 'active' : ''}" data-mode="flashcard" aria-pressed="${activeMode === 'flashcard'}">Flashcard</button>
+                    <button class="mode-btn ${activeMode === 'multiple-choice' ? 'active' : ''}" data-mode="multiple-choice" aria-pressed="${activeMode === 'multiple-choice'}">Multiple Choice</button>
+                    <button class="mode-btn ${activeMode === 'typing' ? 'active' : ''}" data-mode="typing" aria-pressed="${activeMode === 'typing'}">Typing</button>
+                </div>
+            </div>
+            <div class="queue-stats"><span>Due today: <strong>${dueCount}</strong></span><span>Queue: <strong>${vocabQueue.length}</strong></span></div>
+        </section>
         <div id="vocab-card-area" class="vocab-card-area"></div>
-        <div class="progress-section">
+        <section class="panel progress-section">
             <div class="progress-label"><span>Progress</span><span>${mastered} / ${appState.vocab.length}</span></div>
             <div class="progress-bar-track"><div class="progress-bar-fill" style="width:${(mastered / Math.max(1, appState.vocab.length)) * 100}%"></div></div>
-        </div>
+        </section>
     `;
 
     const pills = document.getElementById('category-pills');
     if (pills) {
-        const allBtn = `<button class="category-pill ${activeCategory === 'all' ? 'active' : ''}" data-category="all">All</button>`;
-        const categoryBtns = CATEGORIES.map(cat => `<button class="category-pill ${activeCategory === cat.key ? 'active' : ''}" data-category="${cat.key}">${cat.label}</button>`).join('');
+        const allBtn = `<button class="category-pill ${activeCategory === 'all' ? 'active' : ''}" data-category="all" aria-pressed="${activeCategory === 'all'}">All</button>`;
+        const categoryBtns = CATEGORIES.map(cat => `<button class="category-pill ${activeCategory === cat.key ? 'active' : ''}" data-category="${cat.key}" aria-pressed="${activeCategory === cat.key}">${cat.label}</button>`).join('');
         pills.innerHTML = allBtn + categoryBtns;
         pills.querySelectorAll<HTMLButtonElement>('.category-pill').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -276,11 +284,11 @@ function renderVocabCard(cardArea: HTMLElement, entry: VocabEntry): void {
 function renderFlashcard(cardArea: HTMLElement, entry: VocabEntry): void {
     if (!cardFlipped) {
         cardArea.innerHTML = `
-            <div class="vocab-card">
+            <div class="vocab-card card-enter">
                 <div class="flashcard-category">${entry.category}</div>
                 <div class="flashcard-english">${entry.english}</div>
                 <div class="flashcard-hint">Think of the Hindi word.</div>
-                <button class="flip-btn" id="flip-btn">Reveal</button>
+                <button class="flip-btn primary-cta" id="flip-btn">Reveal answer</button>
             </div>
         `;
         document.getElementById('flip-btn')?.addEventListener('click', () => {
@@ -293,10 +301,11 @@ function renderFlashcard(cardArea: HTMLElement, entry: VocabEntry): void {
     const srsCard = appState.vocabSrs[entry.id];
     const nextReviewDays = srsCard ? srsCard.interval : 1;
     cardArea.innerHTML = `
-        <div class="vocab-card">
+        <div class="vocab-card card-enter">
             <div class="flashcard-category">${entry.category}</div>
             <div class="flashcard-english">${entry.english}</div>
             <div class="flashcard-hindi">${entry.hindi}</div>
+            <div class="flashcard-answer-label">Transliteration</div>
             <div class="flashcard-translit">${entry.transliteration}</div>
             <button class="play-hindi-btn" data-hindi="${entry.hindi}" title="Listen to pronunciation">🔊 Listen</button>
             <div class="rating-row">
@@ -333,9 +342,10 @@ function pickDistractors(entry: VocabEntry): VocabEntry[] {
 function renderMultipleChoice(cardArea: HTMLElement, entry: VocabEntry): void {
     const options = [entry, ...pickDistractors(entry)].sort(() => Math.random() - 0.5);
     cardArea.innerHTML = `
-        <div class="vocab-card">
+        <div class="vocab-card card-enter">
             <div class="flashcard-category">${entry.category}</div>
             <div class="flashcard-english">${entry.english}</div>
+            <div class="flashcard-hint">Choose the matching Hindi word.</div>
             <div class="mc-grid">
                 ${options.map((opt, idx) => `
                     <button class="mc-option" data-id="${opt.id}" data-index="${idx}">
@@ -365,9 +375,10 @@ function renderMultipleChoice(cardArea: HTMLElement, entry: VocabEntry): void {
 
 function renderTypingCard(cardArea: HTMLElement, entry: VocabEntry): void {
     cardArea.innerHTML = `
-        <div class="vocab-card">
+        <div class="vocab-card card-enter">
             <div class="flashcard-category">${entry.category}</div>
             <div class="flashcard-english">${entry.english}</div>
+            <div class="flashcard-answer-label">Hindi prompt</div>
             <div class="typing-hint">${entry.hindi}</div>
             <div class="typing-instruction">Type the transliteration (Latin letters). <button class="play-hindi-btn-inline" data-hindi="${entry.hindi}" title="Listen">🔊</button></div>
             <div class="typing-input-row">
@@ -495,6 +506,10 @@ function renderDashboardTab(container: HTMLElement): void {
 
     container.innerHTML = `
         <section class="dashboard-tab">
+            <section class="panel gradient-card dashboard-hero">
+                <h1 class="hero-title">Learning Dashboard</h1>
+                <p class="hero-subtitle">Track your streak, review load, and mastery by category.</p>
+            </section>
             <div class="dash-stats-row">
                 <div class="dash-stat"><div class="dash-stat-icon">🔥</div><div class="dash-stat-value">${streak}</div><div class="dash-stat-label">Streak</div></div>
                 <div class="dash-stat"><div class="dash-stat-icon">📅</div><div class="dash-stat-value">${due}</div><div class="dash-stat-label">Due today</div></div>
