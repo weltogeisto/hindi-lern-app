@@ -2,7 +2,7 @@
 // service-worker.js
 
 // Bump the cache name when making changes so browsers install the new SW
-const CACHE_NAME = 'hindi-learn-cache-v8';
+const CACHE_NAME = 'hindi-learn-cache-v9';
 // Use relative paths (no leading slash) so the cache keys match how we reference files
 const essentialAssets = [
     'index.html',
@@ -40,8 +40,7 @@ self.addEventListener('install', (event) => {
             console.error('Service Worker: Failed to open cache', error);
         })
     );
-    // Activate immediately so users who refresh will get the new SW quickly
-    self.skipWaiting();
+    // Don't auto-skipWaiting — let the page show an "Update" banner first
 });
 
 // Fetch event: Serve cached assets if available, otherwise fetch from network
@@ -82,6 +81,13 @@ self.addEventListener('activate', (event) => {
     );
     // Take control of uncontrolled clients as soon as this SW activates
     event.waitUntil(self.clients.claim());
+});
+
+// Message event: allow the page to trigger skipWaiting on demand
+self.addEventListener('message', (event) => {
+    if (event.data && event.data.type === 'SKIP_WAITING') {
+        self.skipWaiting();
+    }
 });
 
 console.log('Service Worker script loaded.');
