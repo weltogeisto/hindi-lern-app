@@ -134,11 +134,18 @@ function buildVocabQueue() {
     const later = pool.filter(entry => !isDue(appState.vocabSrs[entry.id]));
     due.sort((a, b) => appState.vocabSrs[a.id].dueDate.localeCompare(appState.vocabSrs[b.id].dueDate));
     later.sort((a, b) => appState.vocabSrs[a.id].dueDate.localeCompare(appState.vocabSrs[b.id].dueDate));
-    vocabQueue = [...due, ...later];
+    // Separate due reviews (seen before) from new cards, cap new cards per session
+    const MAX_NEW_PER_SESSION = 20;
+    const dueReviews = due.filter(e => (appState.vocabSrs[e.id]?.repetitions || 0) >= 1);
+    const dueNew = due.filter(e => (appState.vocabSrs[e.id]?.repetitions || 0) < 1);
+    vocabQueue = [...dueReviews, ...dueNew.slice(0, MAX_NEW_PER_SESSION), ...later];
     vocabIndex = Math.min(vocabIndex, Math.max(vocabQueue.length - 1, 0));
 }
 function getDueCount() {
     return appState.vocab.filter(v => isDue(appState.vocabSrs[v.id] || createNewCard())).length;
+}
+function getReviewedCount() {
+    return appState.vocab.filter(v => (appState.vocabSrs[v.id]?.repetitions || 0) >= 1).length;
 }
 function getMasteredCount() {
     return appState.vocab.filter(v => (appState.vocabSrs[v.id]?.interval || 0) >= 21).length;
@@ -175,7 +182,7 @@ function renderApp() {
 function renderVocabTab(container) {
     buildVocabQueue();
     const current = vocabQueue[vocabIndex];
-    const mastered = getMasteredCount();
+    const reviewed = getReviewedCount();
     const dueCount = getDueCount();
     container.innerHTML = `
         <section class="app-card app-card--accent">
@@ -195,12 +202,12 @@ function renderVocabTab(container) {
                     <button class="mode-btn ${activeMode === 'typing' ? 'active' : ''}" data-mode="typing" aria-pressed="${activeMode === 'typing'}">Typing</button>
                 </div>
             </div>
-            <div class="queue-stats"><span>Due today: <strong>${dueCount}</strong></span><span>Queue: <strong>${vocabQueue.length}</strong></span></div>
+            <div class="queue-stats"><span>Due today: <strong>${Math.min(dueCount, vocabQueue.length)}</strong></span><span>Reviewed: <strong>${reviewed}</strong></span></div>
         </section>
         <div id="vocab-card-area" class="vocab-card-area"></div>
         <section class="panel progress-section">
-            <div class="progress-label"><span>Progress</span><span>${mastered} / ${appState.vocab.length}</span></div>
-            <div class="progress-bar-track"><div class="progress-bar-fill" style="width:${(mastered / Math.max(1, appState.vocab.length)) * 100}%"></div></div>
+            <div class="progress-label"><span>Reviewed</span><span>${reviewed} / ${appState.vocab.length}</span></div>
+            <div class="progress-bar-track"><div class="progress-bar-fill" style="width:${(reviewed / Math.max(1, appState.vocab.length)) * 100}%"></div></div>
         </section>
     `;
     const pills = document.getElementById('category-pills');

@@ -2,7 +2,7 @@
 // service-worker.js
 
 // Bump the cache name when making changes so browsers install the new SW
-const CACHE_NAME = 'hindi-learn-cache-v7';
+const CACHE_NAME = 'hindi-learn-cache-v8';
 // Use relative paths (no leading slash) so the cache keys match how we reference files
 const essentialAssets = [
     'index.html',
