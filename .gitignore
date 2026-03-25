@@ -12,5 +12,5 @@ node_modules/
 public/audio/*.mp3
 public/audio/*.wav
 
-# build outputs
-public/dist/
+# build outputs (tracked for GitHub Pages deployment)
+# public/dist/

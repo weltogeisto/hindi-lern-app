@@ -178,27 +178,35 @@ function renderVocabTab(container) {
     const mastered = getMasteredCount();
     const dueCount = getDueCount();
     container.innerHTML = `
-        <section class="panel gradient-card">
+        <section class="app-card app-card--accent">
             <h1 class="hero-title">Hindi Vocabulary Trainer</h1>
             <p class="hero-subtitle">SM-2 spaced repetition — Flashcards, Multiple Choice and Typing.</p>
         </section>
-        <div class="category-pills-container" id="category-pills"></div>
-        <div class="mode-selector" id="mode-selector">
-            <button class="mode-btn ${activeMode === 'flashcard' ? 'active' : ''}" data-mode="flashcard">Flashcard</button>
-            <button class="mode-btn ${activeMode === 'multiple-choice' ? 'active' : ''}" data-mode="multiple-choice">Multiple Choice</button>
-            <button class="mode-btn ${activeMode === 'typing' ? 'active' : ''}" data-mode="typing">Typing</button>
-        </div>
-        <div class="queue-stats"><span>Due today: <strong>${dueCount}</strong></span><span>Queue: <strong>${vocabQueue.length}</strong></span></div>
+        <section class="panel vocab-controls-panel">
+            <div class="vocab-control-group">
+                <div class="group-label">Category</div>
+                <div class="category-pills-container" id="category-pills"></div>
+            </div>
+            <div class="vocab-control-group">
+                <div class="group-label">Mode</div>
+                <div class="mode-selector" id="mode-selector">
+                    <button class="mode-btn ${activeMode === 'flashcard' ? 'active' : ''}" data-mode="flashcard" aria-pressed="${activeMode === 'flashcard'}">Flashcard</button>
+                    <button class="mode-btn ${activeMode === 'multiple-choice' ? 'active' : ''}" data-mode="multiple-choice" aria-pressed="${activeMode === 'multiple-choice'}">Multiple Choice</button>
+                    <button class="mode-btn ${activeMode === 'typing' ? 'active' : ''}" data-mode="typing" aria-pressed="${activeMode === 'typing'}">Typing</button>
+                </div>
+            </div>
+            <div class="queue-stats"><span>Due today: <strong>${dueCount}</strong></span><span>Queue: <strong>${vocabQueue.length}</strong></span></div>
+        </section>
         <div id="vocab-card-area" class="vocab-card-area"></div>
-        <div class="progress-section">
+        <section class="panel progress-section">
             <div class="progress-label"><span>Progress</span><span>${mastered} / ${appState.vocab.length}</span></div>
             <div class="progress-bar-track"><div class="progress-bar-fill" style="width:${(mastered / Math.max(1, appState.vocab.length)) * 100}%"></div></div>
-        </div>
+        </section>
     `;
     const pills = document.getElementById('category-pills');
     if (pills) {
-        const allBtn = `<button class="category-pill ${activeCategory === 'all' ? 'active' : ''}" data-category="all">All</button>`;
-        const categoryBtns = CATEGORIES.map(cat => `<button class="category-pill ${activeCategory === cat.key ? 'active' : ''}" data-category="${cat.key}">${cat.label}</button>`).join('');
+        const allBtn = `<button class="category-pill ${activeCategory === 'all' ? 'active' : ''}" data-category="all" aria-pressed="${activeCategory === 'all'}">All</button>`;
+        const categoryBtns = CATEGORIES.map(cat => `<button class="category-pill ${activeCategory === cat.key ? 'active' : ''}" data-category="${cat.key}" aria-pressed="${activeCategory === cat.key}">${cat.label}</button>`).join('');
         pills.innerHTML = allBtn + categoryBtns;
         pills.querySelectorAll('.category-pill').forEach(btn => {
             btn.addEventListener('click', () => {
@@ -221,7 +229,7 @@ function renderVocabTab(container) {
     if (!area)
         return;
     if (!current) {
-        area.innerHTML = '<div class="vocab-empty">No cards in this category.</div>';
+        area.innerHTML = '<div class="vocab-empty">No cards here yet. Pick another category or choose “All” to keep practicing.</div>';
         return;
     }
     renderVocabCard(area, current);
@@ -237,11 +245,11 @@ function renderVocabCard(cardArea, entry) {
 function renderFlashcard(cardArea, entry) {
     if (!cardFlipped) {
         cardArea.innerHTML = `
-            <div class="vocab-card">
+            <div class="vocab-card card-enter">
                 <div class="flashcard-category">${entry.category}</div>
                 <div class="flashcard-english">${entry.english}</div>
                 <div class="flashcard-hint">Think of the Hindi word.</div>
-                <button class="flip-btn" id="flip-btn">Reveal</button>
+                <button class="flip-btn primary-cta" id="flip-btn">Reveal answer</button>
             </div>
         `;
         document.getElementById('flip-btn')?.addEventListener('click', () => {
@@ -253,10 +261,11 @@ function renderFlashcard(cardArea, entry) {
     const srsCard = appState.vocabSrs[entry.id];
     const nextReviewDays = srsCard ? srsCard.interval : 1;
     cardArea.innerHTML = `
-        <div class="vocab-card">
+        <div class="vocab-card card-enter">
             <div class="flashcard-category">${entry.category}</div>
             <div class="flashcard-english">${entry.english}</div>
             <div class="flashcard-hindi">${entry.hindi}</div>
+            <div class="flashcard-answer-label">Transliteration</div>
             <div class="flashcard-translit">${entry.transliteration}</div>
             <button class="play-hindi-btn" data-hindi="${entry.hindi}" title="Listen to pronunciation">🔊 Listen</button>
             <div class="rating-row">
@@ -289,9 +298,10 @@ function pickDistractors(entry) {
 function renderMultipleChoice(cardArea, entry) {
     const options = [entry, ...pickDistractors(entry)].sort(() => Math.random() - 0.5);
     cardArea.innerHTML = `
-        <div class="vocab-card">
+        <div class="vocab-card card-enter">
             <div class="flashcard-category">${entry.category}</div>
             <div class="flashcard-english">${entry.english}</div>
+            <div class="flashcard-hint">Choose the matching Hindi word.</div>
             <div class="mc-grid">
                 ${options.map((opt, idx) => `
                     <button class="mc-option" data-id="${opt.id}" data-index="${idx}">
@@ -322,9 +332,10 @@ function renderMultipleChoice(cardArea, entry) {
 }
 function renderTypingCard(cardArea, entry) {
     cardArea.innerHTML = `
-        <div class="vocab-card">
+        <div class="vocab-card card-enter">
             <div class="flashcard-category">${entry.category}</div>
             <div class="flashcard-english">${entry.english}</div>
+            <div class="flashcard-answer-label">Hindi prompt</div>
             <div class="typing-hint">${entry.hindi}</div>
             <div class="typing-instruction">Type the transliteration (Latin letters). <button class="play-hindi-btn-inline" data-hindi="${entry.hindi}" title="Listen">🔊</button></div>
             <div class="typing-input-row">
@@ -352,10 +363,10 @@ function renderTypingCard(cardArea, entry) {
         answerCorrect = typed === entry.transliteration.trim().toLowerCase();
         feedback.className = `typing-feedback ${answerCorrect ? 'feedback-correct' : 'feedback-wrong'}`;
         feedback.textContent = answerCorrect
-            ? 'Correct! Well done.'
-            : `Not quite. The answer is: ${entry.transliteration}`;
+            ? 'Correct — nice work.'
+            : `Not yet. Compare your answer with “${entry.transliteration}”, then tap Next.`;
         input.disabled = true;
-        submit.textContent = 'Next →';
+        submit.textContent = 'Next';
     };
     submit.addEventListener('click', () => {
         if (!checked) {
@@ -390,7 +401,7 @@ function renderAlphabetTab(container) {
     const bestScore = loadBestMemoryScore();
     container.innerHTML = `
         <div class="layout-grid">
-            <section class="panel hero-panel gradient-card">
+            <section class="app-card hero-app-card app-card--accent">
                 <div class="eyebrow">Devanagari Studio</div>
                 <h1 class="hero-title">नमस्ते! Learn Hindi Alphabets</h1>
                 <p class="hero-subtitle">Audio, SRS and Memory Mode for Devanagari practice.</p>
@@ -400,16 +411,16 @@ function renderAlphabetTab(container) {
                     <div class="hero-stat"><span>Best memory</span><strong>${bestScore ?? '—'}</strong></div>
                 </div>
             </section>
-            <section class="panel controls-panel">
-                <div class="panel-heading"><h2>Session controls</h2></div>
+            <section class="app-card controls-panel">
+                <div class="panel-heading"><h2 class="section-title">Session controls</h2></div>
                 <div id="controls-container" class="mb-4"></div>
             </section>
-            <section class="panel practice-panel">
-                <div class="panel-heading"><h2>Spaced repetition</h2></div>
+            <section class="app-card practice-panel">
+                <div class="panel-heading"><h2 class="section-title">Spaced repetition</h2></div>
                 <div id="practice-container" class="mb-6"></div>
             </section>
-            <section class="panel alphabet-panel">
-                <div class="panel-heading"><h2>Alphabet deck</h2></div>
+            <section class="app-card alphabet-panel">
+                <div class="panel-heading"><h2 class="section-title">Alphabet deck</h2></div>
                 <div id="alphabet-container" class="alphabet-grid"></div>
             </section>
         </div>
@@ -441,6 +452,10 @@ function renderDashboardTab(container) {
     }).join('');
     container.innerHTML = `
         <section class="dashboard-tab">
+            <section class="panel gradient-card dashboard-hero">
+                <h1 class="hero-title">Learning Dashboard</h1>
+                <p class="hero-subtitle">Track your streak, review load, and mastery by category.</p>
+            </section>
             <div class="dash-stats-row">
                 <div class="dash-stat"><div class="dash-stat-icon">🔥</div><div class="dash-stat-value">${streak}</div><div class="dash-stat-label">Streak</div></div>
                 <div class="dash-stat"><div class="dash-stat-icon">📅</div><div class="dash-stat-value">${due}</div><div class="dash-stat-label">Due today</div></div>
@@ -478,14 +493,14 @@ function buildPracticeQueue() {
 }
 function ensurePracticeQueue() {
     if (!appState.alphabet.length) {
-        showToast('Alphabet data is still loading. Please wait.');
+        showToast('Alphabet is still loading. Wait a moment, then try again.');
         return false;
     }
     if (!alphabetQueue.length)
         buildPracticeQueue();
     if (!alphabetQueue.length) {
         showPracticeEntry(null);
-        showToast('No cards to study. Try reloading.');
+        showToast('No practice cards found. Refresh the page to reload your deck.');
         return false;
     }
     return true;
@@ -496,7 +511,7 @@ function advanceToNext() {
     alphabetIndex += 1;
     if (alphabetIndex >= alphabetQueue.length) {
         showPracticeEntry(null);
-        showToast('Practice complete! Restart to keep going.');
+        showToast('Great session — you reached the end. Tap Start Practice to run another round.');
         return;
     }
     const entry = alphabetQueue[alphabetIndex];
@@ -512,7 +527,7 @@ function markKnown() {
     rec.due_date = new Date(Date.now() + rec.mastery_level * 24 * 60 * 60 * 1000).toISOString();
     appState.srs[key] = rec;
     saveSrs();
-    showToast('Nice! Moving to the next card.');
+    showToast('Nice work. Moving to the next card.');
     advanceToNext();
 }
 function markUnknown() {
@@ -555,13 +570,13 @@ function exportSrs() {
 function bindAlphabetUI() {
     const startPractice = () => {
         if (!appState.alphabet.length) {
-            showToast('Alphabet data is still loading.');
+            showToast('Alphabet is still loading. Wait a moment, then tap Start Practice again.');
             return;
         }
         buildPracticeQueue();
         alphabetIndex = -1;
         advanceToNext();
-        showToast('Practice started!');
+        showToast('Practice started. Type your answer or use audio for a hint.');
     };
     bindControlCallbacks(startPractice, () => {
         const sel = document.getElementById('pair-count');
@@ -594,11 +609,11 @@ function bindAlphabetUI() {
         if (translitEl)
             translitEl.textContent = entry.transliteration || '';
         if (guess === target) {
-            showToast('Correct!');
+            showToast('Correct. Keep going!');
             markKnown();
         }
         else {
-            showToast(`Not quite. Expected: ${entry.transliteration}`);
+            showToast(`Not yet. Expected: ${entry.transliteration}. Listen once, then try the next card.`);
             markUnknown();
         }
     });
@@ -662,7 +677,7 @@ function ensureMemoryHandler(container) {
 }
 function startMemoryMode(pairCount = 8) {
     if (!appState.alphabet.length) {
-        showToast('Alphabet data is still loading.');
+        showToast('Alphabet is still loading. Wait a moment, then try Memory again.');
         return;
     }
     renderNewMemory(pairCount);
@@ -679,7 +694,7 @@ function newMemoryGame(pairCount = 8) {
         return;
     ensureMemoryHandler(container);
     container.querySelectorAll('.memory-tile').forEach(el => el.classList.remove('matched', 'revealed'));
-    showToast('New memory game ready');
+    showToast('New memory game is ready.');
 }
 function showToast(message, duration = 2500) {
     let toast = document.getElementById('app-toast');
@@ -740,10 +755,11 @@ async function hydrateData() {
         buildVocabQueue();
         renderApp();
         showOnboarding();
+        window.__bootOk = true;
     }
     catch (error) {
         console.error('Failed to hydrate data', error);
-        showToast('Failed to load data. Please refresh.');
+        showToast('We couldn’t load your study data. Refresh the page. If this keeps happening, check your connection and try again.');
     }
 }
 function showOnboarding() {
@@ -755,9 +771,9 @@ function showOnboarding() {
     overlay.innerHTML = `
         <div class="onboarding-modal" role="dialog" aria-modal="true" aria-labelledby="onboarding-title">
             <div class="onboarding-emoji">🇮🇳</div>
-            <h1 id="onboarding-title" class="onboarding-title">Welcome to Hindi!</h1>
+            <h1 id="onboarding-title" class="onboarding-title">Learn to read, hear, and use beginner Hindi in daily situations.</h1>
             <p class="onboarding-body">
-                This app takes you from zero to <strong>A2 level Hindi</strong> — for complete beginners.
+                Follow short daily practice to build Devanagari reading, core vocabulary, and simple sentence patterns — even if you’re starting from zero.
             </p>
             <div class="onboarding-steps">
                 <div class="onboarding-step"><span class="step-icon">🔤</span><div><strong>Alphabet tab</strong> — Learn Devanagari script with audio &amp; spaced repetition</div></div>
@@ -765,8 +781,8 @@ function showOnboarding() {
                 <div class="onboarding-step"><span class="step-icon">📖</span><div><strong>Grammar tab</strong> — 12 interactive lessons from sentence structure to past &amp; future tense</div></div>
                 <div class="onboarding-step"><span class="step-icon">🔊</span><div><strong>Audio</strong> — Tap any 🔊 button to hear native Hindi pronunciation</div></div>
             </div>
-            <p class="onboarding-tip">💡 <em>Tip: Study a little each day — the SM-2 algorithm schedules reviews for you automatically.</em></p>
-            <button id="onboarding-start" class="onboarding-btn">Start Learning Hindi →</button>
+            <p class="onboarding-tip">💡 <em>Tip: Do 10–15 minutes daily. Reviews are auto-scheduled so you remember more with less effort.</em></p>
+            <button id="onboarding-start" class="onboarding-btn">Start first session</button>
         </div>
     `;
     document.body.appendChild(overlay);

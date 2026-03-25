@@ -14,21 +14,21 @@ export function setupControls(controlContainerId: string): void {
 
     container.innerHTML = `
         <div class="controls-toolbar flex flex-wrap items-center justify-start gap-3" role="toolbar" aria-label="Practice controls">
-            <button id="start-practice" class="px-3 py-2 bg-indigo-600 text-white rounded focus:outline-none focus:ring-2 focus:ring-indigo-400" aria-pressed="false">Start Practice</button>
-            <button id="start-memory" class="px-3 py-2 bg-amber-500 text-white rounded focus:outline-none focus:ring-2 focus:ring-amber-400">Memory</button>
-            <button id="new-memory" class="px-3 py-2 bg-amber-400 text-white rounded focus:outline-none focus:ring-2 focus:ring-amber-400">New Memory</button>
+            <button id="start-practice" class="btn-primary px-3 py-2" aria-pressed="false">Start Practice</button>
+            <button id="start-memory" class="btn-secondary px-3 py-2">Memory</button>
+            <button id="new-memory" class="btn-secondary px-3 py-2">New Memory</button>
             <label for="pair-count" class="sr-only">Pairs</label>
-            <select id="pair-count" class="px-2 py-1 bg-white border rounded text-sm">
+            <select id="pair-count" class="app-select px-2 py-1 text-sm">
                 <option value="4">4 pairs</option>
                 <option value="6">6 pairs</option>
                 <option value="8" selected>8 pairs</option>
                 <option value="12">12 pairs</option>
             </select>
-            <button id="shuffle" class="px-3 py-2 bg-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-gray-400">Shuffle</button>
-            <button id="export-srs" class="px-3 py-2 bg-gray-200 rounded focus:outline-none focus:ring-2 focus:ring-gray-400">Export SRS</button>
-            <div id="memory-scoreboard" class="ml-4 flex items-center gap-2 text-sm text-slate-600">
+            <button id="shuffle" class="btn-secondary px-3 py-2">Shuffle</button>
+            <button id="export-srs" class="btn-secondary px-3 py-2">Export SRS</button>
+            <div id="memory-scoreboard" class="ml-4 flex items-center gap-2 text-sm helper-text">
                 <span id="memory-best">Best: -</span>
-                <button id="reset-memory-score" class="px-2 py-1 bg-gray-100 rounded text-xs">Reset</button>
+                <button id="reset-memory-score" class="btn-secondary px-2 py-1 text-xs">Reset</button>
             </div>
         </div>
     `;

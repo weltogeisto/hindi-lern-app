@@ -1,76 +1,46 @@
 // src/components/grammarModule.ts
 // Grammar module: renders the grammar lessons tab with lessons + exercises
-
 import { playHindi } from '../utils/audioPlayer.js';
-
-interface GrammarExample {
-    hindi: string;
-    transliteration: string;
-    english: string;
-}
-
-interface GrammarExercise {
-    question: string;
-    options: string[];
-    answer: string;
-}
-
-interface GrammarLesson {
-    id: string;
-    level: 'A1' | 'A2';
-    title: string;
-    explanation: string;
-    examples: GrammarExample[];
-    exercises: GrammarExercise[];
-}
-
 const GRAMMAR_SRS_KEY = 'hindi_grammar_srs_v1';
-
-function loadGrammarProgress(): Record<string, { completed: boolean; score: number }> {
+function loadGrammarProgress() {
     try {
         const raw = localStorage.getItem(GRAMMAR_SRS_KEY);
         return raw ? JSON.parse(raw) : {};
-    } catch {
+    }
+    catch {
         return {};
     }
 }
-
-function saveGrammarProgress(progress: Record<string, { completed: boolean; score: number }>): void {
+function saveGrammarProgress(progress) {
     try {
         localStorage.setItem(GRAMMAR_SRS_KEY, JSON.stringify(progress));
-    } catch { /* ignore */ }
+    }
+    catch { /* ignore */ }
 }
-
-export async function renderGrammarTab(container: HTMLElement): Promise<void> {
-    let lessons: GrammarLesson[] = [];
+export async function renderGrammarTab(container) {
+    let lessons = [];
     try {
         const res = await fetch('data/grammar.json');
-        lessons = await res.json() as GrammarLesson[];
-    } catch {
+        lessons = await res.json();
+    }
+    catch {
         container.innerHTML = '<div class="vocab-empty">We couldn’t load grammar lessons. Refresh the page to retry.</div>';
         return;
     }
-
     const progress = loadGrammarProgress();
     renderLessonList(container, lessons, progress);
 }
-
-function renderLessonList(
-    container: HTMLElement,
-    lessons: GrammarLesson[],
-    progress: Record<string, { completed: boolean; score: number }>
-): void {
+function renderLessonList(container, lessons, progress) {
     const a1 = lessons.filter(l => l.level === 'A1');
     const a2 = lessons.filter(l => l.level === 'A2');
     const completedCount = lessons.filter(l => progress[l.id]?.completed).length;
-
-    const renderGroup = (group: GrammarLesson[], levelLabel: string) => `
+    const renderGroup = (group, levelLabel) => `
         <div class="grammar-level-group">
             <div class="grammar-level-badge level-${levelLabel.toLowerCase()}">${levelLabel}</div>
             ${group.map(lesson => {
-                const done = progress[lesson.id]?.completed ?? false;
-                const score = progress[lesson.id]?.score ?? 0;
-                return `
+        const done = progress[lesson.id]?.completed ?? false;
+        const score = progress[lesson.id]?.score ?? 0;
+        return `
                     <button class="grammar-lesson-card ${done ? 'done' : ''}" data-lesson-id="${lesson.id}" aria-label="Open lesson: ${lesson.title}">
                         <div class="grammar-lesson-header">
                             <span class="grammar-lesson-title">${lesson.title}</span>
@@ -79,10 +49,9 @@ function renderLessonList(
                         <div class="grammar-lesson-preview">${lesson.explanation.substring(0, 90)}…</div>
                     </button>
                 `;
-            }).join('')}
+    }).join('')}
         </div>
     `;
-
     container.innerHTML = `
         <section class="app-card app-card--accent grammar-hero">
             <h1 class="hero-title">Hindi Grammar</h1>
@@ -97,22 +66,16 @@ function renderLessonList(
             ${renderGroup(a2, 'A2')}
         </div>
     `;
-
-    container.querySelectorAll<HTMLButtonElement>('.grammar-lesson-card').forEach(btn => {
+    container.querySelectorAll('.grammar-lesson-card').forEach(btn => {
         btn.addEventListener('click', () => {
             const lessonId = btn.dataset.lessonId;
             const lesson = lessons.find(l => l.id === lessonId);
-            if (lesson) renderLesson(container, lesson, lessons, progress);
+            if (lesson)
+                renderLesson(container, lesson, lessons, progress);
         });
     });
 }
-
-function renderLesson(
-    container: HTMLElement,
-    lesson: GrammarLesson,
-    allLessons: GrammarLesson[],
-    progress: Record<string, { completed: boolean; score: number }>
-): void {
+function renderLesson(container, lesson, allLessons, progress) {
     const examplesHtml = lesson.examples.map(ex => `
         <div class="grammar-example-row">
             <button class="grammar-play-btn" data-hindi="${ex.hindi}" title="Hear pronunciation">🔊</button>
@@ -123,7 +86,6 @@ function renderLesson(
             </div>
         </div>
     `).join('');
-
     container.innerHTML = `
         <div class="grammar-lesson-view">
             <button class="grammar-back-btn" id="grammar-back">← All Lessons</button>
@@ -146,27 +108,18 @@ function renderLesson(
             </section>
         </div>
     `;
-
     container.querySelector('#grammar-back')?.addEventListener('click', () => {
         renderLessonList(container, allLessons, loadGrammarProgress());
     });
-
-    container.querySelectorAll<HTMLButtonElement>('.grammar-play-btn').forEach(btn => {
+    container.querySelectorAll('.grammar-play-btn').forEach(btn => {
         btn.addEventListener('click', () => playHindi(btn.dataset.hindi ?? ''));
     });
-
-    startExercises(container.querySelector<HTMLElement>('#exercise-area')!, lesson, progress);
+    startExercises(container.querySelector('#exercise-area'), lesson, progress);
 }
-
-function startExercises(
-    area: HTMLElement,
-    lesson: GrammarLesson,
-    progress: Record<string, { completed: boolean; score: number }>
-): void {
+function startExercises(area, lesson, progress) {
     let current = 0;
     let correct = 0;
     const exercises = lesson.exercises;
-
     const showExercise = () => {
         if (current >= exercises.length) {
             const pct = Math.round((correct / exercises.length) * 100);
@@ -186,10 +139,8 @@ function startExercises(
             });
             return;
         }
-
         const ex = exercises[current];
         const shuffled = [...ex.options].sort(() => Math.random() - 0.5);
-
         area.innerHTML = `
             <div class="exercise-card">
                 <div class="exercise-counter">${current + 1} / ${exercises.length}</div>
@@ -202,28 +153,28 @@ function startExercises(
                 <div id="exercise-feedback" class="exercise-feedback"></div>
             </div>
         `;
-
         let answered = false;
-        area.querySelectorAll<HTMLButtonElement>('.exercise-option').forEach(btn => {
+        area.querySelectorAll('.exercise-option').forEach(btn => {
             btn.addEventListener('click', () => {
-                if (answered) return;
+                if (answered)
+                    return;
                 answered = true;
                 const chosen = btn.dataset.option ?? '';
                 const isRight = chosen === ex.answer;
-                if (isRight) correct++;
-
-                area.querySelectorAll<HTMLButtonElement>('.exercise-option').forEach(b => {
+                if (isRight)
+                    correct++;
+                area.querySelectorAll('.exercise-option').forEach(b => {
                     b.disabled = true;
-                    if (b.dataset.option === ex.answer) b.classList.add('correct');
-                    else if (b === btn && !isRight) b.classList.add('incorrect');
+                    if (b.dataset.option === ex.answer)
+                        b.classList.add('correct');
+                    else if (b === btn && !isRight)
+                        b.classList.add('incorrect');
                 });
-
-                const fb = area.querySelector<HTMLElement>('#exercise-feedback');
+                const fb = area.querySelector('#exercise-feedback');
                 if (fb) {
                     fb.textContent = isRight ? '✓ Correct.' : `✗ Not yet. Correct answer: ${ex.answer}`;
                     fb.className = `exercise-feedback ${isRight ? 'feedback-correct' : 'feedback-wrong'}`;
                 }
-
                 setTimeout(() => {
                     current++;
                     showExercise();
@@ -231,6 +182,5 @@ function startExercises(
             });
         });
     };
-
     showExercise();
 }
